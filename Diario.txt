@@ -1,0 +1,22 @@
+Dezembro de 2018
+
+	INTENSIVO PARA IRONCUP!!!
+
+Dia: 13/12/2018
+	Membro: Lorena
+	Realizou: 	Modifiquei as classes Agente e Player para serem abstratas
+				Aninhei a classe SerialPort em Comunicacao e a classe Lado em Campo
+	Membro: Gabriel
+	Realizou:	Início da criação da função de predição de futura posição
+					modelagem das funções X = f(t) e Y = g(t)
+					
+Dia: 14/12/2018
+	Membro: Gabriel
+	Realizou:	Conclusão da função de predição de futura posição, ainda apresenta erros
+	
+Dia: 17/12/2018
+	Membro: Gabriel
+	Realizou:	Correção da função de predição de futura posição, aparentemente funciona para qualquer caso dependendo de como for chamada na main.cpp
+				Atentar aos comentários para saber como usar corretamente a função e as outras que ela chama
+				Testado apenas para ball.h, posteriormente serão feitos testes para todas as outras classes que fazem uso dela
+					
