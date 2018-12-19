@@ -20,6 +20,7 @@ using namespace std;
 int main(int argc, char **argv) {
 
 
+
 	Ball B1(5, 5);
 	B1.set_position(10, 10);
 	B1.set_position(15, 15);
