@@ -11,10 +11,10 @@ DefesaBehavior::DefesaBehavior() {}
 
 DefesaBehavior::~DefesaBehavior() {}
 
-Ponto DefesaBehavior::movimenta(Ponto posicao){
+Ponto DefesaBehavior::movimenta(Ponto posicao, World mundo){
 
 }
 
-std::pair<int,int> DefesaBehavior::controle(Ponto posicao){
+std::pair<int,int> DefesaBehavior::controle(Ponto posicao, World mundo){
 
 }

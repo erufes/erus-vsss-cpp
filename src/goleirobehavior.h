@@ -1,6 +1,7 @@
 #ifndef GOLEIROBEHAVIOR_H_
 #define GOLEIROBEHAVIOR_H_
 #include "playbehavior.h"
+#include "world.h"
 
 /* Nome do módulo: GoleiroBehavior
  * Ano de criação: 2018/12
@@ -22,7 +23,7 @@ public:
 	 * Parametros: Posição atual do goleiro
 	 * Retorno: Posição para onde o goleiro deverá se movimentar
 	 */
-	Ponto movimenta(Ponto posicao);
+	Ponto movimenta(Ponto posicao, World mundo);
 
 	/* controle
 	 * Intenção da função: Calcular velocidade do goleiro para ir até a posiçao desejada
@@ -31,7 +32,7 @@ public:
 	 * Parametros: Posição para onde o goleiro deverá ir
 	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 	 */
-	std::pair<int,int> controle(Ponto posicao);
+	std::pair<int,int> controle(Ponto posicao, World mundo);
 };
 
 #endif /* GOLEIROBEHAVIOR_H_ */

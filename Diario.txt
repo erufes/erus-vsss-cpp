@@ -20,3 +20,6 @@ Dia: 17/12/2018
 				Atentar aos comentários para saber como usar corretamente a função e as outras que ela chama
 				Testado apenas para ball.h, posteriormente serão feitos testes para todas as outras classes que fazem uso dela
 					
+Dia: 02/01/2019
+	Membro: Ricardo
+	Realizou:	Criação da classe World e inicio das funções de goleirobehavior
