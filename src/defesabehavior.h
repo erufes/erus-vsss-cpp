@@ -1,8 +1,8 @@
 #ifndef DEFESABEHAVIOR_H_
 #define DEFESABEHAVIOR_H_
 #include "playbehavior.h"
-#include "world.h"
 
+class World;
 /* Nome do módulo: DefesaBehavior
  * Ano de criação: 2018/12
  * Descrição do módulo: cria o comportamento do jogador defensor

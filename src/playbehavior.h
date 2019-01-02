@@ -2,6 +2,7 @@
 #define PLAYBEHAVIOR_H_
 #include <utility>
 #include "ponto.h"
+#include "world.h"
 
 /* Nome do módulo: PlayBehavior
  * Ano de criação: 2018/12

@@ -1,9 +1,7 @@
 #include <iostream>
 #include <iterator>
-#include "ball.h"
-#include "teamplayer.h"
+#include "world.h"
 #include "camera.h"
-#include "campo.h"
 
 /* ###############################################################################################################
  * Projeto: VSSS o Melhor

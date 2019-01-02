@@ -1,8 +1,8 @@
 #ifndef GOLEIROBEHAVIOR_H_
 #define GOLEIROBEHAVIOR_H_
 #include "playbehavior.h"
-#include "world.h"
 
+class World;
 /* Nome do módulo: GoleiroBehavior
  * Ano de criação: 2018/12
  * Descrição do módulo: cria o comportamento do goleiro

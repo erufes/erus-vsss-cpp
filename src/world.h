@@ -1,10 +1,3 @@
-/*
- * world.h
- *
- *  Created on: 2 de jan de 2019
- *      Author: ERUS
- */
-
 #ifndef WORLD_H_
 #define WORLD_H_
 #include "ball.h"
@@ -20,18 +13,18 @@
  */
 class World {
 	Ball bola;
-	vector<TeamPlayer> jogadores;
-	vector<Enemy> inimigos;
+	TeamPlayer jogadores[3];
+	Enemy inimigos[3];
 	Campo campo;
 public:
-	World(Campo campo, vector<TeamPlayer> jogadores, vector<Enemy> inimigos, Ball bola);
+	World(Campo campo, TeamPlayer* jogadores, Enemy* inimigos, Ball bola);
 	virtual ~World();
 	void setBall(Ball bola);
 	Ball getBall();
-	void setTeamPlayer(vector<TeamPlayer> jogadores);
-	vector<TeamPlayer> getTeamPlayer();
-	void setEnemy(vector<Enemy> inimigos);
-	vector<Enemy> getEnemy();
+	void setTeamPlayer(TeamPlayer* jogadores);
+	TeamPlayer* getTeamPlayer();
+	void setEnemy(Enemy* inimigos);
+	Enemy* getEnemy();
 	void setCampo(Campo campo);
 	Campo getCampo();
 };

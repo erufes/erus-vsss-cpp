@@ -1,17 +1,8 @@
-/*
- * world.cpp
- *
- *  Created on: 2 de jan de 2019
- *      Author: ERUS
- */
-
 #include "world.h"
 
-World::World(Campo campo, vector<TeamPlayer> jogadores, vector<Enemy> inimigos, Ball bola) {
+World::World(Campo campo, TeamPlayer* jogadores, Enemy* inimigos, Ball bola) {
 	this->campo = campo;
 	this->bola = bola;
-	this->jogadores = jogadores;
-	this->inimigos = inimigos;
 	// TODO Auto-generated constructor stub
 
 }
@@ -28,19 +19,19 @@ Ball World::getBall(){
 	return bola;
 }
 
-void World::setTeamPlayer(vector<TeamPlayer> jogadores){
-	this->jogadores = jogadores;
+void World::setTeamPlayer(TeamPlayer* jogadores){
+	for(int i = 0; i < 3; i++) this->jogadores[i] = jogadores[i];
 }
 
-vector<TeamPlayer> World::getTeamPlayer(){
+TeamPlayer* World::getTeamPlayer(){
 	return jogadores;
 }
 
-void World::setEnemy(vector<Enemy> inimigos){
-	this->inimigos = inimigos;
+void World::setEnemy(Enemy* inimigos){
+	for(int i = 0; i < 3; i++) this->inimigos[i] = inimigos[i];
 }
 
-vector<Enemy> World::getEnemy(){
+Enemy* World::getEnemy(){
 	return inimigos;
 }
 
