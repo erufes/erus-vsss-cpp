@@ -12,7 +12,7 @@ GoleiroBehavior::GoleiroBehavior() {}
 GoleiroBehavior::~GoleiroBehavior() {}
 
 Ponto GoleiroBehavior::movimenta(Ponto posicao, World mundo){
-	pair<double,double> predicaoBola = mundo.bola.predicao_adaptativa();
+	pair<double,double> predicaoBola = mundo.getBall().predicao_adaptativa();
 	int posx, posy;
 
 	/*

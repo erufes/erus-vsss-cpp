@@ -7,7 +7,11 @@
 
 #include "world.h"
 
-World::World() {
+World::World(Campo campo, vector<TeamPlayer> jogadores, vector<Enemy> inimigos, Ball bola) {
+	this->campo = campo;
+	this->bola = bola;
+	this->jogadores = jogadores;
+	this->inimigos = inimigos;
 	// TODO Auto-generated constructor stub
 
 }

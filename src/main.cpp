@@ -19,16 +19,17 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
+	char a = '0';
+	Campo campo(&a);
 
-
-	Ball B1(5, 5);
+	Ball B1(5.0, 5.0);
 	B1.set_position(10, 10);
 	B1.set_position(15, 15);
 	B1.set_position(20, 20);
 	B1.set_position(25, 25);
 	B1.set_position(30, 30);
 
-	Ball B2(3, 9);
+	Ball B2(3.0, 9.0);
 	B2.set_position(5, 8);
 	B2.set_position(7, 7);
 	B2.set_position(9, 6);

@@ -9,7 +9,6 @@
 #define WORLD_H_
 #include "ball.h"
 #include "enemy.h"
-#include "teamplayer.h"
 #include "campo.h"
 
 /* Nome do módulo: World
@@ -25,7 +24,7 @@ class World {
 	vector<Enemy> inimigos;
 	Campo campo;
 public:
-	World();
+	World(Campo campo, vector<TeamPlayer> jogadores, vector<Enemy> inimigos, Ball bola);
 	virtual ~World();
 	void setBall(Ball bola);
 	Ball getBall();

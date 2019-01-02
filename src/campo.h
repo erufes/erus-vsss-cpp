@@ -46,7 +46,7 @@ public:
     int getYBordaInferior();
     int getXBordaEsquerda();
     int getXBordaDireita();
-    /*
+    */
 };
 
 #endif // CAMPO_H
