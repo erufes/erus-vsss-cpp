@@ -27,10 +27,6 @@ std::pair<double, double> Agent::predicao_adaptativa(Ponto ponto_atual, vector<P
 	free(AUXf[1]);
 	free(AUXf);
 
-//	cout << "f(t) = " << f[0][0] << " + " << f[1][0] << "t + " << f[2][0] << "t² + " << f[3][0] << "t³" << endl;
-//	cout << "g(t) = " << f[0][1] << " + " << f[1][1] << "t + " << f[2][1] << "t² + " << f[3][1] << "t³" << endl;
-//	cout << endl;
-
 	//Previsão via método de Runge-Kutta de 4ª ordem
 	t = 5;
 	double hx = 1;
@@ -38,7 +34,7 @@ std::pair<double, double> Agent::predicao_adaptativa(Ponto ponto_atual, vector<P
 	Kx2 = f[0][0] + f[1][0] * (t + hx/2) + f[2][0] * pow(t + hx/2, 2) + f[3][0] * pow(t + hx/2, 3);
 	Kx3 = Kx2;
 	Kx4 = f[0][0] + f[1][0] * (t + hx) + f[2][0] * pow(t + hx, 2) + f[3][0] * pow(t + hx, 3);
-//	cout << "Kx1: " << Kx1 << " Kx2: " << Kx2 << " Kx3: " << Kx3 << " Kx4: " << Kx4 << endl;
+
 
 	double hy = 1;
 	Ky1 = f[0][1] + f[1][1] * t + f[2][1] * pow(t, 2) + f[3][1] * pow(t, 3);
@@ -51,7 +47,6 @@ std::pair<double, double> Agent::predicao_adaptativa(Ponto ponto_atual, vector<P
 	//Fim da previsão pelo método de Runge-Kutta de 4ª ordem
 
 	return ponto_futuro;
-    //return 4.5 + (x - World.World.FIELD_LEFT) * (3.5 - 4.5) / (World.World.FIELD_RIGHT - World.World.FIELD_LEFT)
 }
 
 void Agent::update_position(double x, double y){

@@ -23,3 +23,7 @@ Dia: 17/12/2018
 Dia: 02/01/2019
 	Membro: Ricardo
 	Realizou:	Criação da classe World e inicio das funções de goleirobehavior
+	
+Dia: 08/01/2019
+	Membro: Lorena e Ricardo
+	Realizou: Resolução de dependencias circulares no código
