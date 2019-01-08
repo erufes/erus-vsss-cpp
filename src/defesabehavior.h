@@ -1,6 +1,7 @@
 #ifndef DEFESABEHAVIOR_H_
 #define DEFESABEHAVIOR_H_
 #include "playbehavior.h"
+#include "ponto.h"
 
 class World;
 /* Nome do módulo: DefesaBehavior
@@ -10,6 +11,7 @@ class World;
  * Pré-requisitos: nenhum
  * Membros: Ricardo Ramos
  */
+
 
 class DefesaBehavior:public PlayBehavior{
 public:
@@ -23,7 +25,7 @@ public:
 	 * Parametros: Posição atual do defensor
 	 * Retorno: Posição para onde o defensor deverá se movimentar
 	 */
-	Ponto movimenta(Ponto posicao, World mundo);
+	Ponto movimenta(Ponto posicao, World* mundo);
 
 	/* controle
 	 * Intenção da função: Calcular velocidade do defensor para ir até a posiçao desejada
@@ -32,7 +34,7 @@ public:
 	 * Parametros: Posição para onde o defensor deverá ir
 	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 	 */
-	std::pair<int,int> controle(Ponto posicao, World mundo);
+	std::pair<int,int> controle(Ponto posicao, World* mundo);
 };
 
 #endif /* DEFESABEHAVIOR_H_ */

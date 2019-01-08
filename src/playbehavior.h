@@ -2,7 +2,6 @@
 #define PLAYBEHAVIOR_H_
 #include <utility>
 #include "ponto.h"
-#include "world.h"
 
 /* Nome do módulo: PlayBehavior
  * Ano de criação: 2018/12
@@ -11,7 +10,7 @@
  * Pré-requisitos: nenhum
  * Membros: Ricardo Ramos
  */
-
+class World;
 class PlayBehavior {
 public:
 	PlayBehavior();
@@ -24,7 +23,7 @@ public:
 	 * Parametros: Posição atual do robô
 	 * Retorno: Posição para onde o robô deverá se movimentar
 	 */
-	//virtual Ponto movimenta(Ponto posicao);
+	virtual Ponto movimenta(Ponto posicao, World* mundo);
 
 	/* controle
 	 * Intenção da função: Calcular velocidade do robô para ir até a posiçao desejada
@@ -33,7 +32,7 @@ public:
 	 * Parametros: Posição para onde o robô deverá ir
 	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 	 */
-	//virtual std::pair<int,int> controle(Ponto posicao);
+	virtual std::pair<int,int> controle(Ponto posicao, World* mundo);
 };
 
 #endif /* PLAYBEHAVIOR_H_ */

@@ -17,10 +17,10 @@ class Ponto;
  */
 
 enum Funcao{Goleiro, Atacante, Defensor};
-
+class PlayBehavior;
 class TeamPlayer: public Player
 {
-	PlayBehavior comportamento;
+	PlayBehavior* comportamento;
     double distanciaMinDaParede;
 public:
     TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);

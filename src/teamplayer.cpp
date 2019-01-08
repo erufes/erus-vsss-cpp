@@ -18,13 +18,13 @@ TeamPlayer::TeamPlayer(Funcao comportamento, int id,double theta, double distanc
 void TeamPlayer::mudaComportamento(Funcao novo){
 	switch(novo){
 		case Goleiro:
-			comportamento = GoleiroBehavior();
+			comportamento = new GoleiroBehavior();
 			break;
 		case Atacante:
-			comportamento = AtaqueBehavior();
+			comportamento = new AtaqueBehavior();
 			break;
 		case Defensor:
-			comportamento = DefesaBehavior();
+			comportamento = new DefesaBehavior();
 			break;
 	}
 }

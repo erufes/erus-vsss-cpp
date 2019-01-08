@@ -1,6 +1,7 @@
 #ifndef ATAQUEBEHAVIOR_H_
 #define ATAQUEBEHAVIOR_H_
 #include "playbehavior.h"
+#include "ponto.h"
 
 class World;
 /* Nome do módulo: AtaqueBehavior
@@ -11,7 +12,7 @@ class World;
  * Membros: Ricardo Ramos
  */
 
-class AtaqueBehavior: public PlayBehavior{
+class AtaqueBehavior:public PlayBehavior{
 public:
 	AtaqueBehavior();
 	virtual ~AtaqueBehavior();
@@ -23,7 +24,7 @@ public:
 	 * Parametros: Posição atual do atacante
 	 * Retorno: Posição para onde o atacante deverá se movimentar
 	 */
-	Ponto movimenta(Ponto posicao, World mundo);
+	Ponto movimenta(Ponto posicao, World* mundo);
 
 	/* controle
 	 * Intenção da função: Calcular velocidade do atacante para ir até a posiçao desejada
@@ -32,7 +33,7 @@ public:
 	 * Parametros: Posição para onde o atacante deverá ir
 	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 	 */
-	std::pair<int,int> controle(Ponto posicao, World mundo);
+	std::pair<int,int> controle(Ponto posicao, World* mundo);
 };
 
 #endif /* ATAQUEBEHAVIOR_H_ */

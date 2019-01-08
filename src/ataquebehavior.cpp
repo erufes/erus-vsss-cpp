@@ -11,10 +11,10 @@ AtaqueBehavior::AtaqueBehavior() {}
 
 AtaqueBehavior::~AtaqueBehavior() {}
 
-Ponto AtaqueBehavior::movimenta(Ponto posicao, World mundo){
-
+Ponto AtaqueBehavior::movimenta(Ponto posicao, World* mundo){
+return Ponto();
 }
 
-std::pair<int,int> AtaqueBehavior::controle(Ponto posicao, World mundo){
-
+std::pair<int,int> AtaqueBehavior::controle(Ponto posicao, World* mundo){
+return pair<int,int>();
 }

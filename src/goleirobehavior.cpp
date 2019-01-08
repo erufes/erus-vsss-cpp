@@ -11,11 +11,11 @@ GoleiroBehavior::GoleiroBehavior() {}
 
 GoleiroBehavior::~GoleiroBehavior() {}
 
-Ponto GoleiroBehavior::movimenta(Ponto posicao, World mundo){
-	pair<double,double> predicaoBola = mundo.getBall().predicao_adaptativa();
+Ponto GoleiroBehavior::movimenta(Ponto posicao, World* mundo){
+	/*pair<double,double> predicaoBola = mundo->getBall()->predicao_adaptativa();
 	int posx, posy;
 
-	/*
+
 	xp, yp = world.get_ball().predict_ball_method(self)
 	#adiciona_ponto(int(xp), int(yp), 255, 0, 102, 'bola prevista')
 
@@ -83,10 +83,11 @@ Ponto GoleiroBehavior::movimenta(Ponto posicao, World mundo){
 	#print 'goleiro : ',posx, posy
 	return posx , posy # coordenadas que o goleiro deve ficar
 	 */
-	return Ponto(posx, posy);
+	//return Ponto(posx, posy);
+	return Ponto();
 }
 
-std::pair<int,int> GoleiroBehavior::controle(Ponto posicao, World mundo){
+std::pair<int,int> GoleiroBehavior::controle(Ponto posicao, World* mundo){
 	/*
 	pd = world.get_goalkeeper()
 	xfront , yfront = pd.get_front()  #unidade das coordenadas eh cm

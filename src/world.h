@@ -3,6 +3,7 @@
 #include "ball.h"
 #include "enemy.h"
 #include "campo.h"
+#include "teamplayer.h"
 
 /* Nome do módulo: World
  * Ano de criação: 2019/01
@@ -11,22 +12,25 @@
  * Pré-requisitos componentes do mundo existentes
  * Membros: Ricardo Ramos
  */
+class Ball;
+class TeamPlayer;
+class Campo;
 class World {
-	Ball bola;
-	TeamPlayer jogadores[3];
-	Enemy inimigos[3];
-	Campo campo;
+	Ball* bola;
+	TeamPlayer* jogadores[3];
+	Enemy* inimigos[3];
+	Campo* campo;
 public:
-	World(Campo campo, TeamPlayer* jogadores, Enemy* inimigos, Ball bola);
+	World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola);
 	virtual ~World();
-	void setBall(Ball bola);
-	Ball getBall();
-	void setTeamPlayer(TeamPlayer* jogadores);
-	TeamPlayer* getTeamPlayer();
-	void setEnemy(Enemy* inimigos);
-	Enemy* getEnemy();
-	void setCampo(Campo campo);
-	Campo getCampo();
+	void setBall(Ball* bola);
+	Ball* getBall();
+	void setTeamPlayer(TeamPlayer** jogadores);
+	TeamPlayer** getTeamPlayer();
+	void setEnemy(Enemy** inimigos);
+	Enemy** getEnemy();
+	void setCampo(Campo* campo);
+	Campo* getCampo();
 };
 
 #endif /* WORLD_H_ */

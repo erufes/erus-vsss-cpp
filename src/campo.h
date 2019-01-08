@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 
+class TeamPlayer;
 class Campo
 {
 	/* Nome do módulo: Lado
