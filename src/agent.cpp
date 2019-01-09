@@ -68,7 +68,7 @@ double** Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 
 	//vetOut[0]: coeficientes de X = f(t), vetOut[1]: coeficientes de Y = g(t)
 	double** vetOut = (double**)malloc(2*sizeof(double**));
-	for(int k = 0; k != vet.size(); ++k){
+	for(unsigned k = 0; k != vet.size(); ++k){
 		vetOut[0] = (double*)calloc(grau, sizeof(double));
 		vetOut[1] = (double*)calloc(grau, sizeof(double));
 		vetX.push_back(vet[k].getX());
@@ -85,7 +85,7 @@ double** Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 		Matrix[0][i] = (double*)calloc((grau+1),sizeof(double));
 		Matrix[1][i] = (double*)calloc((grau+1),sizeof(double));
 		for(int j = 0; j <= grau; j++){
-			for(int k = 0; k != vet.size(); k++){
+			for(unsigned k = 0; k != vet.size(); k++){
 				Matrix[0][i][j] += pow(k,i+j);
 				Matrix[1][i][j] += pow(k,i+j);
 			}
@@ -99,7 +99,7 @@ double** Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 	for(int i = 0; i <= grau; i++){
 		vetor[0][i] = 0;
 		vetor[1][i] = 0;
-		for(int j = 0; j != vet.size(); j++){
+		for(unsigned j = 0; j != vet.size(); j++){
 			vetor[0][i] += vetX[j]*pow(j, i);
 			vetor[1][i] += vetY[j]*pow(j, i);
 		}

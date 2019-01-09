@@ -44,6 +44,8 @@ int main(int argc, char **argv) {
 	Player* P1 = new TeamPlayer(Funcao::Goleiro, 1, 15);
 	Player* P2 = new TeamPlayer(Funcao::Atacante, 2, 90);
 
+	cout << P1->getId() << P2->getId() << endl;
+
 	cout << "X:  " << B3.getPonto().getX() << "  Y:  " << B3.getPonto().getY() << endl;
 	pair<double, double> R = B3.predicao_adaptativa();
 	cout << "< " << R.first << ", " << R.second << " >" << endl;

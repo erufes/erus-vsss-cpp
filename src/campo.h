@@ -39,6 +39,12 @@ public:
     bool estaDentroDoCampo(Ponto posicao);
     double campoPotencial(TeamPlayer jogador);
     void atualizarCampo(char* campo);
+
+
+    int getYBordaSuperior();
+	int getYBordaInferior();
+	int getXBordaEsquerda();
+	int getXBordaDireita();
     /*	Algumas sugestões de funções para esta classe
     Ponto getMeioDeCampo();
     Ponto getMeioDeGolAliado();

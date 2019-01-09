@@ -27,3 +27,10 @@ Dia: 02/01/2019
 Dia: 08/01/2019
 	Membro: Lorena e Ricardo
 	Realizou: Resolução de dependencias circulares no código
+	
+Dia: 09/01/2019
+	Membro: Ricardo
+	Realizou: Remoção de warnings
+			  Criação das funções evitarColisaoEntreJogadores e sairDaParede em playbehavior sem implementação
+			  Implementação de movimento e controle em teamplayer
+			  Implementação de 4 funções que retornam posição em campo

@@ -27,21 +27,21 @@ public:
 
     /* movimenta
 	 * Intenção da função: Calcular onde o robô deverá ir
-	 * Pré-requisitos: Posição válida do robô, dentro do campo
+	 * Pré-requisitos: Comportamento correto
 	 * Efeitos colaterais: Não possui efeitos colaterais
 	 * Parametros: Posição atual do robô
 	 * Retorno: Posição para onde o robô deverá se movimentar
 	 */
-    //Ponto movimenta(Ponto posicao);
+    Ponto movimenta(Ponto posicao, World* mundo);
 
     /* controle
 	 * Intenção da função: Calcular velocidade do robô para ir até a posiçao desejada
-	 * Pré-requisitos: Posição válida do robô, dentro do campo
+	 * Pré-requisitos: Comportamento correto
 	 * Efeitos colaterais: Não possui efeitos colaterais
 	 * Parametros: Posição para onde o robô deverá ir
 	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 	 */
-    //std::pair<int,int> controle(Ponto posicao);
+    std::pair<int,int> controle(Ponto posicao, World* mundo);
 
     /* mudaComortamento
 	 * Intenção da função: Mudar o comportamento do robô, para goleiro, atacante ou defensor

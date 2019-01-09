@@ -11,5 +11,14 @@ PlayBehavior::PlayBehavior(){};
 
 PlayBehavior::~PlayBehavior(){};
 
+std::pair<int,int> PlayBehavior::sairDaParede(Ponto posicao, World* mundo){
+
+	//todo: implementar sairDaParede
+	return std::pair<int,int>();
+}
 
 
+std::pair<int,int> PlayBehavior::evitarColisaoEntreJogadores(Ponto posicao, World* mundo){
+	//todo: implementar evitarColisaoEntreJogadores
+	return std::pair<int,int>();
+}

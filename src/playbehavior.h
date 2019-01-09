@@ -33,6 +33,24 @@ public:
 	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 	 */
 	virtual std::pair<int,int> controle(Ponto posicao, World* mundo);
+
+	/* sairDaParede
+	 * Intenção da função: Impedir colisão do robô com a parede
+	 * Pré-requisitos: Campo correto em mundo
+	 * Efeitos colaterais: Não possui efeitos colaterais
+	 * Parametros: Posição atual do robô e mundo
+	 * Retorno: Posição para onde o robô deverá se movimentar
+	 */
+	virtual std::pair<int,int> sairDaParede(Ponto posicao, World* mundo);
+
+	/* evitarColisaoEntreJogadores
+	 * Intenção da função: Impedir colisão do robô com outro robô
+	 * Pré-requisitos: Posição dos jogadores correta em mundo
+	 * Efeitos colaterais: Não possui efeitos colaterais
+	 * Parametros: Posição atual do robô e mundo
+	 * Retorno: Posição para onde o robô deverá se movimentar
+	 */
+	virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
 };
 
 #endif /* PLAYBEHAVIOR_H_ */

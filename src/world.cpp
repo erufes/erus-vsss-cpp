@@ -2,9 +2,9 @@
 
 World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola) {
 	this->campo = campo;
+	this->setTeamPlayer(jogadores);
+	this->setEnemy(inimigos);
 	this->bola = bola;
-	// TODO Auto-generated constructor stub
-
 }
 
 World::~World() {

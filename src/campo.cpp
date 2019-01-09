@@ -88,3 +88,18 @@ Ponto Campo::Lado::returnPonto(int x){
     return this->ponto2;
 }
 
+int Campo::getYBordaSuperior(){
+	return this->limiteSuperior.pontoMedio().getY();
+}
+
+int Campo::getYBordaInferior(){
+	return this->limiteInferior.pontoMedio().getY();
+}
+
+int Campo::getXBordaEsquerda(){
+	return this->limiteEsquerdo.pontoMedio().getX();
+}
+
+int Campo::getXBordaDireita(){
+	return this->limiteDireito.pontoMedio().getX();
+}
