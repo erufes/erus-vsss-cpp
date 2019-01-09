@@ -34,3 +34,4 @@ Dia: 09/01/2019
 			  Criação das funções evitarColisaoEntreJogadores e sairDaParede em playbehavior sem implementação
 			  Implementação de movimento e controle em teamplayer
 			  Implementação de 4 funções que retornam posição em campo
+			  Planejamento da Pauta de Reunião
