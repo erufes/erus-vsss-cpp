@@ -16,7 +16,7 @@ std::pair<int,int> TeamPlayer::controle(Ponto posicao, World* mundo){
 }
 
 void TeamPlayer::mudaComportamento(Funcao novo){
-	delete comportamento;
+	if (comportamento != NULL) delete comportamento;
 	switch(novo){
 		case Goleiro:
 			comportamento = new GoleiroBehavior();
