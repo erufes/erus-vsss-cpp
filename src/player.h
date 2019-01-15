@@ -34,7 +34,7 @@ public:
 
 	double getThetaAntigo() const;
 
-	std::pair<double,double> predicao_adaptativa(){
+	std::pair<double,double> previsaoDePosicao(){
 		vector<Ponto> v;
 		v.push_back(this->posicaoAntiga);
 		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), v);

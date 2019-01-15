@@ -52,8 +52,8 @@ public:
 	 */
     void mudaComportamento(Funcao novo);
 
-    std::pair<double,double> predicao_adaptativa(){
-    	return this->Player::predicao_adaptativa();
+    std::pair<double,double> previsaoDePosicao(){
+    	return this->Player::previsaoDePosicao();
     };
 
     bool isEnemy(){

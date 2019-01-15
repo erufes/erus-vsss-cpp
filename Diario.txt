@@ -45,3 +45,5 @@ Dia: 15/01/2019
 	Membro: Gabriel
 	Realizou:	Testes das classes "ponto" e "agent"
 				Passagem de funções e atributos da classe "ball" para "agent" a fim de reaproveitar o código com mais facilidade
+	Membros: Lorena e Ricardo
+	Realizou:	Criaram novo e-mail e Trello para organizar melhor os trabalhos

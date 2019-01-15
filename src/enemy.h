@@ -18,8 +18,8 @@ public:
 	bool isEnemy(){
 		return true;
 	}
-	std::pair<double, double> predicao_adaptativa(){
-		return this->Player::predicao_adaptativa();
+	std::pair<double, double> previsaoDePosicao(){
+		return this->Player::previsaoDePosicao();
 	}
 };
 
