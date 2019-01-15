@@ -5,7 +5,7 @@
 
 /* Nome: Agente
  * Ano de criação: 2018/10
- * Descrição do módulo: Representa objetos no campo (bola, jogadores, etc..), clase abstrada que reune informações desses objeto e abstrai o tipo de objeto que se trata.
+ * Descrição do módulo: Representa objetos no campo (bola, jogadores, etc..), clase abstrata que reune informações desses objeto e abstrai o tipo de objeto que se trata.
  * Versão: 1.1
  * testado!! Selo Valdino de Garantia \0/
  * Pré-requisitos: NULL
@@ -20,18 +20,20 @@ using namespace std;
 class Agent
 {
     Ponto posicao;
+    vector<Ponto> old;
 public:
     Agent(double x = 0, double y = 0);
     Agent(Ponto ponto);
     virtual ~Agent(){};
-    virtual std::pair<double, double> predicao_adaptativa(Ponto ponto_atual, vector<Ponto> vetor_funcao);
-    virtual std::pair<double, double> predicao_adaptativa() = 0;
+    vector<Ponto> getxy_old();
+    virtual std::pair<double, double> previsaoDePosicao(Ponto ponto_atual, vector<Ponto> vetor_funcao);
+    virtual std::pair<double, double> previsaoDePosicao() = 0;
     void update_position(double x, double y);
+    void update_position(Ponto ponto);
     Ponto getPonto();
 
 private:
     double** ajusteDeCurva(vector<Ponto> vet, int grau);
-    double resolucaoDeEquacaoDoTerceiroGrau(double A, double B, double C, double D);
 };
 
 #endif // AGENT_H

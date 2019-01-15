@@ -11,6 +11,14 @@ PlayBehavior::PlayBehavior(){};
 
 PlayBehavior::~PlayBehavior(){};
 
+Ponto PlayBehavior::movimenta(Ponto posicao, World* mundo){
+	return Ponto(0,0);
+}
+
+std::pair<int,int> PlayBehavior::controle(Ponto posicao, World* mundo){
+	return std::pair<int,int>();
+}
+
 std::pair<int,int> PlayBehavior::sairDaParede(Ponto posicao, World* mundo){
 
 	//todo: implementar sairDaParede

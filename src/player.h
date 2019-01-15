@@ -37,7 +37,7 @@ public:
 	std::pair<double,double> predicao_adaptativa(){
 		vector<Ponto> v;
 		v.push_back(this->posicaoAntiga);
-		return this->Agent::predicao_adaptativa(this->Agent::getPonto(), v);
+		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), v);
 	}
 
 	virtual bool isEnemy() = 0;

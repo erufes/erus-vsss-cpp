@@ -4,8 +4,8 @@
 #define PONTO_H
 /* Nome do módulo: Ponto
  * Ano de criação: 2018/10
- * Descrição do módulo: Criaçãos dos pontos
- * Versão: 1.0
+ * Descrição do módulo: Criação dos pontos mais uma função extra para resolver sistemas lineares de ordem N
+ * Versão: 1.1
  * Pré-requisitos: Coordenadas dos pontos não negativas
  * Membros: Ricardo Ramos, Gabriel Valdino
  */
@@ -26,7 +26,9 @@ public:
     double getY();
     void setX(double x);
     void setY(double y);
+
     //Resolução do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
+    //Atenção à chamada da função, pois ela precisa de um "double** A" e não um "double A[N][N]", logo, é necessário o uso de mallocs
     //Créditos à professora Cláudia Galarda Varassin pela criação da função que foi poucamente modificada para atender à nossos anseios
     static vector<double> resolucaoDeSistemaLinear(double** matrix, double* vetor, int N);
 };

@@ -5,13 +5,23 @@
 Agent::Agent(double x, double y)
 {
     posicao = Ponto(x, y);
+    for(int i = 0; i < 5; i++){
+    	old.push_back(Ponto(0.0, 0.0));
+    }
 }
 Agent::Agent(Ponto ponto){
 	posicao = ponto;
+	for(int i = 0; i < 5; i++){
+		old.push_back(Ponto(0.0, 0.0));
+	}
+}
+
+vector<Ponto> Agent::getxy_old(){
+    return old;
 }
 
 //faz a previsão de uma futura posição da bola/player
-std::pair<double, double> Agent::predicao_adaptativa(Ponto ponto_atual, vector<Ponto> vetor_funcao){
+std::pair<double, double> Agent::previsaoDePosicao(Ponto ponto_atual, vector<Ponto> vetor_funcao){
 	double Kx1, Kx2, Kx3, Kx4, Ky1, Ky2, Ky3, Ky4, t;
 	int i;
 	pair<double, double> ponto_futuro;
@@ -50,8 +60,17 @@ std::pair<double, double> Agent::predicao_adaptativa(Ponto ponto_atual, vector<P
 }
 
 void Agent::update_position(double x, double y){
-    posicao.setX(x);
+	this->old.erase(this->old.begin());
+	this->old.push_back(this->getPonto());
+	posicao.setX(x);
     posicao.setY(y);
+}
+
+void Agent::update_position(Ponto ponto){
+	this->old.erase(this->old.begin());
+	this->old.push_back(this->getPonto());
+	posicao.setX(ponto.getX());
+	posicao.setY(ponto.getY());
 }
 
 Ponto Agent::getPonto(){
@@ -134,20 +153,3 @@ double** Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 
 	return vetOut;
 }
-
-////resolve a equação Ax³ + Bx² + Cx + D = 0
-//double resolucaoDeEquacaoDoTerceiroGrau(double A, double B, double C, double D){
-//	double x, p, q, r;
-//	p = (B*(-1))/(3*A);
-//	q = pow(p, 3) + (B*C - 3*A*D)/(6*A*A);
-//	r = C/(3*A);
-//	x = (pow(q + (pow(q*q + pow(r - p*p, 3), 1/2)), 1/3)) + (pow(q - (pow(q*q + pow(r - p*p, 3), 1/2)), 1/3)) + p;
-//	return x;
-//}
-//
-//double resolucaoDeEquacaoDoSegundoGrau(double A, double B, double C){
-//	double delta, x1, x2;
-//	delta = B*B - 4*A*C;
-//	x1 = ((-1)*B + sqrt(delta))/(2*A);
-//	x2 = ((-1)*B - sqrt(delta))/(2*A);
-//}
