@@ -10,7 +10,7 @@ void Campo::atualizarCampo(char *campo)
     double x,y;
     if (arq == NULL)
     {
-        printf("ERRO! O arquivo n√£o foi aberto!\n");
+        printf("ERRO! O arquivo n„o foi aberto!\n");
         exit(1);
     }
 

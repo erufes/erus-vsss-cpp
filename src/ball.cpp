@@ -3,7 +3,11 @@
 
 Ball::Ball(double x, double y) : Agent(x,y)
 {
-    this->update_position(x, y);
+
+}
+
+Ball::Ball(Ponto p) : Agent(p){
+
 }
 
 //Favor comentar o que este código está fazendo

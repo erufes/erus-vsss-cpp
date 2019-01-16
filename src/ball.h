@@ -10,7 +10,7 @@
  * Membros: Lorena Bassani, Victor de Oliveira
  */
 #include "agent.h"
-#include "player.h"
+//#include "player.h"
 #include <vector>
 #include <iostream>
 
@@ -19,9 +19,10 @@ class Ball: public Agent
 
 public:
     Ball(double x, double y);
+    Ball(Ponto p);
 //    Ponto predict_ball_method(Player* jogador);
 //    Ponto predict_ball_method_ofensive(Player* jogador);
-    std::pair<double, double> predicao_adaptativa(){
+    std::pair<double, double> previsaoDePosicao(){
     	return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
     };
 

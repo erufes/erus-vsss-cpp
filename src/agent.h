@@ -1,4 +1,5 @@
-//Observação: predicao_adaptativa(double x) não foi testado pois está incompleto
+//tstado!! Selo Valdino de Garantia \0/
+//Por enquanto, para que a função “previsaoDePosicao” funcione adequadamente, é necessário 5 updates de posição para o agente em questão. Futuramente, isso poderá ser mudado.
 
 #ifndef AGENT_H
 #define AGENT_H

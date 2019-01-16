@@ -48,3 +48,12 @@ Dia: 15/01/2019
 	Membros: Lorena e Ricardo
 	Realizou:	Criaram novo e-mail e Trello para organizar melhor os trabalhos
 				Modificaram o código para compilar após mudar o nome de uma das funções
+
+Dia: 16/01/2019
+	Membro: Gabriel
+	Realizou:	Testes das classes "Player", "Ball" e "Enemy"
+				Participou da reunião geral
+	Membro: Lorena
+	Realizou:	Participou da reunião geral
+	Membro: Ricardo
+	Realizou:	Participou da reunião geral

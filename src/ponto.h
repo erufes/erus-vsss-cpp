@@ -1,5 +1,6 @@
 //tstado!! Selo Valdino de Garantia \0/
 //Nota: ponto só salva 5 casas decimais
+
 #ifndef PONTO_H
 #define PONTO_H
 /* Nome do módulo: Ponto

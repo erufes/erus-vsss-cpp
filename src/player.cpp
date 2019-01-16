@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player(int id ,double theta ){
+Player::Player(int id, double theta ){
     this->theta = theta;
     this->thetaAntigo = theta;
     this->id = id;

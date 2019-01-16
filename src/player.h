@@ -5,7 +5,7 @@
 /* Nome do módulo: Player
  * Ano de criação: 2018/11
  * Descrição do módulo: cria o player com as posicoes antigas salvas e theta (o agulo referente ao lado inferior do campo)
- * 						Classe Abstrata para que não seja isntanciada, uma vez que serve de abstração de robôs do time (TeamPlayer) ou inimigos (Enemy).
+ * 						Classe Abstrata para que não seja instanciada, uma vez que serve de abstração de robôs do time (TeamPlayer) ou inimigos (Enemy).
  * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informações como posição e id.
  * Versão: 1.1
  * Testado!! Selo Valdino de Garantia \0/
@@ -35,9 +35,7 @@ public:
 	double getThetaAntigo() const;
 
 	std::pair<double,double> previsaoDePosicao(){
-		vector<Ponto> v;
-		v.push_back(this->posicaoAntiga);
-		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), v);
+		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
 	}
 
 	virtual bool isEnemy() = 0;
