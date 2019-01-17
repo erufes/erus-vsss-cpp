@@ -26,14 +26,53 @@ public:
     Agent(double x = 0, double y = 0);
     Agent(Ponto ponto);
     virtual ~Agent(){};
+
+    /* getxy_old
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     vector<Ponto> getxy_old();
+
+    /* previsaoDePosicao
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     virtual std::pair<double, double> previsaoDePosicao(Ponto ponto_atual, vector<Ponto> vetor_funcao);
     virtual std::pair<double, double> previsaoDePosicao() = 0;
+
+    /* update_position
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     void update_position(double x, double y);
     void update_position(Ponto ponto);
+
+    /* getPonto
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     Ponto getPonto();
 
 private:
+    /* ajusteDeCurva
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     double** ajusteDeCurva(vector<Ponto> vet, int grau);
 };
 

@@ -22,22 +22,78 @@ public:
 
     Player(int id = 0,double theta = 0.0);
 
+    /* getId
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	int getId() const;
 
+	/* setPosicao
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	void setPosicao(Ponto p);
 
+	/* getPosicaoAntiga
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	Ponto getPosicaoAntiga() const;
 
+	/* getTheta
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	double getTheta() const;
 
+	/* setTheta
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	void setTheta(double theta);
 
+	/* getThetaAntigo
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	double getThetaAntigo() const;
 
+	/* previsaoDePosicao
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	std::pair<double,double> previsaoDePosicao(){
 		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
 	}
 
+	/* isEnemy
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	virtual bool isEnemy() = 0;
 
 };

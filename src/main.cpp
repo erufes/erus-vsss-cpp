@@ -17,8 +17,33 @@ using namespace std;
 
 int main(int argc, char **argv) {
 
+	char* y = "tst.txt";
+	cout << y << endl;
+	Campo c(y);
 
+	Ponto p(-1, 1);
+	if(c.estaDentroDoCampo(p)){
+		cout << "Está!" << endl;
+	} else {
+		cout << "Não está!" << endl;
+	}
 
+	c.setLado(1);
+	if(c.getLado() == 0){
+		cout << "Esquerdo" << endl;
+	} else if(c.getLado() == 1){
+		cout << "Direito" << endl;
+	} else {
+		cout << "Que lado é esse?" << endl;
+	}
+
+	cout << "Borda Superior: " << c.getBordaSuperior() << endl;
+	cout << "Borda Inferior: " << c.getBordaInferior() << endl;
+	cout << "Borda Direita: " << c.getBordaDireita() << endl;
+	cout << "Borda Esquerda: " << c.getBordaEsquerda() << endl;
+	cout << "Meio do Campo: " << c.getMeioDeCampo().getX() << ", " << c.getMeioDeCampo().getY() << endl;
+	cout << "Gol Aliado: " << c.getMeioDeGolAliado().getX() << ", " << c.getMeioDeGolAliado().getY() << endl;
+	cout << "Gol Inimigo: " << c.getMeioDeGolInimigo().getX() << ", " << c.getMeioDeGolInimigo().getY() << endl;
 	return 0;
 }
 

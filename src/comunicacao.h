@@ -24,7 +24,6 @@ using namespace std;
 class Comunicacao
 {
 
-
 	/* Nome do módulo: SerialPort
 	 * Ano de criação: 2016/05
 	 * Descrição do módulo: Módulo que implementa comunicação serial no Windows.
@@ -60,6 +59,7 @@ public:
 	~Comunicacao(){
 		delete com;
 	}
+
     /* sendCommand
      * Intenção da função: Enviar os dados para o xBEE
      * Pré-requisitos: Id do robô entre {1,2,3}, cmd válido e valor entre 0 a 255

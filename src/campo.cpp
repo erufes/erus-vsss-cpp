@@ -2,7 +2,7 @@
 
 //o arquivo deve cnter os pontos x e y dos pontos
 //direito inferior direito superior esquerto inferior esquerto superior
-//goldieito inferior gol direito superior
+//gol direito inferior gol direito superior
 //gol esquerdo infrior gol esquerdo superior
 void Campo::atualizarCampo(char *campo)
 {
@@ -17,12 +17,12 @@ void Campo::atualizarCampo(char *campo)
     //pegar lado Direito
     fscanf(arq,"%lf %lf",&x,&y); // x e y do direito inferior
     Ponto aux1 = Ponto(x,y);
-    fscanf(arq,"%lf %lf",&x,&y); // x e y do direito suerior
+    fscanf(arq,"%lf %lf",&x,&y); // x e y do direito superior
     Ponto aux2 = Ponto(x,y);
     this->limiteDireito = Limite(aux1,aux2);
 
     //pegar lado esquerdo
-    fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerto inferior
+    fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerdo inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerdo superior
     aux2 = Ponto(x,y);
@@ -41,14 +41,14 @@ void Campo::atualizarCampo(char *campo)
     //gol direito
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito inferior
     aux1 = Ponto(x,y);
-    fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito suerior
+    fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito superior
     aux2 = Ponto(x,y);
     this->golDireito = Limite(aux1,aux2);
 
     //gol esquerdo
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo inferior
     aux1 = Ponto(x,y);
-    fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo suerior
+    fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo superior
     aux2 = Ponto(x,y);
     this->golEsquerdo = Limite(aux1,aux2);
 
@@ -110,13 +110,11 @@ Ponto Campo::getMeioDeCampo(){
 	return aux1.pontoMedio();
 }
 Ponto Campo::getMeioDeGolAliado(){
-	Ponto resp;
 	if(this->nossoLado == Campo::Lado::Direito){
-		resp = Ponto(this->golDireito.pontoMedio());
+		return this->golDireito.pontoMedio();
 	}else{
-		resp = Ponto(this->golEsquerdo.pontoMedio());
+		return this->golEsquerdo.pontoMedio();
 	}
-	return resp;
 }
 Ponto Campo::getMeioDeGolInimigo(){
 	Ponto resp;
@@ -128,3 +126,23 @@ Ponto Campo::getMeioDeGolInimigo(){
 		return resp;
 }
 
+bool Campo::estaDentroDoCampo(Ponto posicao){
+	if(posicao.getX() <= this->limiteDireito.returnPonto(1).getX() &&
+			posicao.getX() >= this->limiteEsquerdo.returnPonto(1).getX() &&
+			posicao.getY() <= this->limiteSuperior.returnPonto(1).getY() &&
+			posicao.getY() >= this->limiteInferior.returnPonto(1).getY()){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+void Campo::setLado(int x){
+	if(x == 1){
+		this->nossoLado = Esquerdo;
+	} else if(x == 2){
+		this->nossoLado = Direito;
+	} else {
+		cout << "Lado "<< x << " inválido!" << endl;
+	}
+}

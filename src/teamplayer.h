@@ -52,10 +52,24 @@ public:
 	 */
     void mudaComportamento(Funcao novo);
 
+    /* previsaoDePosicao
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     std::pair<double,double> previsaoDePosicao(){
     	return this->Player::previsaoDePosicao();
     };
 
+    /* isEnemy
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     bool isEnemy(){
     	return false;
     };

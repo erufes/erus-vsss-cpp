@@ -15,9 +15,25 @@ class Enemy: public Player{
 public:
 	Enemy(int id = 0,float theta = 0.0);
 	virtual ~Enemy();
+
+	/* isEnemy
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	bool isEnemy(){
 		return true;
 	}
+
+	/* previsaoDePosicao
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	std::pair<double, double> previsaoDePosicao(){
 		return this->Player::previsaoDePosicao();
 	}

@@ -20,8 +20,17 @@ class Ball: public Agent
 public:
     Ball(double x, double y);
     Ball(Ponto p);
+
 //    Ponto predict_ball_method(Player* jogador);
 //    Ponto predict_ball_method_ofensive(Player* jogador);
+
+    /* previsaoDePosicao
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     std::pair<double, double> previsaoDePosicao(){
     	return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
     };

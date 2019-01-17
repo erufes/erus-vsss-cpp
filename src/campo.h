@@ -44,21 +44,115 @@ class Campo
 
 public:
     Campo(char* campo);
+
+    /* estaDentroDoCampo
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     bool estaDentroDoCampo(Ponto posicao);
+
+    /* campoPotencial
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     double campoPotencial(TeamPlayer jogador);
+
+    /* atualizarCampo
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     void atualizarCampo(char* campo);
 
+    /* getLado
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     Lado getLado(){
     	return this->nossoLado;
     }
 
+    /* setLado
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
+    void setLado(int x);
+
+    /* getBordaSuperior
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     int getBordaSuperior();
+
+    /* getBordaInferior
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	int getBordaInferior();
+
+	/* getBordaEsquerda
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	int getBordaEsquerda();
+
+	/* getBordaDireita
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
 	int getBordaDireita();
 
+	/* getMeioDeCampo
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     Ponto getMeioDeCampo();
+
+    /* getMeioDeGolAliado
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     Ponto getMeioDeGolAliado();
+
+    /* getMeioDeGolInimigo
+	 * Intenção da função:
+	 * Pré-requisitos:
+	 * Efeitos colaterais:
+	 * Parametros:
+	 * Retorno:
+	 */
     Ponto getMeioDeGolInimigo();
 
 };

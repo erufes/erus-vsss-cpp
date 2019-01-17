@@ -52,8 +52,20 @@ Dia: 15/01/2019
 Dia: 16/01/2019
 	Membro: Gabriel
 	Realizou:	Testes das classes "Player", "Ball" e "Enemy"
-				Participou da reunião geral
+				Participou da reunião geral sem dormir
 	Membro: Lorena
 	Realizou:	Participou da reunião geral
 	Membro: Ricardo
 	Realizou:	Participou da reunião geral
+				Digitalizou documento de cargos
+Dia: 17/01/2019
+	Membro: Gabriel
+	Realizou:	Teste da classe "Campo"
+				Participou da reunião com Thaylo
+	Membro: Lorena
+	Realizou:	Teste de simulador
+				Participou da reunião com Thaylo
+	Membro: Ricardo
+	Realizou:	Teste de simulador
+				Participou da reunião com Thaylo
+				
