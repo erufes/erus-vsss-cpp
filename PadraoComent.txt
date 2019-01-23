@@ -1,0 +1,26 @@
+Padrão de comentários
+
+Primeiro comentário do arquivo
+
+/* Nome do módulo
+ * Ano de criação:
+ * Descrição do módulo:
+ * Versão: 
+ * Pré-requisitos (arquivos e bibliotecas necessárias para compilar)
+ * Membros:
+ */
+ 
+ Dados dos membros no README
+ 
+ Comentário de protótipo de funções (.h)
+ 
+/* Nome da função
+ * Intenção da função:
+ * Pré-requisitos:
+ * Efeitos colaterais:
+ * Parametros:
+ * Retorno:
+ */
+ 
+ 
+IMPORTANTE: Comentar no cpp!! Formato de comentário no cpp é livre

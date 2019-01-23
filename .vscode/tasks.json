@@ -1,0 +1,23 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build Instalador",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "/home/lorena/Área de Trabalho/VSSS/Simulador.cpp",
+                "/home/lorena/Área de Trabalho/VSSS/vss-simulator/ListaComandos/ListaComandos.c",
+                "-o",
+                "/home/lorena/Área de Trabalho/VSSS/Simulador"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

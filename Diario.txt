@@ -1,0 +1,71 @@
+Dezembro de 2018
+
+	INTENSIVO PARA IRONCUP!!!
+
+Dia: 13/12/2018
+	Membro: Lorena
+	Realizou: 	Modifiquei as classes Agente e Player para serem abstratas
+				Aninhei a classe SerialPort em Comunicacao e a classe Lado em Campo
+	Membro: Gabriel
+	Realizou:	Início da criação da função de predição de futura posição
+					modelagem das funções X = f(t) e Y = g(t)
+					
+Dia: 14/12/2018
+	Membro: Gabriel
+	Realizou:	Conclusão da função de predição de futura posição, ainda apresenta erros
+	
+Dia: 17/12/2018
+	Membro: Gabriel
+	Realizou:	Correção da função de predição de futura posição, aparentemente funciona para qualquer caso dependendo de como for chamada na main.cpp
+				Atentar aos comentários para saber como usar corretamente a função e as outras que ela chama
+				Testado apenas para ball.h, posteriormente serão feitos testes para todas as outras classes que fazem uso dela
+					
+Dia: 02/01/2019
+	Membro: Ricardo
+	Realizou:	Criação da classe World e inicio das funções de goleirobehavior
+	
+Dia: 08/01/2019
+	Membro: Lorena e Ricardo
+	Realizou: Resolução de dependencias circulares no código
+	
+Dia: 09/01/2019
+	Membro: Ricardo
+	Realizou: Remoção de warnings
+			  Criação das funções evitarColisaoEntreJogadores e sairDaParede em playbehavior sem implementação
+			  Implementação de movimento e controle em teamplayer
+			  Implementação de 4 funções que retornam posição em campo
+			  Planejamento da Pauta de Reunião com Lorena
+
+Dia: 10/01/2019
+	Membro: Lorena
+	Realizou: Implementou funções em campo
+	Importante: Reunião
+	
+Dia: 15/01/2019
+	Membro: Gabriel
+	Realizou:	Testes das classes "ponto" e "agent"
+				Passagem de funções e atributos da classe "ball" para "agent" a fim de reaproveitar o código com mais facilidade
+	Membros: Lorena e Ricardo
+	Realizou:	Criaram novo e-mail e Trello para organizar melhor os trabalhos
+				Modificaram o código para compilar após mudar o nome de uma das funções
+
+Dia: 16/01/2019
+	Membro: Gabriel
+	Realizou:	Testes das classes "Player", "Ball" e "Enemy"
+				Participou da reunião geral sem dormir
+	Membro: Lorena
+	Realizou:	Participou da reunião geral
+	Membro: Ricardo
+	Realizou:	Participou da reunião geral
+				Digitalizou documento de cargos
+Dia: 17/01/2019
+	Membro: Gabriel
+	Realizou:	Teste da classe "Campo"
+				Participou da reunião com Thaylo
+	Membro: Lorena
+	Realizou:	Teste de simulador
+				Participou da reunião com Thaylo
+	Membro: Ricardo
+	Realizou:	Teste de simulador
+				Participou da reunião com Thaylo
+				
