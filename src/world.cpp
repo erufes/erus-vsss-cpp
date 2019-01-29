@@ -31,7 +31,7 @@ void vsssERUS::World::setEnemy(Enemy** inimigos){
 	for(int i = 0; i < 3; i++) this->inimigos[i] = inimigos[i];
 }
 
-Enemy** vsssERUS::World::getEnemy(){
+vsssERUS::Enemy** vsssERUS::World::getEnemy(){
 	return inimigos;
 }
 

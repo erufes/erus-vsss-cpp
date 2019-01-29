@@ -2,100 +2,100 @@
 #define PLAYER_H
 #include "agent.h"
 
-/* Nome do módulo: Player
- * Ano de criação: 2018/11
- * Descrição do módulo: cria o player com as posicoes antigas salvas e theta (o agulo referente ao lado inferior do campo)
- * 						Classe Abstrata para que não seja instanciada, uma vez que serve de abstração de robôs do time (TeamPlayer) ou inimigos (Enemy).
- * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informações como posição e id.
- * Versão: 1.1
+/* Nome do mï¿½dulo: Player
+ * Ano de criaï¿½ï¿½o: 2018/11
+ * Descriï¿½ï¿½o do mï¿½dulo: cria o player com as posicoes antigas salvas e theta (o agulo referente ao lado inferior do campo)
+ * 						Classe Abstrata para que nï¿½o seja instanciada, uma vez que serve de abstraï¿½ï¿½o de robï¿½s do time (TeamPlayer) ou inimigos (Enemy).
+ * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informaï¿½ï¿½es como posiï¿½ï¿½o e id.
+ * Versï¿½o: 1.1
  * Testado!! Selo Valdino de Garantia \0/
- * Pré-requisitos angulo positivo (0 <= theta >= 2*pi)
+ * Prï¿½-requisitos angulo positivo (0 <= theta >= 2*pi)
  * Membros: Gabriel Valdino, Victor de Oliveira, Lorena Bassani
  */
+namespace vsssERUS{
+	class Player: public Agent {
+		Ponto posicaoAntiga = Ponto(0,0);
+		double theta;
+		double thetaAntigo;
+		int id;
+	public:
 
-class Player: public Agent {
-    Ponto posicaoAntiga = Ponto(0,0);
-    double theta;
-    double thetaAntigo;
-    int id;
-public:
+		Player(int id = 0,double theta = 0.0);
 
-    Player(int id = 0,double theta = 0.0);
+		/* getId
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		int getId() const;
 
-    /* getId
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	int getId() const;
+		/* setPosicao
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		void setPosicao(Ponto p);
 
-	/* setPosicao
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	void setPosicao(Ponto p);
+		/* getPosicaoAntiga
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		Ponto getPosicaoAntiga() const;
 
-	/* getPosicaoAntiga
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	Ponto getPosicaoAntiga() const;
+		/* getTheta
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		double getTheta() const;
 
-	/* getTheta
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	double getTheta() const;
+		/* setTheta
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		void setTheta(double theta);
 
-	/* setTheta
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	void setTheta(double theta);
+		/* getThetaAntigo
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		double getThetaAntigo() const;
 
-	/* getThetaAntigo
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	double getThetaAntigo() const;
+		/* previsaoDePosicao
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		std::pair<double,double> previsaoDePosicao(){
+			return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
+		}
 
-	/* previsaoDePosicao
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	std::pair<double,double> previsaoDePosicao(){
-		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
-	}
+		/* isEnemy
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		virtual bool isEnemy() = 0;
 
-	/* isEnemy
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	virtual bool isEnemy() = 0;
-
-};
-
+	};
+}
 #endif // PLAYER_H

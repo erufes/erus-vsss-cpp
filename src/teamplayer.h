@@ -11,6 +11,7 @@
 
 #ifdef UsingSimulator
 #include <WheelsCommand.h>
+#include <Communications/StateReceiver.h>
 #include "utils.hpp"
 using namespace vss;
 #endif
@@ -86,15 +87,20 @@ namespace vsssERUS{
 
 	#ifdef UsingSimulator
 
-		vss::WheelsCommand update(vss::State state, int index) {
-			Utils::Posture objective = defineObjective(state, index);
+		vss::WheelsCommand update(vss::State state, int index, vsssERUS::World* mundo) {
+			Utils::Posture objective = defineObjective(state, index, mundo);
 			return motionControl(state, objective, index);
 		}
 
-		Utils::Posture defineObjective(vss::State, int index)
+		Utils::Posture defineObjective(vss::State, int index, vsssERUS::World* mundo)
 		{
+			vsssERUS::Ponto onde = this->movimenta(this->getPonto, mundo);
+			Utils::Posture resp(onde.getX(), onde.getY(), M_PI/4.);
 			// Retorne o objetivo aqui
 			return Utils::Posture(10., 65.0, M_PI/4.);
+
+			//Quando estiverem implementadas as funções de controles
+			//return resp;
 		}
 
 		vss::WheelsCommand motionControl(vss::State state, Utils::Posture objective, int index);

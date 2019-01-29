@@ -7,7 +7,7 @@
  * Projeto: VSSS o Melhor
  * Github: https://github.com/erusbot/VSSS-o-Melhor
  * Autor: ERUS UFES
- * 				e-mail: erus@inf.ufes.br
+ * 				e-mail: erus@inf.ufes.br, vssserus@gmail.com
  * 				site: erus.ufes.br
  * Membros:
  * 			Gabriel Valdino, Lara de Luca, Lorena Bassani, Ricardo Rauta, Victor de Oliveira
