@@ -20,7 +20,7 @@
 #include <iostream>
 
 #define InstalavelList {"VSS-Core", "VSS-Simulator", "VSS-Viewer", "VSS-SampleCpp", "../VSSSERUS"}
-#define tam 5
+#define tam 4
 
 using namespace std;
 

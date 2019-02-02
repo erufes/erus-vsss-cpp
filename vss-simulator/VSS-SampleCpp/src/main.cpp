@@ -99,7 +99,7 @@ int main(int argc, char** argv){
             std::cout << state << std::endl;
 
             send_commands(player1_command, player2_command, player3_command);
-            send_debug();
+            //send_debug();
         }
 
         return 0;

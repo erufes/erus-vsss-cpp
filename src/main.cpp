@@ -105,7 +105,7 @@ int main(int argc, char** argv){
 
             //Envia os comandos para o simulador
             commandsSender->send_commands(player1_command, player2_command, player3_command);
-            debugSender->send_debug();
+            //debugSender->send_debug();
             
         #endif
 
