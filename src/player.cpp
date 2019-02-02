@@ -1,34 +1,33 @@
 #include "player.h"
 
-Player::Player(int id, double theta ){
+
+vsssERUS::Player::Player(int id, double theta ){
     this->theta = theta;
     this->thetaAntigo = theta;
     this->id = id;
 }
 
-int Player::getId() const {
+int vsssERUS::Player::getId() const {
 		return id;
 }
 
-Ponto Player::getPosicaoAntiga() const {
+vsssERUS::Ponto vsssERUS::Player::getPosicaoAntiga() const {
 		return posicaoAntiga;
 }
-void Player::setPosicao(Ponto p){
+void vsssERUS::Player::setPosicao(Ponto p){
 	this->posicaoAntiga = Agent::getPonto();
 	this->update_position(p.getX(), p.getY());
 }
 
-double Player::getTheta() const {
+double vsssERUS::Player::getTheta() const {
 		return theta;
 }
 
-void Player::setTheta(double theta) {
+void vsssERUS::Player::setTheta(double theta) {
 	this->thetaAntigo = this->theta;
 	this->theta = theta;
 }
 
-double Player::getThetaAntigo() const {
+double vsssERUS::Player::getThetaAntigo() const {
 		return thetaAntigo;
 }
-
-

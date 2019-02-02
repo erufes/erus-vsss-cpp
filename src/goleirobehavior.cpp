@@ -6,8 +6,6 @@
  */
 
 #include "goleirobehavior.h"
-#include <WheelsCommand.h>
-#include <Robot.h>
 
 vsssERUS::GoleiroBehavior::GoleiroBehavior() {}
 

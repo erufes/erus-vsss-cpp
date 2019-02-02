@@ -1,6 +1,3 @@
-//tstado!! Selo Valdino de Garantia \0/
-//Por enquanto, para que a fun��o �previsaoDePosicao� funcione adequadamente, � necess�rio 5 updates de posi��o para o agente em quest�o. Futuramente, isso poder� ser mudado.
-
 #ifndef AGENT_H
 #define AGENT_H
 

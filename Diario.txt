@@ -68,4 +68,20 @@ Dia: 17/01/2019
 	Membro: Ricardo
 	Realizou:	Teste de simulador
 				Participou da reunião com Thaylo
-				
+
+Dia: 21/01/2019
+	Membro: Lorena
+	Realizou:	Encontrou VSS-SDK (Simulador de VSSS)
+
+Dia: 22/01/2019
+	Membro: Lorena
+	Realizou:	Implementou um programa de auxilio a instalação e a execução do VSS-Simulator
+			Começou a embutir o código do VSSS-ERUS ao simulador
+
+Dia: 29/01/2019
+	Membro: Lorena
+	Realizou:	Continuou a embutir o código do VSSS-ERUS ao simulador
+
+Dia: 02/02/2019
+	Membro: Lorena
+	Realizou:	Primeiras tentativas de rodar o código do VSSS-ERUS com simulador

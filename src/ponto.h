@@ -1,6 +1,3 @@
-//tstado!! Selo Valdino de Garantia \0/
-//Nota: ponto s� salva 5 casas decimais
-
 #ifndef PONTO_H
 #define PONTO_H
 /* Nome do m�dulo: Ponto

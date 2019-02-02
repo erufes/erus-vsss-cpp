@@ -1,3 +1,5 @@
+#ifndef SENDERCOMMANDS_H_
+#define SENDERCOMMANDS_H_
 #include <Interfaces/ICommandSender.h>
 #include <Communications/CommandSender.h>
 
@@ -12,7 +14,6 @@ class senderCommands{
             this->commandSender = new CommandSender();
         }
         virtual ~senderCommands(){
-            delete this->commandSender;
         }
         void send_commands(WheelsCommand player1Command, WheelsCommand player2Command, WheelsCommand player3Command){
             Command command;
@@ -29,3 +30,5 @@ class senderCommands{
         }
 
 };
+
+#endif

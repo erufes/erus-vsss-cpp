@@ -23,7 +23,7 @@
 
 using namespace std;
 
-#define rodavelList {{"VSS-Simulator","./vss-simulator/VSS-Simulator/build/vss-simulator"}, {"VSS-Sample","./vss-simulator/VSS-SampleCpp/build/vss-sample"}, {"VSS-Sample","./vss-simulator/VSS-SampleCpp/build/vss-sample -t blue"}, {"VSS-Viewer","./vss-simulator/VSS-Viewer/build/vss-viewer"}}
+#define rodavelList {{"VSS-Simulator","./vss-simulator/VSS-Simulator/build/vss-simulator"}, {"VSS-Sample","./vss-simulator/VSS-SampleCpp/build/vss-sample"}, /*{"VSS-Sample","./vss-simulator/VSS-SampleCpp/build/vss-sample -t blue"},*/ {"VSSS-ERUS", "./build/vsss-erus"}, {"VSS-Viewer","./vss-simulator/VSS-Viewer/build/vss-viewer"}}
 #define tam 4
 
 bool desejaRodar();
@@ -55,7 +55,7 @@ int main(int argc, char const *argv[])
             else if(filho == 0){
                 freopen("log.txt", "w", stdout);
                 freopen("log.txt", "w", stderr);
-                roda(Rodavel[i][1]);
+                roda((char *)Rodavel[i][1]);
             }
             //Erro de fork
             else{

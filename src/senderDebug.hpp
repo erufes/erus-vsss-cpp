@@ -1,3 +1,5 @@
+#ifndef SENDERDEBUG_H_
+#define SENDERDEBUG_H_
 #include <Interfaces/IDebugSender.h>
 #include <Communications/DebugSender.h>
 
@@ -12,7 +14,6 @@ class senderDebug{
             this->debugSender = new DebugSender();
         }
         virtual ~senderDebug(){
-            delete this->debugSender;
         }
         void send_debug(){
             vss::Debug debug;
@@ -34,3 +35,5 @@ class senderDebug{
             debugSender->sendDebug(debug);
         }
 };
+
+#endif
