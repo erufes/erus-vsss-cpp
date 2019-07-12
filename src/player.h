@@ -15,7 +15,6 @@
 
 namespace vsssERUS{
 	class Player: public Agent {
-		Ponto posicaoAntiga = Ponto(0,0);
 		double theta;
 		double thetaAntigo;
 		int id;
@@ -31,15 +30,6 @@ namespace vsssERUS{
 		* Retorno:
 		*/
 		int getId() const;
-
-		/* setPosicao
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		void setPosicao(Ponto p);
 
 		/* getPosicaoAntiga
 		* Intenção da Função:
