@@ -1,4 +1,4 @@
- #include "ball.h"
+#include "ball.h"
 #include <iostream>
 
 vsssERUS::Ball::Ball(double x, double y) : vsssERUS::Agent(x,y)

@@ -16,7 +16,7 @@ vsssERUS::Ponto vsssERUS::Player::getPosicaoAntiga() const {
 }
 void vsssERUS::Player::setPosicao(Ponto p){
 	this->posicaoAntiga = Agent::getPonto();
-	this->update_position(p.getX(), p.getY());
+	this->updatePosition(p.getX(), p.getY());
 }
 
 double vsssERUS::Player::getTheta() const {

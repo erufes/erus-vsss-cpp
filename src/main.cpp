@@ -76,7 +76,7 @@ int main(int argc, char** argv){
             state = stateReceiver->receiveState(FieldTransformationType::None);
 
             //Pega Nova posição da Bola no simulador
-            mundo->getBall()->update_position(Ponto(state.ball.x, state.ball.y));
+            mundo->getBall()->updatePosition(Ponto(state.ball.x, state.ball.y));
 
             //Pega novas posições dos jogadores no simulador
             player1->setPosicao(Ponto(state.teamBlue.at(0).x,state.teamBlue.at(0).y));
