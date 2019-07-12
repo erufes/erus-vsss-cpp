@@ -18,6 +18,8 @@ namespace vsssERUS{
 		double theta;
 		double thetaAntigo;
 		int id;
+		float erroAtual;
+		float erroAntigo;
 	public:
 
 		Player(int id = 0,double theta = 0.0);
