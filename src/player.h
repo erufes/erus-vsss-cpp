@@ -77,17 +77,6 @@ namespace vsssERUS{
 		*/
 		double getThetaAntigo() const;
 
-		/* previsaoDePosicao
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		std::pair<double,double> previsaoDePosicao(){
-			return this->Agent::previsaoDePosicao();
-		}
-
 		/* isEnemy
 		* Intenção da Função:
 		* Pré-requisitos:
