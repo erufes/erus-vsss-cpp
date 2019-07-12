@@ -9,12 +9,10 @@
 
 vsssERUS::AtaqueBehavior::AtaqueBehavior() {}
 
-vsssERUS::AtaqueBehavior::~AtaqueBehavior() {}
-
-vsssERUS::Ponto vsssERUS::AtaqueBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-return vsssERUS::Ponto();
+vsssERUS::Ponto vsssERUS::AtaqueBehavior::movimenta(vsssERUS::Ponto posicao){
+    return vsssERUS::Ponto();
 }
 
-std::pair<int,int> vsssERUS::AtaqueBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-return pair<int,int>();
+std::pair<int,int> vsssERUS::AtaqueBehavior::controle(vsssERUS::Ponto posicao){
+    return pair<int,int>();
 }

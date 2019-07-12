@@ -17,7 +17,7 @@
 	class DefesaBehavior:public PlayBehavior{
 	public:
 		DefesaBehavior();
-		virtual ~DefesaBehavior();
+		virtual ~DefesaBehavior()=default;
 
 		/* movimenta
 		* Intenção da função: Calcular onde o defensor deverá ir

@@ -16,7 +16,7 @@ namespace vsssERUS{
 	class GoleiroBehavior:public PlayBehavior{
 	public:
 		GoleiroBehavior();
-		virtual ~GoleiroBehavior();
+		virtual ~GoleiroBehavior()=default;
 
 		/* movimenta
 		* Intenção da função: Calcular onde o goleiro deverá ir

@@ -9,8 +9,6 @@
 
 vsssERUS::GoleiroBehavior::GoleiroBehavior() {}
 
-vsssERUS::GoleiroBehavior::~GoleiroBehavior() {}
-
 vsssERUS::Ponto vsssERUS::GoleiroBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
 	//todo: implementar vsssERUS::GoleiroBehavior::movimenta
 	return Ponto();

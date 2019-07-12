@@ -9,8 +9,6 @@
 
 vsssERUS::DefesaBehavior::DefesaBehavior() {}
 
-vsssERUS::DefesaBehavior::~DefesaBehavior() {}
-
 vsssERUS::Ponto vsssERUS::DefesaBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
 	return vsssERUS::Ponto();
 }

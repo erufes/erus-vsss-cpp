@@ -13,8 +13,7 @@
 	*/
 	class PlayBehavior {
 	public:
-		PlayBehavior();
-		virtual ~PlayBehavior();
+		virtual ~PlayBehavior() = 0;
 
 		/* movimenta
 		* Intenção da função: Calcular onde o robô deverá ir
@@ -23,7 +22,7 @@
 		* Parametros: Posição atual do robô
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual Ponto movimenta();
+		virtual Ponto movimenta() = 0;
 
 		/* controle
 		* Intenção da função: Calcular velocidade do robô para ir até a posição desejada
@@ -32,7 +31,7 @@
 		* Parametros: Posição para onde o robô deverá ir
 		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
 		*/
-		virtual std::pair<int,int> controle();
+		virtual std::pair<int,int> controle() = 0;
 
 		/* sairDaParede
 		* Intenção da função: Impedir colisão do robô com a parede
@@ -41,7 +40,7 @@
 		* Parametros: Posição atual do robô e mundo
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual std::pair<int,int> sairDaParede();
+		virtual std::pair<int,int> sairDaParede() = 0;
 
 		/* evitarColisaoEntreJogadores
 		* Intenção da função: Impedir colisão do robô com outro robô
@@ -50,7 +49,7 @@
 		* Parametros: Posição atual do robô e mundo
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual std::pair<int,int> evitarColisaoEntreJogadores();
+		virtual std::pair<int,int> evitarColisaoEntreJogadores() = 0;
 	};
 }
 #endif /* PLAYBEHAVIOR_H_ */
