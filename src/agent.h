@@ -42,8 +42,7 @@ namespace vsssERUS{
 		* Parâmetros:
 		* Retorno:
 		*/
-		virtual std::pair<double, double> previsaoDePosicao(Ponto ponto_atual, vector<Ponto> vetor_funcao);
-		virtual std::pair<double, double> previsaoDePosicao() = 0;
+		virtual std::pair<double, double> previsaoDePosicao();
 
 		/* updatePosition
 		* Intenção da função:

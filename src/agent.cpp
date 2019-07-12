@@ -36,14 +36,14 @@ vector<vsssERUS::Ponto> vsssERUS::Agent::getxyOld(){
 }
 
 // Faz a previsão de uma futura posição da bola/player
-std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto ponto_atual, vector<Ponto> vetor_funcao){
+std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(){
 	double Kx1, Kx2, Kx3, Kx4, Ky1, Ky2, Ky3, Ky4, t;
 	int i;
 	pair<double, double> ponto_futuro;
 
 	// f[][0]: X = f(t), f[][1]: Y = g(t) <------- DE SUMA IMPORTÂNCIA PARA ENTENDER O CÓDIGO, na maioria dos casos, [0] denota X e [1] denota Y
 	double f[4][2];
-	double** AUXf = ajusteDeCurva(vetor_funcao, 4);
+	double** AUXf = ajusteDeCurva(posicoesAnteriores, 4);
 	for(i = 0; i < 4; i++){
 		f[i][0] = AUXf[0][i+1]*(i+1);
 		f[i][1] = AUXf[1][i+1]*(i+1);
@@ -67,8 +67,8 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto pon
 	Ky3 = Ky2;
 	Ky4 = f[0][1] + f[1][1] * (t + hy) + f[2][1] * pow(t + hy, 2) + f[3][1] * pow(t + hy, 3);
 
-	ponto_futuro.first = ponto_atual.getX() + ((hx/6) * (Kx1 + 2*Kx2 + 2*Kx3 + Kx4));
-	ponto_futuro.second = ponto_atual.getY() + ((hy/6) * (Ky1 + 2*Ky2 + 2*Ky3 + Ky4));
+	ponto_futuro.first = posicao.getX() + ((hx/6) * (Kx1 + 2*Kx2 + 2*Kx3 + Kx4));
+	ponto_futuro.second = posicao.getY() + ((hy/6) * (Ky1 + 2*Ky2 + 2*Ky3 + Ky4));
 	// Fim da previsão pelo método de Runge-Kutta de 4ª ordem
 
 	return ponto_futuro;

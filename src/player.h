@@ -84,7 +84,7 @@ namespace vsssERUS{
 		* Retorno:
 		*/
 		std::pair<double,double> previsaoDePosicao(){
-			return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxyOld());
+			return this->Agent::previsaoDePosicao();
 		}
 
 		/* isEnemy
