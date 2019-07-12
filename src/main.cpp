@@ -19,13 +19,14 @@
 #include "senderCommands.h"
 #include "senderDebug.h"
 
+#include "campo.h"
+
 using namespace vss;
 #endif
 
 #include "player.h"
 #include "teamplayer.h"
 #include "campo.h"
-#include "world.h"
 
 using namespace vsssERUS;
 int main(int argc, char** argv){
@@ -50,23 +51,22 @@ int main(int argc, char** argv){
     #endif
 
     //Cria três vsssERUS::TeamPlayers
-    vsssERUS::TeamPlayer* player1 = new vsssERUS::TeamPlayer(Funcao::Atacante, 0);
-    vsssERUS::TeamPlayer* player2 = new vsssERUS::TeamPlayer(Funcao::Goleiro, 1);
-    vsssERUS::TeamPlayer* player3 = new vsssERUS::TeamPlayer(Funcao::Defensor, 2);
-    vsssERUS::TeamPlayer* team[] = {player1, player2, player3};
+    //vsssERUS::TeamPlayer* player1 = new vsssERUS::TeamPlayer(Funcao::Atacante, 0);
+    //vsssERUS::TeamPlayer* player2 = new vsssERUS::TeamPlayer(Funcao::Goleiro, 1);
+    //vsssERUS::TeamPlayer* player3 = new vsssERUS::TeamPlayer(Funcao::Defensor, 2);
+    //vsssERUS::TeamPlayer* team[] = {player1, player2, player3};
 
     //Cria três enemy
-    Enemy* enemyteam[] = {new Enemy(3), new Enemy(4), new Enemy(5)};
+    //Enemy* enemyteam[] = {new Enemy(3), new Enemy(4), new Enemy(5)};
 
     
     //Cria e configura um World
     #ifdef UsingSimulator
-        World* mundo = new World(new Campo((char*)"ConstrutorCampoSimulador.txt"), team, enemyteam, new vsssERUS::Ball(state.ball.x, state.ball.y));
+        //World* mundo = new World(new Campo((char*)"ConstrutorCampoSimulador.txt"), team, enemyteam, new vsssERUS::Ball(state.ball.x, state.ball.y));
     #else
-        World* mundo = new World(new Campo("tst.txt"), team, enemyteam, new vsssERUS::Ball(0, 0));
+        //World* mundo = new World(new Campo("tst.txt"), team, enemyteam, new vsssERUS::Ball(0, 0));
     #endif
-
-
+    /*
     while (true)
     {
         #ifdef UsingSimulator
@@ -108,7 +108,7 @@ int main(int argc, char** argv){
 
 
     }
-
+*/
 
     return 0;
 }
