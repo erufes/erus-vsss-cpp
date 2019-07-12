@@ -1,5 +1,5 @@
 #include "teamplayer.h"
-#include "utils.hpp"
+#include "utils.h"
 
 
 vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id,double theta, double distanciaMinDaParede) : Player(id, theta)

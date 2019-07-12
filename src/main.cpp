@@ -16,11 +16,8 @@
 #include "cstdlib"
 #include <getopt.h>
 #include <string>
-//#include <getopt.h>
-//#include <string>
-//#include "generic_player.hpp"
-#include "senderCommands.hpp"
-#include "senderDebug.hpp"
+#include "senderCommands.h"
+#include "senderDebug.h"
 
 using namespace vss;
 #endif
