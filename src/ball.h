@@ -22,18 +22,6 @@ namespace vsssERUS{
 	public:
 		Ball(double x, double y);
 		Ball(Ponto p);
-
-		/* previsaoDePosicao
-		* Intenção da função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		std::pair<double, double> previsaoDePosicao(){
-			return this->Agent::previsaoDePosicao();
-		};
-
 	};
 }
 #endif // BALL_H
