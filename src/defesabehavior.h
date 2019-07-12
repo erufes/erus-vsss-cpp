@@ -5,11 +5,11 @@
 
 	namespace vsssERUS{
 	class World;
-	/* Nome do m�dulo: DefesaBehavior
-	* Ano de cria��o: 2018/12
-	* Descri��o do m�dulo: cria o comportamento do jogador defensor
-	* Vers�o: 1.0
-	* Pr�-requisitos: nenhum
+	/* Nome do módulo: DefesaBehavior
+	* Ano de criação: 2018/12
+	* Descrição do módulo: cria o comportamento do jogador defensor
+	* Versão: 1.0
+	* Pré-requisitos: nenhum
 	* Membros: Ricardo Ramos
 	*/
 
@@ -20,20 +20,20 @@
 		virtual ~DefesaBehavior();
 
 		/* movimenta
-		* Inten��o da fun��o: Calcular onde o defensor dever� ir
-		* Pr�-requisitos: Posi��o v�lida do defensor, dentro do campo
-		* Efeitos colaterais: N�o possui efeitos colaterais
-		* Parametros: Posi��o atual do defensor
-		* Retorno: Posi��o para onde o defensor dever� se movimentar
+		* Intenção da função: Calcular onde o defensor deverá ir
+		* Pré-requisitos: Posição válida do defensor, dentro do campo
+		* Efeitos colaterais: Não possui efeitos colaterais
+		* Parametros: Posição atual do defensor
+		* Retorno: Posição para onde o defensor deverá se movimentar
 		*/
 		Ponto movimenta(Ponto posicao, World* mundo);
 
 		/* controle
-		* Inten��o da fun��o: Calcular velocidade do defensor para ir at� a posi�ao desejada
-		* Pr�-requisitos: Posi��o v�lida do defensor, dentro do campo
-		* Efeitos colaterais: N�o possui efeitos colaterais
-		* Parametros: Posi��o para onde o defensor dever� ir
-		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
+		* Intenção da função: Calcular velocidade do defensor para ir até a posição desejada
+		* Pré-requisitos: Posição válida do defensor, dentro do campo
+		* Efeitos colaterais: Não possui efeitos colaterais
+		* Parametros: Posição para onde o defensor deverá ir
+		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
 		*/
 		std::pair<int,int> controle(Ponto posicao, World* mundo);
 	};

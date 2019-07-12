@@ -5,11 +5,11 @@
 
 namespace vsssERUS{
 	class World;
-	/* Nome do m�dulo: GoleiroBehavior
-	* Ano de cria��o: 2018/12
-	* Descri��o do m�dulo: cria o comportamento do goleiro
-	* Vers�o: 1.0
-	* Pr�-requisitos: nenhum
+	/* Nome do módulo: GoleiroBehavior
+	* Ano de criação: 2018/12
+	* Descrição do módulo: cria o comportamento do goleiro
+	* Versão: 1.0
+	* Pré-requisitos: nenhum
 	* Membros: Ricardo Ramos
 	*/
 
@@ -19,20 +19,20 @@ namespace vsssERUS{
 		virtual ~GoleiroBehavior();
 
 		/* movimenta
-		* Inten��o da fun��o: Calcular onde o goleiro dever� ir
-		* Pr�-requisitos: Posi��o v�lida do goleiro, dentro do campo
-		* Efeitos colaterais: N�o possui efeitos colaterais
-		* Parametros: Posi��o atual do goleiro
-		* Retorno: Posi��o para onde o goleiro dever� se movimentar
+		* Intenção da função: Calcular onde o goleiro deverá ir
+		* Pré-requisitos: Posição válida do goleiro, dentro do campo
+		* Efeitos colaterais: Não possui efeitos colaterais
+		* Parametros: Posição atual do goleiro
+		* Retorno: Posição para onde o goleiro deverá se movimentar
 		*/
 		Ponto movimenta(Ponto posicao, World* mundo);
 
 		/* controle
-		* Inten��o da fun��o: Calcular velocidade do goleiro para ir at� a posi�ao desejada
-		* Pr�-requisitos: Posi��o v�lida do goleiro, dentro do campo
-		* Efeitos colaterais: N�o possui efeitos colaterais
-		* Parametros: Posi��o para onde o goleiro dever� ir
-		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
+		* Intenção da função: Calcular velocidade do goleiro para ir até a posição desejada
+		* Pré-requisitos: Posição válida do goleiro, dentro do campo
+		* Efeitos colaterais: Não possui efeitos colaterais
+		* Parametros: Posição para onde o goleiro deverá ir
+		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
 		*/
 		std::pair<int,int> controle(Ponto posicao, World* mundo);
 	};
