@@ -12,6 +12,8 @@
  */
 
 #include "agent.h"
+#include "teamplayer.h"
+
 #include <vector>
 #include <iostream>
 
@@ -22,6 +24,8 @@ namespace vsssERUS{
 	public:
 		Ball(double x, double y);
 		Ball(Ponto p);
+		Ponto predictBall(TeamPlayer& player);
+		Ponto predictBallOffensive(TeamPlayer& player);
 	};
 }
 #endif // BALL_H
