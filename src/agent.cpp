@@ -1,6 +1,4 @@
 #include "agent.h"
-#include <stdlib.h>
-#include <iostream>
 
 vsssERUS::Agent::Agent(double x, double y)
 {

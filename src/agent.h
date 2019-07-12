@@ -12,6 +12,8 @@
 
 #include "ponto.h"
 #include <vector>
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 namespace vsssERUS{
@@ -23,7 +25,6 @@ namespace vsssERUS{
 		Agent(double x = 0, double y = 0);
 		Agent(Ponto ponto);
 		virtual ~Agent(){};
-
 		/* getxyOld
 		* Intenção da função:
 		* Pré-Requisitos:
