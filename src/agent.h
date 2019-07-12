@@ -33,7 +33,7 @@ namespace vsssERUS{
 		* Parâmetros:
 		* Retorno:
 		*/
-		vector<Ponto> getxyOld();
+		vector<Ponto> getxyOld() const;
 
 		/* previsaoDePosicao
 		* Intenção da função:
@@ -42,7 +42,7 @@ namespace vsssERUS{
 		* Parâmetros:
 		* Retorno:
 		*/
-		virtual std::pair<double, double> previsaoDePosicao();
+		virtual std::pair<double, double> previsaoDePosicao() const;
 
 		/* updatePosition
 		* Intenção da função:
@@ -70,8 +70,7 @@ namespace vsssERUS{
 		* Parâmetros:
 		* Retorno:
 		*/
-		float distancia(Agent& agente);
-
+		float distancia(Agent& agente) const;
 	};
 }
 #endif // AGENT_H

@@ -27,7 +27,7 @@ using namespace std;
 		* Parametros:
 		* Retorno:
 		*/
-		double distancia(Ponto outro);
+		double distancia(Ponto outro) const;
 
 		/* getX
 		* Inten��o da fun��o:
@@ -36,7 +36,7 @@ using namespace std;
 		* Parametros:
 		* Retorno:
 		*/
-		double getX();
+		double getX() const;
 
 		/* getY
 		* Inten��o da fun��o:
@@ -45,7 +45,7 @@ using namespace std;
 		* Parametros:
 		* Retorno:
 		*/
-		double getY();
+		double getY() const;
 
 		/* setX
 		* Inten��o da fun��o:

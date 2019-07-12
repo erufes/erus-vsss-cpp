@@ -6,15 +6,15 @@ vsssERUS::Ponto::Ponto(double x, double y)
     this->y = y;
 }
 
-double vsssERUS::Ponto::distancia(Ponto outro){
+double vsssERUS::Ponto::distancia(Ponto outro) const {
     return sqrt((x - outro.x)*(x - outro.x) + (y - outro.y)*(y - outro.y));
 }
 
-double vsssERUS::Ponto::getX(){
+double vsssERUS::Ponto::getX() const {
     return x;
 }
 
-double vsssERUS::Ponto::getY(){
+double vsssERUS::Ponto::getY() const {
     return y;
 }
 

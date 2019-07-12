@@ -12,7 +12,7 @@ namespace vsssERUS {
 }
 
 
-float vsssERUS::Agent::distancia(Agent& agente) {
+float vsssERUS::Agent::distancia(Agent& agente) const {
 	return 0;
 }
 
@@ -31,12 +31,12 @@ vsssERUS::Agent::Agent(vsssERUS::Ponto ponto){
 	}
 }
 
-vector<vsssERUS::Ponto> vsssERUS::Agent::getxyOld(){
+vector<vsssERUS::Ponto> vsssERUS::Agent::getxyOld() const{
     return this->posicoesAnteriores;
 }
 
 // Faz a previsão de uma futura posição da bola/player
-std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(){
+std::pair<double, double> vsssERUS::Agent::previsaoDePosicao() const{
 	double Kx1, Kx2, Kx3, Kx4, Ky1, Ky2, Ky3, Ky4, t;
 	int i;
 	pair<double, double> ponto_futuro;
