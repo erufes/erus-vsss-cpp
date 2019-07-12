@@ -4,7 +4,7 @@
 /* Nome: Agente
  * Ano de criação: 2018/10
  * Descrição do módulo: Representa objetos no campo (bola, jogadores, etc..), clase abstrata que reune informações desses objeto e abstrai o tipo de objeto que se trata.
- * Vers�o: 1.1
+ * Versão: 1.1
  * testado!! Selo Valdino de Garantia \0/
  * Pré-requisitos: NULL
  * Membros: Ricardo Ramos, Gabriel Valdino
@@ -25,6 +25,7 @@ namespace vsssERUS{
 		Agent(double x = 0, double y = 0);
 		Agent(Ponto ponto);
 		virtual ~Agent(){};
+		
 		/* getxyOld
 		* Intenção da função:
 		* Pré-Requisitos:
@@ -62,16 +63,6 @@ namespace vsssERUS{
 		* Retorno:
 		*/
 		Ponto getPonto();
-
-	private:
-		/* ajusteDeCurva
-		* Intenção da função:
-		* Pré-Requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		double** ajusteDeCurva(vector<Ponto> vet, int grau);
 	};
 }
 #endif // AGENT_H

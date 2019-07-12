@@ -1,5 +1,16 @@
 #include "agent.h"
 
+/* ajusteDeCurva
+* Intenção da função:
+* Pré-Requisitos:
+* Efeitos colaterais:
+* Parâmetros:
+* Retorno:
+*/
+namespace vsssERUS {
+	double** ajusteDeCurva(vector<Ponto> vet, int grau);
+}
+
 vsssERUS::Agent::Agent(double x, double y)
 {
     posicao = Ponto(x, y);
@@ -81,7 +92,7 @@ vsssERUS::Ponto vsssERUS::Agent::getPonto(){
  * Essa função foi desenvolvida pensando em descobrir os valores das posições X e Y num tempo t, logo, ela ocorre "duas vezes" 
  * (na mesma chamada da função) para realizar esse processo mais rapidamente 
  */
-double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
+double** vsssERUS::ajusteDeCurva(vector<vsssERUS::Ponto> vet, int grau){
 
 	// Separação dos pontos em coordenadas independentes
 	vector<double> vetX, vetY;
@@ -124,8 +135,6 @@ double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 			vetor[1][i] += vetY[j]*pow(j, i);
 		}
 	}
-
-
 
 	vector<double> aux0 = Ponto::resolucaoDeSistemaLinear(Matrix[0], vetor[0], grau+1);
 	vector<double> aux1 = Ponto::resolucaoDeSistemaLinear(Matrix[1], vetor[1], grau+1);
