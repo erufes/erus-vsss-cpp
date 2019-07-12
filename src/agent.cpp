@@ -6,21 +6,21 @@ vsssERUS::Agent::Agent(double x, double y)
 {
     posicao = Ponto(x, y);
     for(int i = 0; i < 5; i++){
-    	old.push_back(Ponto(0.0, 0.0));
+    	posicoesAnteriores.push_back(Ponto(0.0, 0.0));
     }
 }
 vsssERUS::Agent::Agent(vsssERUS::Ponto ponto){
 	posicao = ponto;
 	for(int i = 0; i < 5; i++){
-		old.push_back(Ponto(0.0, 0.0));
+		posicoesAnteriores.push_back(Ponto(0.0, 0.0));
 	}
 }
 
 vector<vsssERUS::Ponto> vsssERUS::Agent::getxy_old(){
-    return old;
+    return this->posicoesAnteriores;
 }
 
-//faz a previs�o de uma futura posi��o da bola/player
+//faz a previsão de uma futura posição da bola/player
 std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto ponto_atual, vector<Ponto> vetor_funcao){
 	double Kx1, Kx2, Kx3, Kx4, Ky1, Ky2, Ky3, Ky4, t;
 	int i;
@@ -33,11 +33,11 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto pon
 		f[i][0] = AUXf[0][i+1]*(i+1);
 		f[i][1] = AUXf[1][i+1]*(i+1);
 	}
-	free(AUXf[0]); // Confira se est� liberando mem�ria corretamente
+	free(AUXf[0]); // Confira se está liberando memória corretamente
 	free(AUXf[1]);
 	free(AUXf);
 
-	//Previs�o via m�todo de Runge-Kutta de 4� ordem
+	//Previsão via método de Runge-Kutta de 4ª ordem
 	t = 5;
 	double hx = 1;
 	Kx1 = f[0][0] + f[1][0] * t + f[2][0] * pow(t, 2) + f[3][0] * pow(t, 3);
@@ -54,21 +54,21 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto pon
 
 	ponto_futuro.first = ponto_atual.getX() + ((hx/6) * (Kx1 + 2*Kx2 + 2*Kx3 + Kx4));
 	ponto_futuro.second = ponto_atual.getY() + ((hy/6) * (Ky1 + 2*Ky2 + 2*Ky3 + Ky4));
-	//Fim da previs�o pelo m�todo de Runge-Kutta de 4� ordem
+	//Fim da previsão pelo m�todo de Runge-Kutta de 4� ordem
 
 	return ponto_futuro;
 }
 
 void vsssERUS::Agent::update_position(double x, double y){
-	this->old.erase(this->old.begin());
-	this->old.push_back(this->getPonto());
+	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
+	this->posicoesAnteriores.push_back(this->getPonto());
 	posicao.setX(x);
     posicao.setY(y);
 }
 
 void vsssERUS::Agent::update_position(vsssERUS::Ponto ponto){
-	this->old.erase(this->old.begin());
-	this->old.push_back(this->getPonto());
+	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
+	this->posicoesAnteriores.push_back(this->getPonto());
 	posicao.setX(ponto.getX());
 	posicao.setY(ponto.getY());
 }
@@ -129,7 +129,7 @@ double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 	vector<double> aux0 = Ponto::resolucaoDeSistemaLinear(Matrix[0], vetor[0], grau+1);
 	vector<double> aux1 = Ponto::resolucaoDeSistemaLinear(Matrix[1], vetor[1], grau+1);
 
-	//Passo com o �nico intuito de arredondar valores muito pequenos e pr�ximos de zero
+	//Passo com o único intuito de arredondar valores muito pequenos e pr�ximos de zero
 	for(int i = 0; i <= grau; i++){
 		if(aux0[i] < 0.001 && aux0[i] > -0.001){
 			aux0[i] = 0;
