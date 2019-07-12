@@ -25,7 +25,7 @@ namespace vsssERUS{
 		Agent(double x = 0, double y = 0);
 		Agent(Ponto ponto);
 		virtual ~Agent(){};
-		
+
 		/* getxyOld
 		* Intenção da função:
 		* Pré-Requisitos:
@@ -63,6 +63,16 @@ namespace vsssERUS{
 		* Retorno:
 		*/
 		Ponto getPonto();
+
+		/* distancia
+		* Intenção da função:
+		* Pré-Requisitos:
+		* Efeitos colaterais:
+		* Parâmetros:
+		* Retorno:
+		*/
+		float distancia(Agent& agente);
+
 	};
 }
 #endif // AGENT_H

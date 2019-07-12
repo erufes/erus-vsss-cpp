@@ -11,6 +11,11 @@ namespace vsssERUS {
 	double** ajusteDeCurva(vector<Ponto> vet, int grau);
 }
 
+
+float vsssERUS::Agent::distancia(Agent& agente) {
+	return 0;
+}
+
 vsssERUS::Agent::Agent(double x, double y)
 {
     posicao = Ponto(x, y);
