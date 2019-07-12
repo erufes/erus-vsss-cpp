@@ -1,22 +1,31 @@
 #ifndef CAMPO_H
 #define CAMPO_H
 
-#include "teamplayer.h"
 #include <cstdio>
 #include <cstdlib>
+#include "teamplayer.h"
 
 class TeamPlayer;
 
+// TODO: Atualizar as informações abaixo
+/* Nome do módulo: Limite
+		* Ano de criação: 2018/10
+		* Descrição do módulo: Informações sobre os limites do campo
+		* Versão: 1.1
+		* tstado!! Selo Valdino de Garantia \0/
+		* Pré-requisitos: Pontos distintos
+		* Membros: Ricardo Ramos, Gabriel Valdino
+*/
 
 namespace vsssERUS{
 	class Campo
 	{
-		/* Nome do m�dulo: Limite
-		* Ano de cria��o: 2018/10
-		* Descri��o do m�dulo: Cria��o dos lados do campo
-		* Vers�o: 1.1
+		/* Nome do módulo: Limite
+		* Ano de criação: 2018/10
+		* Descrição do módulo: Informações sobre os limites do campo
+		* Versão: 1.1
 		* tstado!! Selo Valdino de Garantia \0/
-		* Pr�-requisitos: Pontos distintos
+		* Pré-requisitos: Pontos distintos
 		* Membros: Ricardo Ramos, Gabriel Valdino
 		*/
 
@@ -32,7 +41,10 @@ namespace vsssERUS{
 			Ponto returnPonto(int x);
 		};
 
-		enum Lado{Esquerdo, Direito};
+		enum Lado {
+			Esquerdo,
+			Direito
+			};
 
 		Limite limiteSuperior;
 		Limite limiteInferior;
@@ -46,37 +58,37 @@ namespace vsssERUS{
 		Campo(char* campo);
 
 		/* estaDentroDoCampo
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		bool estaDentroDoCampo(Ponto posicao);
 
 		/* campoPotencial
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		double campoPotencial(TeamPlayer jogador);
 
 		/* atualizarCampo
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		void atualizarCampo(char* campo);
 
 		/* getLado
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		Lado getLado(){
@@ -84,77 +96,78 @@ namespace vsssERUS{
 		}
 
 		/* setLado
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		void setLado(int x);
 
 		/* getBordaSuperior
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		int getBordaSuperior();
 
 		/* getBordaInferior
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		int getBordaInferior();
 
 		/* getBordaEsquerda
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		int getBordaEsquerda();
 
 		/* getBordaDireita
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		int getBordaDireita();
 
 		/* getMeioDeCampo
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		Ponto getMeioDeCampo();
 
 		/* getMeioDeGolAliado
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		Ponto getMeioDeGolAliado();
 
 		/* getMeioDeGolInimigo
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		Ponto getMeioDeGolInimigo();
 
 	};
 }
+
 #endif // CAMPO_H

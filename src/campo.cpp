@@ -1,51 +1,51 @@
 #include "campo.h"
 
-//o arquivo deve cnter os pontos x e y dos pontos
-//direito inferior direito superior esquerto inferior esquerto superior
-//gol direito inferior gol direito superior
-//gol esquerdo infrior gol esquerdo superior
+// O arquivo deve conter os pontos x e y dos pontos
+// direito inferior, direito superior, esquerdo inferior e esquerdo superior
+// gol direito inferior, gol direito superior
+// gol esquerdo inferior, gol esquerdo superior
 void vsssERUS::Campo::atualizarCampo(char *campo)
 {
     FILE *arq = fopen(campo,"r+");
     double x,y;
     if (arq == NULL)
     {
-        printf("ERRO! O arquivo n�o foi aberto!\n");
+        printf("ERRO! O arquivo nao foi aberto!\n");
         exit(1);
     }
 
-    //pegar lado Direito
+    // pegar lado Direito
     fscanf(arq,"%lf %lf",&x,&y); // x e y do direito inferior
     vsssERUS::Ponto aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do direito superior
     vsssERUS::Ponto aux2 = Ponto(x,y);
     this->limiteDireito = Limite(aux1,aux2);
 
-    //pegar lado esquerdo
+    // pegar lado esquerdo
     fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerdo inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerdo superior
     aux2 = Ponto(x,y);
     this->limiteEsquerdo = Limite(aux1,aux2);
 
-    //pegar lado de baixo
+    // pegar lado de baixo
     aux1 = limiteDireito.returnPonto(1); // vsssERUS::Ponto direito inferior
     aux2 = limiteEsquerdo.returnPonto(1);// vsssERUS::Ponto esquerdo inferior
     this->limiteInferior = Limite(aux1,aux2);
 
-    //pegar lado de cima
+    // pegar lado de cima
     aux1 = limiteDireito.returnPonto(2); // vsssERUS::Ponto direito superior
     aux2 = limiteEsquerdo.returnPonto(2);// vsssERUS::Ponto esquerdo superior
     this->limiteSuperior = Limite(aux1,aux2);
 
-    //gol direito
+    // gol direito
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito superior
     aux2 = Ponto(x,y);
     this->golDireito = Limite(aux1,aux2);
 
-    //gol esquerdo
+    // gol esquerdo
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo superior
@@ -143,6 +143,6 @@ void vsssERUS::Campo::setLado(int x){
 	} else if(x == 2){
 		this->nossoLado = Direito;
 	} else {
-		cout << "Lado "<< x << " inv�lido!" << endl;
+		cout << "Lado "<< x << " invalido!" << endl;
 	}
 }
