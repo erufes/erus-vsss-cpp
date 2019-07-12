@@ -24,14 +24,14 @@ namespace vsssERUS{
 		Agent(Ponto ponto);
 		virtual ~Agent(){};
 
-		/* getxy_old
+		/* getxyOld
 		* Intenção da função:
 		* Pré-Requisitos:
 		* Efeitos colaterais:
 		* Parâmetros:
 		* Retorno:
 		*/
-		vector<Ponto> getxy_old();
+		vector<Ponto> getxyOld();
 
 		/* previsaoDePosicao
 		* Intenção da função:
@@ -43,15 +43,15 @@ namespace vsssERUS{
 		virtual std::pair<double, double> previsaoDePosicao(Ponto ponto_atual, vector<Ponto> vetor_funcao);
 		virtual std::pair<double, double> previsaoDePosicao() = 0;
 
-		/* update_position
+		/* updatePosition
 		* Intenção da função:
 		* Pré-Requisitos:
 		* Efeitos colaterais:
 		* Parâmetros:
 		* Retorno:
 		*/
-		void update_position(double x, double y);
-		void update_position(Ponto ponto);
+		void updatePosition(double x, double y);
+		void updatePosition(Ponto ponto);
 
 		/* getPonto
 		* Intenção da função:

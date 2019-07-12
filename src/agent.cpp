@@ -16,7 +16,7 @@ vsssERUS::Agent::Agent(vsssERUS::Ponto ponto){
 	}
 }
 
-vector<vsssERUS::Ponto> vsssERUS::Agent::getxy_old(){
+vector<vsssERUS::Ponto> vsssERUS::Agent::getxyOld(){
     return this->posicoesAnteriores;
 }
 
@@ -26,7 +26,7 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto pon
 	int i;
 	pair<double, double> ponto_futuro;
 
-	//f[][0]: X = f(t), f[][1]: Y = g(t) <------- DE SUMA IMPORT�NCIA PARA ENTENDER O C�DIGO, na maioria dos casos, [0] denota X e [1] denota Y
+	//f[][0]: X = f(t), f[][1]: Y = g(t) <------- DE SUMA IMPORTÂNCIA PARA ENTENDER O CÓDIGO, na maioria dos casos, [0] denota X e [1] denota Y
 	double f[4][2];
 	double** AUXf = ajusteDeCurva(vetor_funcao, 4);
 	for(i = 0; i < 4; i++){
@@ -54,19 +54,19 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(vsssERUS::Ponto pon
 
 	ponto_futuro.first = ponto_atual.getX() + ((hx/6) * (Kx1 + 2*Kx2 + 2*Kx3 + Kx4));
 	ponto_futuro.second = ponto_atual.getY() + ((hy/6) * (Ky1 + 2*Ky2 + 2*Ky3 + Ky4));
-	//Fim da previsão pelo m�todo de Runge-Kutta de 4� ordem
+	//Fim da previsão pelo método de Runge-Kutta de 4ª ordem
 
 	return ponto_futuro;
 }
 
-void vsssERUS::Agent::update_position(double x, double y){
+void vsssERUS::Agent::updatePosition(double x, double y){
 	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
 	this->posicoesAnteriores.push_back(this->getPonto());
 	posicao.setX(x);
     posicao.setY(y);
 }
 
-void vsssERUS::Agent::update_position(vsssERUS::Ponto ponto){
+void vsssERUS::Agent::updatePosition(vsssERUS::Ponto ponto){
 	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
 	this->posicoesAnteriores.push_back(this->getPonto());
 	posicao.setX(ponto.getX());
@@ -77,12 +77,12 @@ vsssERUS::Ponto vsssERUS::Agent::getPonto(){
     return this->posicao;
 }
 
-//Fun��o que descobre a curva de grau 'grau' que melhor descreve os pontos presentes em 'vet'
-//Ela retorna os coeficientes (B0, B1, B2, ..., Bgrau-1, Bgrau) da equa��o B0 + B1*t + B2*t� + ... + Bgrau*t^grau
-//Essa fun��o foi desenvolvida pensando em descobrir os valores das posi��es X e Y num tempo t, logo, ela ocorre "duas vezes" (na mesma chamada da fun��o) para realizar esse processo mais rapidamente
+//Função que descobre a curva de grau 'grau' que melhor descreve os pontos presentes em 'vet'
+//Ela retorna os coeficientes (B0, B1, B2, ..., Bgrau-1, Bgrau) da equação B0 + B1*t + B2*t² + ... + Bgrau*t^grau
+//Essa função foi desenvolvida pensando em descobrir os valores das posições X e Y num tempo t, logo, ela ocorre "duas vezes" (na mesma chamada da função) para realizar esse processo mais rapidamente
 double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 
-	//Separa��o dos pontos em coordenadas independentes
+	//Separação dos pontos em coordenadas independentes
 	vector<double> vetX, vetY;
 
 	//vetOut[0]: coeficientes de X = f(t), vetOut[1]: coeficientes de Y = g(t)
@@ -94,12 +94,12 @@ double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 		vetY.push_back(vet[k].getY());
 	}
 
-	//Resolu��o via ajuste polinomial
+	//Resolução via ajuste polinomial
 	//MatrixX = Matrix[0] e MatrixY = Matrix[1]
 	double** Matrix[2];
 	Matrix[0]  = (double**)malloc((grau+1)*sizeof(double*));
 	Matrix[1]  = (double**)malloc((grau+1)*sizeof(double*));
-	//Faz Matrix[i][j] = somat�rio(vet^(i+j))
+	//Faz Matrix[i][j] = somatório(vet^(i+j))
 	for(int i = 0; i <= grau; i++){
 		Matrix[0][i] = (double*)calloc((grau+1),sizeof(double));
 		Matrix[1][i] = (double*)calloc((grau+1),sizeof(double));
@@ -114,7 +114,7 @@ double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 	//vetorX = vetor[0] e vetorY = vetor[1]
 	double vetor[2][grau + 1];
 
-	//Faz vetor = somat�rio(tj*vetj^i)
+	//Faz vetor = somatório(tj*vetj^i)
 	for(int i = 0; i <= grau; i++){
 		vetor[0][i] = 0;
 		vetor[1][i] = 0;
@@ -129,7 +129,7 @@ double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 	vector<double> aux0 = Ponto::resolucaoDeSistemaLinear(Matrix[0], vetor[0], grau+1);
 	vector<double> aux1 = Ponto::resolucaoDeSistemaLinear(Matrix[1], vetor[1], grau+1);
 
-	//Passo com o único intuito de arredondar valores muito pequenos e pr�ximos de zero
+	//Passo com o único intuito de arredondar valores muito pequenos e próximos de zero
 	for(int i = 0; i <= grau; i++){
 		if(aux0[i] < 0.001 && aux0[i] > -0.001){
 			aux0[i] = 0;
@@ -149,7 +149,7 @@ double** vsssERUS::Agent::ajusteDeCurva(vector<Ponto> vet, int grau){
 
 	free(Matrix[0]);
 	free(Matrix[1]);
-	//Fim da resolu��o via ajuste polinomial
+	//Fim da resolução via ajuste polinomial
 
 	return vetOut;
 }
