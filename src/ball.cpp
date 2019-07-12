@@ -22,28 +22,28 @@ vsssERUS::Ponto vsssERUS::Ball::predictBall(TeamPlayer& jogador) {
     cout << "mx:  " << mx << "  my:  " << my << endl;
 
     double vx_ball, vy_ball;
-    vx_ball = (this->getPonto().getX() - mx)/2.0;
-    vy_ball = (this->getPonto().getY() - my)/2.0;
+    vx_ball = (this->getPosicao().getX() - mx)/2.0;
+    vy_ball = (this->getPosicao().getY() - my)/2.0;
 
     double norm_v_ball = sqrt(vx_ball*vx_ball + vy_ball*vy_ball);
     cout << "Normal:  " << norm_v_ball << endl;
 
     if(norm_v_ball < 2){
-         x_ball_predic = this->getPonto().getX();
-         y_ball_predic = this->getPonto().getY();
+         x_ball_predic = this->getPosicao().getX();
+         y_ball_predic = this->getPosicao().getY();
     }else{
          vx_ball /= norm_v_ball;
          vy_ball /= norm_v_ball;
 
-         double dif_x = this->getPonto().getX()-jogador.getPonto().getX();;
-         double dif_y = this->getPonto().getY()-jogador.getPonto().getY();
+         double dif_x = this->getPosicao().getX()-jogador.getPosicao().getX();;
+         double dif_y = this->getPosicao().getY()-jogador.getPosicao().getY();
          double ro_aux = sqrt(dif_x*dif_x + dif_y*dif_y);
 
          double c_magic = 4;
          double k_pred = c_magic*ro_aux/100.0;
 
-         x_ball_predic = this->getPonto().getX() + vx_ball * k_pred * norm_v_ball;
-         y_ball_predic = this->getPonto().getY() + vy_ball * k_pred * norm_v_ball;
+         x_ball_predic = this->getPosicao().getX() + vx_ball * k_pred * norm_v_ball;
+         y_ball_predic = this->getPosicao().getY() + vy_ball * k_pred * norm_v_ball;
     }
     return Ponto(x_ball_predic, y_ball_predic);
 }
@@ -62,8 +62,8 @@ vsssERUS::Ponto vsssERUS::Ball::predictBallOffensive(TeamPlayer& jogador) {
     my /= 5;
 
     double vx_ball, vy_ball;
-    vx_ball = (this->getPonto().getX() - mx)/2.0;
-    vy_ball = (this->getPonto().getY() - my)/2.0;
+    vx_ball = (this->getPosicao().getX() - mx)/2.0;
+    vy_ball = (this->getPosicao().getY() - my)/2.0;
 
     double norm_v_ball = sqrt(vx_ball*vx_ball + vy_ball*vy_ball);
 
@@ -72,16 +72,16 @@ vsssERUS::Ponto vsssERUS::Ball::predictBallOffensive(TeamPlayer& jogador) {
     vx_ball /= norm_v_ball;
     vy_ball /= norm_v_ball;
 
-    double dif_x = this->getPonto().getX()-jogador.getPonto().getX();;
-    double dif_y = this->getPonto().getY()-jogador.getPonto().getY();
+    double dif_x = this->getPosicao().getX()-jogador.getPosicao().getX();;
+    double dif_y = this->getPosicao().getY()-jogador.getPosicao().getY();
     double ro_aux = sqrt(dif_x*dif_x + dif_y*dif_y);
 
     double c_magic = 1;
     //double c_magic = predicao_adaptativa();
     double k_pred = c_magic*ro_aux/85.0;
 
-    x_ball_predic = this->getPonto().getX() + vx_ball * k_pred * norm_v_ball;
-    y_ball_predic = this->getPonto().getY() + vy_ball * k_pred * norm_v_ball;
+    x_ball_predic = this->getPosicao().getX() + vx_ball * k_pred * norm_v_ball;
+    y_ball_predic = this->getPosicao().getY() + vy_ball * k_pred * norm_v_ball;
     return Ponto(x_ball_predic, y_ball_predic);
 }
 

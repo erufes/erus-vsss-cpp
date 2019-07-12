@@ -76,19 +76,19 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao(){
 
 void vsssERUS::Agent::updatePosition(double x, double y){
 	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
-	this->posicoesAnteriores.push_back(this->getPonto());
+	this->posicoesAnteriores.push_back(this->getPosicao());
 	posicao.setX(x);
     posicao.setY(y);
 }
 
 void vsssERUS::Agent::updatePosition(vsssERUS::Ponto ponto){
 	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
-	this->posicoesAnteriores.push_back(this->getPonto());
+	this->posicoesAnteriores.push_back(this->getPosicao());
 	posicao.setX(ponto.getX());
 	posicao.setY(ponto.getY());
 }
 
-vsssERUS::Ponto vsssERUS::Agent::getPonto(){
+vsssERUS::Ponto vsssERUS::Agent::getPosicao() const{
     return this->posicao;
 }
 

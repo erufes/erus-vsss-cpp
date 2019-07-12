@@ -54,14 +54,14 @@ namespace vsssERUS{
 		void updatePosition(double x, double y);
 		void updatePosition(Ponto ponto);
 
-		/* getPonto
+		/* getPosicao
 		* Intenção da função:
 		* Pré-Requisitos:
 		* Efeitos colaterais:
 		* Parâmetros:
 		* Retorno:
 		*/
-		Ponto getPonto();
+		Ponto getPosicao() const;
 
 		/* distancia
 		* Intenção da função:

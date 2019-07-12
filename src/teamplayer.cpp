@@ -39,7 +39,7 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 
 	Utils::Posture vsssERUS::TeamPlayer::defineObjective(vss::State, int index, vsssERUS::World* mundo)
 	{
-		vsssERUS::Ponto onde = this->movimenta(this->getPonto(), mundo);
+		vsssERUS::Ponto onde = this->movimenta(this->getPosicao(), mundo);
 		Utils::Posture resp(onde.getX(), onde.getY(), M_PI/4.);
 		// Retorne o objetivo aqui
 		return Utils::Posture(10., 65.0, M_PI/4.);
