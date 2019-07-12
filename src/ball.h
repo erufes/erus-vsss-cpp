@@ -1,14 +1,16 @@
 #ifndef BALL_H
 #define BALL_H
-/* Nome do m�dulo: BALL
- * Ano de cria��o: 2018/10
- * Descri��o do m�dulo: Classe que representa a bola do jogo.
- * 						Possui um vetor de pontos antigos da bola para fazer a predi��o
- * 						O metodo de predi�ao ofensivo desconsidera se a bola esta proxima do jogador.
- * Vers�o: 1.0
- * Pr�-requisitos: distancias positivas
+
+/* Nome do módulo: BALL
+ * Ano de criação: 2018/10
+ * Descrição do módulo: Classe que representa a bola do jogo.
+ * 						Possui um vetor de pontos antigos da bola para fazer a predição.
+ * 						O método de predição ofensivo desconsidera se a bola está próxima do jogador.
+ * Versão: 1.0
+ * Pré-requisitos: distâncias positivas
  * Membros: Lorena Bassani, Victor de Oliveira
  */
+
 #include "agent.h"
 #include <vector>
 #include <iostream>
@@ -21,14 +23,11 @@ namespace vsssERUS{
 		Ball(double x, double y);
 		Ball(Ponto p);
 
-	//    Ponto predict_ball_method(Player* jogador);
-	//    Ponto predict_ball_method_ofensive(Player* jogador);
-
 		/* previsaoDePosicao
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		std::pair<double, double> previsaoDePosicao(){
