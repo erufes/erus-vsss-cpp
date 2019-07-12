@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include "teamplayer.h"
+#include "team.h"
 
 class TeamPlayer;
 
@@ -42,8 +43,8 @@ namespace vsssERUS{
 		};
 
 		enum Lado {
-			Esquerdo,
-			Direito
+			Esquerda,
+			Direita
 			};
 
 		Limite limiteSuperior;
@@ -53,6 +54,9 @@ namespace vsssERUS{
 		Limite limiteDireito;
 		Limite limiteEsquerdo;
 		Lado nossoLado;
+
+		Team* friendlies;
+		Team* enemies;
 
 	public:
 		Campo(char* campo);

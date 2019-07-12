@@ -56,7 +56,7 @@ void vsssERUS::Campo::atualizarCampo(char *campo)
     fclose(arq);
 }
 
-vsssERUS::Campo::Campo(char *campo){
+vsssERUS::Campo::Campo(char *campo) {
     atualizarCampo(campo);
 }
 
@@ -109,8 +109,8 @@ vsssERUS::Ponto vsssERUS::Campo::getMeioDeCampo(){
 	Limite aux1(this->limiteDireito.pontoMedio(), this->limiteEsquerdo.pontoMedio());
 	return aux1.pontoMedio();
 }
-vsssERUS::Ponto vsssERUS::Campo::getMeioDeGolAliado(){
-	if(this->nossoLado == vsssERUS::Campo::Lado::Direito){
+vsssERUS::Ponto vsssERUS::Campo::getMeioDeGolAliado() {
+	if(this->nossoLado == vsssERUS::Campo::Lado::Direita) {
 		return this->golDireito.pontoMedio();
 	}else{
 		return this->golEsquerdo.pontoMedio();
@@ -118,7 +118,7 @@ vsssERUS::Ponto vsssERUS::Campo::getMeioDeGolAliado(){
 }
 vsssERUS::Ponto vsssERUS::Campo::getMeioDeGolInimigo(){
 	vsssERUS::Ponto resp;
-		if(this->nossoLado == vsssERUS::Campo::Lado::Esquerdo){
+		if(this->nossoLado == vsssERUS::Campo::Lado::Esquerda) {
 			resp = Ponto(this->golDireito.pontoMedio());
 		}else{
 			resp = Ponto(this->golEsquerdo.pontoMedio());
@@ -139,9 +139,9 @@ bool vsssERUS::Campo::estaDentroDoCampo(vsssERUS::Ponto posicao){
 
 void vsssERUS::Campo::setLado(int x){
 	if(x == 1){
-		this->nossoLado = Esquerdo;
+		this->nossoLado = Esquerda;
 	} else if(x == 2){
-		this->nossoLado = Direito;
+		this->nossoLado = Direita;
 	} else {
 		cout << "Lado "<< x << " invalido!" << endl;
 	}
