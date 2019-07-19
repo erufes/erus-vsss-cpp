@@ -8,6 +8,7 @@
 #include "defesabehavior.h"
 
 vsssERUS::DefesaBehavior::DefesaBehavior() {}
+vsssERUS::DefesaBehavior::~DefesaBehavior() {}
 
 vsssERUS::Ponto vsssERUS::DefesaBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
 	return vsssERUS::Ponto();
@@ -15,4 +16,11 @@ vsssERUS::Ponto vsssERUS::DefesaBehavior::movimenta(vsssERUS::Ponto posicao, vss
 
 std::pair<int,int> vsssERUS::DefesaBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
 	return std::pair<int,int>();
+}
+std::pair<int,int> sairDaParede(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+	return std::pair<int, int>();
+}
+
+std::pair<int,int> evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+	return std::pair<int, int>();
 }

@@ -2,17 +2,19 @@
 #define PLAYBEHAVIOR_H_
 #include <utility>
 #include "ponto.h"
+#include "world.h"
 
-	namespace vsssERUS{
-	/* Nome do módulo: PlayBehavior
-	* Ano de criação: 2018/12
-	* Descrição do módulo: classe abstrata para o comportamento do jogador
-	* Versão: 1.0
-	* Pré-requisitos: nenhum
-	* Membros: Ricardo Ramos
-	*/
-	class World;
-	class PlayBehavior {
+/* Nome do módulo: PlayBehavior
+ * Ano de criação: 2018/12
+ * Descrição do módulo: classe abstrata para o comportamento do jogador
+ * Versão: 1.0
+ * Pré-requisitos: nenhum
+ * Membros: Ricardo Ramos
+*/
+
+namespace vsssERUS{
+	
+class PlayBehavior {
 	public:
 		virtual ~PlayBehavior() = 0;
 
