@@ -23,7 +23,7 @@
 		* Parametros: Posição atual do robô
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual Ponto movimenta(Ponto posicao, World* mundo);
+		virtual Ponto movimenta(Ponto posicao, World* mundo) = 0;
 
 		/* controle
 		* Intenção da função: Calcular velocidade do robô para ir até a posição desejada
@@ -32,7 +32,7 @@
 		* Parametros: Posição para onde o robô deverá ir
 		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
 		*/
-		virtual std::pair<int,int> controle(Ponto posicao, World* mundo);
+		virtual std::pair<int,int> controle(Ponto posicao, World* mundo) = 0;
 
 		/* sairDaParede
 		* Intenção da função: Impedir colisão do robô com a parede
@@ -41,7 +41,7 @@
 		* Parametros: Posição atual do robô e mundo
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual std::pair<int,int> sairDaParede(Ponto posicao, World* mundo);
+		virtual std::pair<int,int> sairDaParede(Ponto posicao, World* mundo) = 0;
 
 		/* evitarColisaoEntreJogadores
 		* Intenção da função: Impedir colisão do robô com outro robô
@@ -50,7 +50,7 @@
 		* Parametros: Posição atual do robô e mundo
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
+		virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo) = 0;
 	};
 }
 #endif /* PLAYBEHAVIOR_H_ */
