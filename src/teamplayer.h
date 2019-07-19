@@ -48,7 +48,7 @@ namespace vsssERUS{
 		* Parametros: Posição atual do robô
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		//Ponto movimenta(Ponto posicao, World* mundo);
+		Ponto movimenta(Ponto posicao, World* mundo);
 
 		/* controle
 		* Intenção da Função: Calcular velocidade do robô para ir at� a posi�ao desejada
@@ -57,7 +57,7 @@ namespace vsssERUS{
 		* Parametros: Posição para onde o robô deverá ir
 		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 		*/
-		//std::pair<int,int> controle(Ponto posicao, World* mundo);
+		std::pair<int,int> controle(Ponto posicao, World* mundo);
 
 		/* mudaComortamento
 		* Intenção da Função: Mudar o comportamento do robô, para goleiro, atacante ou defensor
@@ -91,11 +91,11 @@ namespace vsssERUS{
 		};
 
 	#ifdef UsingSimulator
-		//vss::WheelsCommand update(vss::State state, int index, vsssERUS::World* mundo);
+		vss::WheelsCommand update(vss::State state, int index, vsssERUS::World* mundo);
 
-		//Utils::Posture defineObjective(vss::State, int index, vsssERUS::World* mundo);
+		Utils::Posture defineObjective(vss::State, int index, vsssERUS::World* mundo);
 
-		//vss::WheelsCommand motionControl(vss::State state, Utils::Posture objective, int index);
+		vss::WheelsCommand motionControl(vss::State state, Utils::Posture objective, int index);
 
 	#endif
 

@@ -11,6 +11,7 @@
 	* Pré-requisitos: nenhum
 	* Membros: Ricardo Ramos
 	*/
+	class World;
 	class PlayBehavior {
 	public:
 		virtual ~PlayBehavior() = 0;
@@ -22,7 +23,7 @@
 		* Parametros: Posição atual do robô
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual Ponto movimenta() = 0;
+		virtual Ponto movimenta(Ponto posicao, World* mundo);
 
 		/* controle
 		* Intenção da função: Calcular velocidade do robô para ir até a posição desejada
@@ -31,7 +32,7 @@
 		* Parametros: Posição para onde o robô deverá ir
 		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
 		*/
-		virtual std::pair<int,int> controle() = 0;
+		virtual std::pair<int,int> controle(Ponto posicao, World* mundo);
 
 		/* sairDaParede
 		* Intenção da função: Impedir colisão do robô com a parede
@@ -40,7 +41,7 @@
 		* Parametros: Posição atual do robô e mundo
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual std::pair<int,int> sairDaParede() = 0;
+		virtual std::pair<int,int> sairDaParede(Ponto posicao, World* mundo);
 
 		/* evitarColisaoEntreJogadores
 		* Intenção da função: Impedir colisão do robô com outro robô
@@ -49,7 +50,7 @@
 		* Parametros: Posição atual do robô e mundo
 		* Retorno: Posição para onde o robô deverá se movimentar
 		*/
-		virtual std::pair<int,int> evitarColisaoEntreJogadores() = 0;
+		virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
 	};
 }
 #endif /* PLAYBEHAVIOR_H_ */
