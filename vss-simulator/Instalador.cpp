@@ -18,6 +18,7 @@
 #include <sys/types.h>
 #include <wait.h>
 #include <iostream>
+#include <string>
 
 #define InstalavelList {"VSS-Core", "VSS-Simulator", "VSS-Viewer", "VSS-SampleCpp", "../VSSSERUS"}
 #define tam 4
@@ -25,11 +26,11 @@
 using namespace std;
 
 bool desejaInstalar();
-void instala(char*);
+void instala(string);
 
 int main(int argc, char const *argv[])
 {
-    char* Instalavel[] = InstalavelList;
+    string Instalavel[] = InstalavelList;
 
     cout << "Instalador VSS-Simulator by Rodetas e RobôCIn\n" << endl;
     cout << "Verifique se:\n\t*Sua distribuição linux encontra-se em todos os arquivos configure.sh\n\t*Se o seu computador possui git, CMake e Boost\n\t*Se nenhuma biblioteca está faltando" << endl;
@@ -60,7 +61,7 @@ bool desejaInstalar(){
     }while(true);
 }
 
-void instala(char* instalar){
+void instala(string instalar){
     pid_t filho = fork();
 	
 	//O pai entra nesse bloco
@@ -72,9 +73,10 @@ void instala(char* instalar){
 
 	//O filho entra nesse bloco
 	else if(filho == 0){
-        chdir(instalar);
-        char *args[]={"./configure.sh",NULL}; 
-        execvp(args[0],args);
+        chdir(instalar.c_str());
+        // TODO: Reimplementar os args do programa aqui
+        char* args[]={}; 
+        execvp("./configure.sh", args);
         printf("Erro de exec:\n");
 		printf("Erro %d - %s\n", ENOENT, strerror(ENOENT));
         exit(-1);
