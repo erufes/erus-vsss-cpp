@@ -13,9 +13,7 @@ MAIN() {
 
 	CHECK_SUDO
 
-	if [ issudo=true ]; then
-		echo
-	else
+	if [ issudo=false ]; then
 		return 0
 	fi
 
