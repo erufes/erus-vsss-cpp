@@ -73,10 +73,10 @@ ASK_INSTALL() {
 
 DO_INSTALL() {
 	declare iterator=0
-	
+
 	for val in ${BoolArray[@]}; do
 		if [ "$val" = "true" ]; then
-			declare target=${StringArray[iterator]} 
+			declare target=${StringArray[iterator]}
 			echo "Instalando $target"
 			cd "$target"
 			$("./configure.sh")
