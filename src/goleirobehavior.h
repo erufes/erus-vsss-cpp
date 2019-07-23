@@ -35,7 +35,7 @@ namespace vsssERUS{
 		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
 		*/
 		std::pair<int,int> controle(Ponto posicao, World* mundo);
-		
+
 		/* sairDaParede
 		* Intenção da função: Impedir colisão do robô com a parede
 		* Pré-requisitos: Campo correto em mundo

@@ -2,7 +2,6 @@
 #define PLAYBEHAVIOR_H_
 #include <utility>
 #include "ponto.h"
-#include "world.h"
 
 /* Nome do módulo: PlayBehavior
  * Ano de criação: 2018/12
@@ -13,10 +12,10 @@
 */
 
 namespace vsssERUS{
-	
+	class World;
 class PlayBehavior {
 	public:
-		virtual ~PlayBehavior() = 0;
+		virtual ~PlayBehavior(){};
 
 		/* movimenta
 		* Intenção da função: Calcular onde o robô deverá ir

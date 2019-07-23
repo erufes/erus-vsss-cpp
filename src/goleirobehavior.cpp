@@ -21,6 +21,11 @@ std::pair<int,int> vsssERUS::GoleiroBehavior::controle(vsssERUS::Ponto posicao, 
 	return std::pair<int,int>();
 }
 
-std::pair<int,int> evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+std::pair<int,int> vsssERUS::GoleiroBehavior::evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
 	return std::pair<int, int>();
 }
+
+std::pair<int,int> vsssERUS::GoleiroBehavior::sairDaParede(Ponto posicao, World* mundo) {
+	return std::pair<int, int>();
+}
+
