@@ -78,7 +78,7 @@ DO_INSTALL() {
 			declare target=${StringArray[iterator]}
 			echo "Instalando $target"
 			cd "$target"
-			$("./configure.sh")
+			bash "./configure.sh"
 		else
 			echo
 		fi
