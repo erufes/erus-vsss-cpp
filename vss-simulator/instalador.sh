@@ -12,8 +12,9 @@ MAIN() {
 	clear
 
 	CHECK_SUDO
-
-	if [ issudo=false ]; then
+	if $issudo; then
+		echo
+	else
 		return 0
 	fi
 
@@ -56,7 +57,7 @@ ASK_INSTALL() {
 	declare iterator=0
 
 	for val in ${StringArray[@]}; do
-		echo "Deseja instalar $val?(S/N) - $iterator"
+		echo "Deseja instalar $val?(S/N)"
 		read ans
 		if [ "$ans" = "S" ] || [ "$ans" = "s" ]; then
 			BoolArray[iterator]=true
