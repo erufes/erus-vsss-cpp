@@ -4,8 +4,20 @@ declare -a StringArray=("VSS-Core" "VSS-Simulator" "VSS-Viewer" "VSS-SampleCpp")
 
 declare -a BoolArray=(false false false false false)
 
+declare BaseDir=$(pwd)
+
+declare issudo=false
+
 MAIN() {
 	clear
+
+	CHECK_SUDO
+
+	if [ issudo=true ]; then
+		echo
+	else
+		return 0
+	fi
 
 	echo -e "Instalador VSS-Simulator\n"
 	echo -e "Simulador by Rodetas e RobôCIn\n"
@@ -65,6 +77,15 @@ DO_INSTALL() {
 	for val in ${BoolArray[@]}; do
 		echo "$val"
 	done
+}
+
+CHECK_SUDO() {
+	if [ "$EUID" != "0" ]; then
+		echo "Rode o script com sudo!"
+		issudo=false
+	else
+		issudo=true
+	fi
 }
 
 MAIN;
