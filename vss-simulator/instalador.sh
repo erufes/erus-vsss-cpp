@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a StringArray=("VSS-Core" "VSS-Simulator" "VSS-Viewer" "VSS-SampleCpp" "../VSSSERUS")
+declare -a StringArray=("VSS-Core" "VSS-Simulator" "VSS-Viewer" "VSS-SampleCpp")
 
 declare -a BoolArray=(false false false false false)
 
