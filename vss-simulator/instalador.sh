@@ -71,11 +71,20 @@ ASK_INSTALL() {
 	done
 }
 
-
-# Realiza a instalação de fato - TODO
 DO_INSTALL() {
+	declare iterator=0
+	
 	for val in ${BoolArray[@]}; do
-		echo "$val"
+		if [ "$val" = "true" ]; then
+			declare target=${StringArray[iterator]} 
+			echo "Instalando $target"
+			cd "$target"
+			$("./configure.sh")
+		else
+			echo
+		fi
+		iterator=$((iterator+1))
+		cd "$BaseDir"
 	done
 }
 
