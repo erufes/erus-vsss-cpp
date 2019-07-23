@@ -36,3 +36,6 @@ build
 
 # Log do simulador
 log.txt
+
+# Compilado do instalador
+vss-simulator/Instalador
