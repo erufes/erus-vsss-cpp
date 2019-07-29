@@ -39,3 +39,6 @@ log.txt
 
 # Compilado do instalador
 vss-simulator/Instalador
+
+# Configurações pessoais vscode
+.vscode
