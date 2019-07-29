@@ -3,16 +3,16 @@
 
 #define UsingSimulator
 
+#ifdef UsingSimulator
+#include <Communications/StateReceiver.h>
+#include <Communications/CommandSender.h>
+#endif
+
 #include "player.h"
 #include "ataquebehavior.h"
 #include "defesabehavior.h"
 #include "goleirobehavior.h"
-
-#ifdef UsingSimulator
-#include <Communications/StateReceiver.h>
-#include <Communications/CommandSender.h>
-namespace Utils{ class Posture;};
-#endif
+#include "utils.h"
 
 /* Nome do módulo: TeamPlayer
 * Ano de criação: 2018/12
@@ -71,7 +71,7 @@ namespace vsssERUS{
 		* Parametros:
 		* Retorno:
 		*/
-		std::pair<double,double> previsaoDePosicao(){
+		doublePair previsaoDePosicao(){
 			return this->Player::previsaoDePosicao();
 		};
 
