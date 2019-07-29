@@ -12,27 +12,23 @@
 #include <Communications/StateReceiver.h>
 #include <Communications/CommandSender.h>
 namespace Utils{ class Posture;};
-using namespace vss;
 #endif
 
-namespace vsssERUS{
-	class Ponto;
+/* Nome do módulo: TeamPlayer
+* Ano de criação: 2018/12
+* Descrição do módulo: Classe que representa jogadores do time, criado para definir as funções de cada robô {Goleiro, Atacante, Defensor} e seus métodos de controle.
+* Versão: 1.1
+* Pré-requisitos: pré-requisitos de player
+* Membros: Ricardo Ramos
+*/
 
-	/* Nome do módulo: TeamPlayer
-	* Ano de criação: 2018/12
-	* Descrição do módulo: Classe que representa jogadores do time, criado para definir as funções de cada robô {Goleiro, Atacante, Defensor} e seus métodos de controle.
-	* Versão: 1.1
-	* Pré-requisitos: pré-requisitos de player
-	* Membros: Ricardo Ramos
-	*/
+namespace vsssERUS{
 
 	enum Funcao {
 		Goleiro,
 		Atacante,
 		Defensor
 	};
-
-	class PlayBehavior;
 
 	class TeamPlayer: public Player
 	{

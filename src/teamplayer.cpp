@@ -56,7 +56,7 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 
 		double kRho = 1.85, kAlpha = 9.7, kBeta = -0.01;
 
-		vss::Robot robot = (TeamType::Blue == vss::TeamType::Blue) ? state.teamBlue[index] : state.teamYellow[index];
+		vss::Robot robot = (vss::TeamType::Blue == vss::TeamType::Blue) ? state.teamBlue[index] : state.teamYellow[index];
 
 		robot.angle = Utils::to180range(robot.angle * M_PI / 180.0);
 
@@ -82,7 +82,7 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 			linearSpeed = 0;
 			angularSpeed *= 0.4;
 		}
-			
+
 		if (fabs(alpha) > 0.5 * M_PI) {
 			linearSpeed = -linearSpeed;
 		}
