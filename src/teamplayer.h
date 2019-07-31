@@ -37,50 +37,57 @@ namespace vsssERUS{
 	public:
 		TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
 
-		/* movimenta
-		* Intenção da Função: Calcular onde o robô deverá ir
-		* Pré-Requisitos: Comportamento correto
-		* Efeitos colaterais: Não possui efeitos colaterais
-		* Parametros: Posição atual do robô
-		* Retorno: Posição para onde o robô deverá se movimentar
+		/**
+		* Nome da função:       movimenta;
+		* Intenção da Função:   Calcular onde o robô deverá ir;
+		* Pré-Requisitos:       Comportamento correto;
+		* Efeitos colaterais:   Não possui efeitos colaterais;
+		* Parametros:           (Ponto) posição: posição do robô;
+		*                       (World) mundo: posição do robô;
+		* Retorno:              (PlayBehavior*) comportamento: Posição para onde o robô deverá se movimentar;
 		*/
 		Ponto movimenta(Ponto posicao, World* mundo);
 
-		/* controle
-		* Intenção da Função: Calcular velocidade do robô para ir at� a posi�ao desejada
-		* Pré-Requisitos: Comportamento correto
-		* Efeitos colaterais: N�o possui efeitos colaterais
-		* Parametros: Posição para onde o robô deverá ir
-		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
+		/**
+		* Nome da função:       controle;
+		* Intenção da Função:   Calcular velocidade do robô para ir at� a posi�ao desejada;
+		* Pré-Requisitos:       Comportamento correto;
+		* Efeitos colaterais:   N�o possui efeitos colaterais;
+		* Parametros:           (Ponto) posição: posição do robô;
+		*                       (World) mundo: posição do robô;
+		* Retorno:              (PlayBehavior*) comportamento: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
 		*/
 		std::pair<int,int> controle(Ponto posicao, World* mundo);
 
-		/* mudaComortamento
-		* Intenção da Função: Mudar o comportamento do robô, para goleiro, atacante ou defensor
-		* Pré-Requisitos: Nova função válida {Goleiro, Atacante, Defensor}
-		* Efeitos colaterais: Muda a funcionalidade das funções movimenta() e controle()
-		* Parametros: Funcao nova para o robô
-		* Retorno: Não possui retorno
+		/**
+		* Nome da função:       mudaComportamento;
+		* Intenção da Função:   Mudar o comportamento do robô, para goleiro, atacante ou defensor;
+		* Pré-Requisitos:       Nova função válida {Goleiro, Atacante, Defensor};
+		* Efeitos colaterais:   Muda a funcionalidade das funções movimenta() e controle();
+		* Parametros:           (Funcao) novo: Funcao nova para o robô;
+		* Retorno:              Não possui retorno;
 		*/
 		void mudaComportamento(Funcao novo);
 
-		/* previsaoDePosicao
-		* Intenção da Função:
-		* Pré-Requisitos:
-		* Efeitos colaterais:
-		* Parametros:
-		* Retorno:
+		/**
+		* Nome da função:       previsaoDePosicao;
+		* Intenção da Função:   Faz a previsão de uma futura posição da bola/player;
+		* Pré-Requisitos:       Não há;
+		* Efeitos colaterais:   Não há;
+		* Parametros:           não há;
+		* Retorno:              (doublePair) ponto_futuro: coordenadas calculadas;
 		*/
 		doublePair previsaoDePosicao(){
-			return this->Player::previsaoDePosicao();
+		s	return this->Player::previsaoDePosicao();
 		};
 
-		/* isEnemy
-		* Intenção da Função:
-		* Pré-Requisitos:
-		* Efeitos colaterais:
-		* Parametros:
-		* Retorno:
+		/**
+		* Nome da função:       isEnemy
+		* Intenção da Função:   Identificar inimigos;
+		* Pré-Requisitos:       Não há;
+		* Efeitos colaterais:   Não há;
+		* Parametros:           Não há;
+		* Retorno:              (bool) false: indentificação de adversarios;
 		*/
 		bool isEnemy(){
 			return false;
