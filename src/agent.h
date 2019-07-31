@@ -10,14 +10,6 @@
  * Membros: Ricardo Ramos, Gabriel Valdino
  */
 
- /* Nome da função
-  * Intenção da função:
-  * Pré-requisitos:
-  * Efeitos colaterais:
-  * Parâmetros:
-  * Retorno:
-  */
-
 #include "ponto.h"
 #include <vector>
 #include <cstdlib>
@@ -81,10 +73,9 @@ namespace vsssERUS{
   		* Intenção da função:   Função que chama a posição atual;
   		* Pré-Requisitos:       Não há;
   		* Efeitos colaterais:   Não há;
-  		* Parâmetros:           Não há;
-  		* Retorno:						  (Ponto) posição: posição atual;
+  		* Parâmetros:           (Agent&) agente: ;
+  		* Retorno:						  0;
   		*/
-
 		float distancia(Agent& agente) const;
 	};
 }
