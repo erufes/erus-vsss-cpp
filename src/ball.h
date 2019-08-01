@@ -20,7 +20,6 @@
 namespace vsssERUS{
 	class Ball: public Agent
 	{
-
 	public:
 		Ball(double x, double y);
 		Ball(Ponto p);

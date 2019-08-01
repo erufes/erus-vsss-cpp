@@ -23,19 +23,21 @@ Para compilar o projeto, basta executar o script bash `compile.sh`. Ele utiliza 
 
 Primeiro comentário do arquivo
 
-    /* Nome do módulo
+    /*
+     * Nome do módulo
      * Ano de criação:
      * Descrição do módulo:
-     * Versão: 
+     * Versão:
      * Pré-requisitos (arquivos e bibliotecas necessárias para compilar)
      * Membros:
      */
- 
 
- 
+
+
  Comentário de protótipo de funções (.h)
- 
-    /* Nome da função
+
+    /*
+     * Nome da função
      * Intenção da função:
      * Pré-requisitos:
      * Efeitos colaterais:
