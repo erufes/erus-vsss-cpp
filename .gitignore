@@ -42,3 +42,6 @@ vss-simulator/Instalador
 
 # Configurações pessoais vscode
 .vscode
+
+# Binário do simulador
+Simulador
