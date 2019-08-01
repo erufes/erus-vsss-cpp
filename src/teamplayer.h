@@ -78,7 +78,7 @@ namespace vsssERUS{
 		* Retorno:              (doublePair) ponto_futuro: coordenadas calculadas;
 		*/
 		doublePair previsaoDePosicao(){
-		s	return this->Player::previsaoDePosicao();
+			return this->Player::previsaoDePosicao();
 		};
 
 		/**
