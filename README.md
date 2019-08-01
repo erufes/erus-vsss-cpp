@@ -5,13 +5,15 @@ Projeto de VSSS (Very Small Sized Soccer) da ERUS, desenvolvido em C++.
 
 # Instalação de dependências
 
-Para compilar o projeto, é necessário instalar a seguinte lista de pacotes:
+Para compilar o projeto e utilizar o simulador, é necessário instalar a seguinte lista de pacotes:
 
-`g++ cmake libxmu-dev libxi-dev protobuf-compiler libprotobuf-dev pkg-config`
+`g++ cmake libxmu-dev libxi-dev protobuf-compiler libprotobuf-dev pkg-config libzmq5 libzmq3-dev libboost-all-dev libbullet-dev freeglut3 freeglut3-dev`
 
 Caso o pacote `pkg-config` esteja indisponível, instale o `pkgconf`.
 
 Utilize o gerenciador de pacotes da sua distribuição, como `apt` ou `pacman`, para  instalar os pacotes listados.
+
+Adicionalmente, é necessário compilar os subprojetos do simulador, o que pode ser feito por meio do script `vss-simulator/instalador.sh`. **Certifique-se de que todas as dependências de pacotes foram instaladas antes de rodar os scripts, ou você TERÁ erros de compilação**!
 
 # Compilação
 
