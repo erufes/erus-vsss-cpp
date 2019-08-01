@@ -6,11 +6,11 @@
 #include "teamplayer.h"
 
 namespace vsssERUS{
-	/* Nome do m�dulo: World
-	* Ano de cria��o: 2019/01
-	* Descri��o do m�dulo: Classe que representa o mundo, contendo cada componete que exite. Criado para facilitar armazenamento e passagem de par�metros.
-	* Vers�o: 1.0
-	* Pr�-requisitos componentes do mundo existentes
+	/* Nome do módulo: World
+	* Ano de criação: 2019/01
+	* Descrição do módulo: Classe que representa o mundo, contendo cada componete que existe. Criado para facilitar armazenamento e passagem de parâmetros.
+	* Versão: 1.0
+	* Pré-requisitos: Componentes do mundo existentes
 	* Membros: Ricardo Ramos
 	*/
 	class Ball;

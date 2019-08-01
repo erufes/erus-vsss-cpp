@@ -42,4 +42,3 @@ void vsssERUS::World::setCampo(Campo* campo){
 vsssERUS::Campo* vsssERUS::World::getCampo(){
 	return campo;
 }
-

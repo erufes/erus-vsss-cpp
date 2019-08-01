@@ -1,9 +1,9 @@
 #include "teamplayer.h"
 
 
-vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id,double theta, double distanciaMinDaParede) : Player(id, theta)
+vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
 {
-	this->comportamento = NULL;
+	//this->comportamento = NULL;
 	this->mudaComportamento(comportamento);
 	this->distanciaMinDaParede = distanciaMinDaParede;
 }
