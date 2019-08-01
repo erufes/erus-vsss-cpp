@@ -50,9 +50,9 @@ namespace vsssERUS{
 
 		/**
 		* Nome da função:       controle;
-		* Intenção da Função:   Calcular velocidade do robô para ir at� a posi�ao desejada;
+		* Intenção da Função:   Calcular velocidade do robô para ir até a posição desejada;
 		* Pré-Requisitos:       Comportamento correto;
-		* Efeitos colaterais:   N�o possui efeitos colaterais;
+		* Efeitos colaterais:   Não possui efeitos colaterais;
 		* Parametros:           (Ponto) posição: posição do robô;
 		*                       (World) mundo: posição do robô;
 		* Retorno:              (PlayBehavior*) comportamento: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
@@ -68,18 +68,6 @@ namespace vsssERUS{
 		* Retorno:              Não possui retorno;
 		*/
 		void mudaComportamento(Funcao novo);
-
-		/**
-		* Nome da função:       previsaoDePosicao;
-		* Intenção da Função:   Faz a previsão de uma futura posição da bola/player;
-		* Pré-Requisitos:       Não há;
-		* Efeitos colaterais:   Não há;
-		* Parametros:           não há;
-		* Retorno:              (doublePair) ponto_futuro: coordenadas calculadas;
-		*/
-		doublePair previsaoDePosicao(){
-			return this->Player::previsaoDePosicao();
-		};
 
 		/**
 		* Nome da função:       isEnemy
