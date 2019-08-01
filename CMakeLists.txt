@@ -14,7 +14,7 @@ file(GLOB_RECURSE INCLUDE src/*.h)
 file(GLOB_RECURSE INCLUDE include/*.h)
 
 set (VSS_CORE libvss-core.so)
-link_directories(usr/lib)
+link_directories(/usr/lib)
 include_directories(usr/local/include)
 
 ADD_EXECUTABLE(vsss-erus ${SRCS_CPP} ${SRCS_CC} ${INCLUDE})
