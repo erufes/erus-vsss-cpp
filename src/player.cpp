@@ -1,7 +1,7 @@
 #include "player.h"
 
 
-vsssERUS::Player::Player(int id, double theta ){
+vsssERUS::Player::Player(int id, double theta){
     this->theta = theta;
     this->thetaAntigo = theta;
     this->id = id;
@@ -9,14 +9,6 @@ vsssERUS::Player::Player(int id, double theta ){
 
 int vsssERUS::Player::getId() const {
 		return id;
-}
-
-vsssERUS::Ponto vsssERUS::Player::getPosicaoAntiga() const {
-		return posicaoAntiga;
-}
-void vsssERUS::Player::setPosicao(Ponto p){
-	this->posicaoAntiga = Agent::getPonto();
-	this->update_position(p.getX(), p.getY());
 }
 
 double vsssERUS::Player::getTheta() const {

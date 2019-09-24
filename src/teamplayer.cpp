@@ -1,9 +1,9 @@
 #include "teamplayer.h"
-#include "utils.hpp"
 
-vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id,double theta, double distanciaMinDaParede) : Player(id, theta)
+
+vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
 {
-	this->comportamento = NULL;
+	//this->comportamento = NULL;
 	this->mudaComportamento(comportamento);
 	this->distanciaMinDaParede = distanciaMinDaParede;
 }
@@ -39,7 +39,7 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 
 	Utils::Posture vsssERUS::TeamPlayer::defineObjective(vss::State, int index, vsssERUS::World* mundo)
 	{
-		vsssERUS::Ponto onde = this->movimenta(this->getPonto(), mundo);
+		vsssERUS::Ponto onde = this->movimenta(this->getPosicao(), mundo);
 		Utils::Posture resp(onde.getX(), onde.getY(), M_PI/4.);
 		// Retorne o objetivo aqui
 		return Utils::Posture(10., 65.0, M_PI/4.);
@@ -55,7 +55,7 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 
 		double kRho = 1.85, kAlpha = 9.7, kBeta = -0.01;
 
-		vss::Robot robot = (TeamType::Blue == vss::TeamType::Blue) ? state.teamBlue[index] : state.teamYellow[index];
+		vss::Robot robot = (vss::TeamType::Blue == vss::TeamType::Blue) ? state.teamBlue[index] : state.teamYellow[index];
 
 		robot.angle = Utils::to180range(robot.angle * M_PI / 180.0);
 
@@ -81,7 +81,7 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 			linearSpeed = 0;
 			angularSpeed *= 0.4;
 		}
-			
+
 		if (fabs(alpha) > 0.5 * M_PI) {
 			linearSpeed = -linearSpeed;
 		}

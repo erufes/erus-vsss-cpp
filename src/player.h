@@ -2,96 +2,78 @@
 #define PLAYER_H
 #include "agent.h"
 
-/* Nome do m�dulo: Player
- * Ano de cria��o: 2018/11
- * Descri��o do m�dulo: cria o player com as posicoes antigas salvas e theta (o agulo referente ao lado inferior do campo)
- * 						Classe Abstrata para que n�o seja instanciada, uma vez que serve de abstra��o de rob�s do time (TeamPlayer) ou inimigos (Enemy).
- * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informa��es como posi��o e id.
- * Vers�o: 1.1
+/* Nome do módulo: Player
+ * Ano de criação: 2018/11
+ * Descrição do módulo: Cria o player com as posições antigas salvas e theta (o ângulo referente ao lado inferior do campo)
+ * 						Classe Abstrata para que não seja instanciada, uma vez que serve de abstração de robôs do time (TeamPlayer) ou inimigos (Enemy).
+ * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informações como posição e id.
+ * Versão: 1.1
  * Testado!! Selo Valdino de Garantia \0/
- * Pr�-requisitos angulo positivo (0 <= theta >= 2*pi)
+ * Pré-requisitos: Ângulo positivo (0 <= theta >= 2*pi)
  * Membros: Gabriel Valdino, Victor de Oliveira, Lorena Bassani
  */
+
 namespace vsssERUS{
 	class Player: public Agent {
-		Ponto posicaoAntiga = Ponto(0,0);
 		double theta;
 		double thetaAntigo;
 		int id;
+		float erroAtual;
+		float erroAntigo;
 	public:
 
 		Player(int id = 0,double theta = 0.0);
 
 		/* getId
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		int getId() const;
 
-		/* setPosicao
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
-		* Efeitos colaterais:
-		* Parametros:
-		* Retorno:
-		*/
-		void setPosicao(Ponto p);
-
 		/* getPosicaoAntiga
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		Ponto getPosicaoAntiga() const;
 
 		/* getTheta
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		double getTheta() const;
 
 		/* setTheta
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		void setTheta(double theta);
 
 		/* getThetaAntigo
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		double getThetaAntigo() const;
 
-		/* previsaoDePosicao
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
-		* Efeitos colaterais:
-		* Parametros:
-		* Retorno:
-		*/
-		std::pair<double,double> previsaoDePosicao(){
-			return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
-		}
-
 		/* isEnemy
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		virtual bool isEnemy() = 0;

@@ -3,12 +3,12 @@
 #include "player.h"
 
 	namespace vsssERUS{
-	/* Nome do m�dulo: Enemy
-	* Ano de cria��o: 2018/11
-	* Descri��o do m�dulo: Classe que representa jogadores inimigos no campo. Criado para prever suas posi��es.
-	* 						Um jogador inimigo n�o � control�vel pelo sistema pois deve ser contralado por sistemas de outros.
-	* Vers�o: 1.1
-	* Pr�-requisitos posi��o antiga do inimigo e seu �ngulo de 0 a 2pi
+	/* Nome do módulo: Enemy
+	* Ano de criação: 2018/11
+	* Descrição do módulo: Classe que representa jogadores inimigos no campo. Criado para prever suas posições.
+	* 						Um jogador inimigo não é controlável pelo sistema, pois deve ser controlado por sistemas de outros.
+	* Versão: 1.1
+	* Pré-requisitos: posição antiga do inimigo e seu ângulo, de 0 a 2pi
 	* Membros: Ricardo Ramos
 	*/
 
@@ -18,25 +18,14 @@
 		virtual ~Enemy();
 
 		/* isEnemy
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
+		* Intenção da Função:
+		* Pré-requisitos:
 		* Efeitos colaterais:
-		* Parametros:
+		* Parâmetros:
 		* Retorno:
 		*/
 		bool isEnemy(){
 			return true;
-		}
-
-		/* previsaoDePosicao
-		* Inten��o da fun��o:
-		* Pr�-requisitos:
-		* Efeitos colaterais:
-		* Parametros:
-		* Retorno:
-		*/
-		std::pair<double, double> previsaoDePosicao(){
-			return this->Player::previsaoDePosicao();
 		}
 	};
 }
