@@ -5,8 +5,7 @@
 #include "campo.h"
 #include "teamplayer.h"
 #include "notifier.h"
-
-#define MAX_TEAM_PLAYERS 3
+#include "string"
 
 namespace vsssERUS{
 	/* Nome do módulo: World
@@ -22,7 +21,7 @@ namespace vsssERUS{
 	class World {
 		Ball* bola;
 		TeamPlayer* jogadores[MAX_TEAM_SIZE];
-		Enemy* inimigos[MAX_TEAM_PLAYERS];
+		Enemy* inimigos[MAX_TEAM_SIZE];
 		Campo* campo;
 		Notifier n;
 	public:

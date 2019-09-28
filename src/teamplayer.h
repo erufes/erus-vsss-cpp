@@ -29,6 +29,8 @@
  */
 namespace vsssERUS{
 
+	class Campo;
+
 	enum Funcao {
 		Goleiro,
 		Atacante,
@@ -41,7 +43,9 @@ namespace vsssERUS{
 		double distanciaMinDaParede;
 		double campoPotencial[DISC_X][DISC_Y];
 		void atualizaCampoPotencial();
+		Campo* campo;
 	public:
+		void setCampo(Campo& c) { this->campo = &c; }
 		void notifica();
 		TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
 
