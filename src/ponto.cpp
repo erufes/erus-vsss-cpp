@@ -26,6 +26,10 @@ void vsssERUS::Ponto::setY(double y){
     this->y = y;
 }
 
+bool vsssERUS::Ponto::operator==(Ponto const &p) {
+	return (abs(this->x - p.x) <= DOUBLE_CMP_THRESHOLD) && (abs(this->y - p.y) <= DOUBLE_CMP_THRESHOLD);
+}
+
 //Resolu��o do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
 //Cr�ditos � professora Cl�udia Galarda Varassin pela cria��o da fun��o que foi poucamente modificada para atender � nossos anseios
 vector<double> vsssERUS::Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, int N){
@@ -122,3 +126,4 @@ vector<double> vsssERUS::Ponto::resolucaoDeSistemaLinear(double** matrix, double
 
 		return x;
 }
+
