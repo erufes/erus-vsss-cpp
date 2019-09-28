@@ -5,9 +5,10 @@ CMAKE () {
     rm -R build
     mkdir -p build
     cd build
-    cmake ..
-    make
+    cmake -D RELEASE=ON ..
+    make install
     cd ..
+    
 }
 
 CMAKE;
