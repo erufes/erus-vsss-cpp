@@ -5,6 +5,9 @@ vsssERUS::World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, B
 	this->setTeamPlayer(jogadores);
 	this->setEnemy(inimigos);
 	this->bola = bola;
+	for(int i = 0; i < MAX_TEAM_SIZE; i++) {
+		n.registraObservador(*jogadores[i]);
+	}
 }
 
 vsssERUS::World::~World() {

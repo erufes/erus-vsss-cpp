@@ -31,6 +31,14 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 	}
 }
 
+void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
+	printf("EEEEEEEEEEEEEEEEEEEEEEEEEEEO");
+}
+
+void vsssERUS::TeamPlayer::notifica() {
+	printf("AAAAAAAAAAAAAAAAAAAAAAA");
+}
+
 #ifdef UsingSimulator
 	vss::WheelsCommand vsssERUS::TeamPlayer::update(vss::State state, int index, vsssERUS::World* mundo) {
 		Utils::Posture objective = defineObjective(state, index, mundo);
