@@ -31,6 +31,7 @@ namespace vsssERUS{
 		Team();
 		virtual ~Team();
 		void adicionaAoTime(Player& p);
+		Player& getPlayerByIdx(int idx) { return *this->jogadores[idx]; }
 	};
 }
 #endif // TEAM_H

@@ -18,7 +18,6 @@
 #include <string>
 #include "senderCommands.h"
 #include "senderDebug.h"
-
 using namespace vss;
 #endif
 
@@ -103,13 +102,8 @@ int main(int argc, char** argv){
             //Envia os comandos para o simulador
             commandsSender->send_commands(player1_command, player2_command, player3_command);
             //debugSender->send_debug();
-            
         #endif
-
-
     }
-
-
     return 0;
 }
 

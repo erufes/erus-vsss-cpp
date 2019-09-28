@@ -35,6 +35,7 @@ namespace vsssERUS{
 		Enemy** getEnemy();
 		void setCampo(Campo* campo);
 		Campo* getCampo();
+		void forceNotify(string s);
 	};
 }
 #endif /* WORLD_H_ */

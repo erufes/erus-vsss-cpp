@@ -1,4 +1,5 @@
 #include "teamplayer.h"
+#include "campo.h"
 
 
 vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
@@ -32,11 +33,12 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 }
 
 void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
-	printf("EEEEEEEEEEEEEEEEEEEEEEEEEEEO");
+	vsssERUS::Ponto* dados = campo->getPositions();
+	this->campoPotencial[(int)(dados[0].getX() / STEP_X)][(int) (dados[0].getY() / STEP_Y)] = -1.0;
 }
 
 void vsssERUS::TeamPlayer::notifica() {
-	printf("AAAAAAAAAAAAAAAAAAAAAAA");
+	// TODO
 }
 
 #ifdef UsingSimulator

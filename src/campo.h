@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include "teamplayer.h"
 #include "team.h"
+#include "ball.h"
+#include <cstdlib>
 
 class TeamPlayer;
 
@@ -19,8 +21,10 @@ class TeamPlayer;
 */
 
 namespace vsssERUS{
+	
 	class Campo
 	{
+	private:
 		/* Nome do módulo: Limite
 		* Ano de criação: 2018/10
 		* Descrição do módulo: Informações sobre os limites do campo
@@ -58,7 +62,10 @@ namespace vsssERUS{
 		Team* friendlies;
 		Team* enemies;
 
+		Ball* ball;
+
 	public:
+		Ponto* getPositions();
 		Campo(char* campo);
 
 		/* estaDentroDoCampo
@@ -170,6 +177,8 @@ namespace vsssERUS{
 		* Retorno:
 		*/
 		Ponto getMeioDeGolInimigo();
+
+		void setBall(Ball& b) { this->ball = &b; }
 
 	};
 }

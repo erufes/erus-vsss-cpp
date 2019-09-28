@@ -16,6 +16,13 @@
 #include "observer.h"
 
 // Constantes de discretização do campo
+
+#define STEP_X 7.5
+#define STEP_Y 7.5
+#define VSSIZE_X 7.5
+#define VSSIZE_Y 7.5
+#define VSSIZE_Z 7.5
+
 #define DISC_X 20
 #define DISC_Y 17
 
