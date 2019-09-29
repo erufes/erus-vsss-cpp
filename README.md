@@ -47,16 +47,26 @@ Primeiro comentário do arquivo
 
 **IMPORTANTE**: Comentários adicionais devem ser feitos no arquivo de implementação (.cpp) detalhando a implementação do código.
 
-# Dados dos membros:
+# Dados da Equipe:
+O VSSS-ERUS é uma equipe dedicada a implementação do desafio Very Small Size Soccer para competições. É um projeto da ERUS - Equipe de Robótica da UFES, e diversos documentos sobre o projeto podem ser encontrados no site da equipe.
+- Site da ERUS : erus.ufes.br/
+- E-mail da ERUS : erus@inf.ufes.br
+- E-mail do VSSS-ERUS : vssserus@gmail.com
 
+## Membros Atuais
+- Gabriel Pietroluongo
+    - gabrielpietroluongo@gmail.com
 - Gabriel Valdino
-    - 27 99755-6250 / gvaldino@yahoo.com
+    - gvaldino@yahoo.com
+- Mayke Wallace
+    - mayke.ace@hotmail.com
 - Lara de Luca
+    - lara2058@hotmail.com
 - Lorena Bassani
-    - 27 98819-8309 / lorenabassani12@gmail.com
-- Ricardo Ramos
-    - 27 99797-1999 / ricardobraun20006@gmail.com
-- Victor de Oliveira
-    - 27 99577-1093 / makkakie97@gmail.com
+    - lorenabassani12@gmail.com
 
-Favor **não** ligar para os membros acima diretamente, mandar mensagem via WhatsApp ou e-mail primeiro.
+## Membros Antigos
+- Ricardo Ramos
+    - ricardobraun20006@gmail.com
+- Victor de Oliveira
+    - makkakie97@gmail.com
