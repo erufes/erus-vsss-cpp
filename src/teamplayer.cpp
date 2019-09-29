@@ -38,7 +38,8 @@ void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
 }
 
 void vsssERUS::TeamPlayer::notifica() {
-	// TODO
+	// Ao receber notificação do evento, atualizar campo potencial
+	this->atualizaCampoPotencial();
 }
 
 #ifdef UsingSimulator
