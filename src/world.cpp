@@ -49,5 +49,5 @@ vsssERUS::Campo* vsssERUS::World::getCampo(){
 }
 
 void vsssERUS::World::forceNotify(string s) {
-	n.notifica();
+	atualizacaoCampo.notifica();
 }

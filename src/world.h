@@ -23,7 +23,7 @@ namespace vsssERUS{
 		TeamPlayer* jogadores[MAX_TEAM_SIZE];
 		Enemy* inimigos[MAX_TEAM_SIZE];
 		Campo* campo;
-		Notifier n;
+		Notifier atualizacaoCampo; 	//Notificador de atualização de posições
 	public:
 		World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola);
 		virtual ~World();
