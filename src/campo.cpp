@@ -146,3 +146,17 @@ void vsssERUS::Campo::setLado(int x){
 		cout << "Lado "<< x << " invalido!" << endl;
 	}
 }
+
+vsssERUS::Ponto* vsssERUS::Campo::getPositions() {
+    // enum???
+    // struct???
+    Ponto* pos = (Ponto*) std::malloc(((2 * MAX_TEAM_SIZE) + 1) * sizeof(Ponto));//[(2*MAX_TEAM_SIZE) + 1];
+    pos[0] = this->ball->getPosicao();
+    pos[1] = this->friendlies->getPlayerByIdx(0).getPosicao();
+    pos[2] = this->friendlies->getPlayerByIdx(1).getPosicao();
+    pos[3] = this->friendlies->getPlayerByIdx(2).getPosicao();
+    pos[4] = this->enemies->getPlayerByIdx(0).getPosicao();
+    pos[5] = this->enemies->getPlayerByIdx(1).getPosicao();
+    pos[6] = this->enemies->getPlayerByIdx(2).getPosicao();
+    return pos;
+}

@@ -10,6 +10,8 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <cstdio>
+#define DOUBLE_CMP_THRESHOLD 0.000000000000001
 
 using namespace std;
 	namespace vsssERUS{
@@ -76,6 +78,8 @@ using namespace std;
 		//Aten��o � chamada da fun��o, pois ela precisa de um "double** A" e n�o um "double A[N][N]", logo, � necess�rio o uso de mallocs
 		//Cr�ditos � professora Cl�udia Galarda Varassin pela cria��o da fun��o que foi poucamente modificada para atender � nossos anseios
 		static vector<double> resolucaoDeSistemaLinear(double** matrix, double* vetor, int N);
+
+		bool operator==(Ponto const &p);
 	};
 }
 #endif // PONTO_H

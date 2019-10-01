@@ -4,6 +4,8 @@
 #include "enemy.h"
 #include "campo.h"
 #include "teamplayer.h"
+#include "notifier.h"
+#include "string"
 
 namespace vsssERUS{
 	/* Nome do módulo: World
@@ -18,9 +20,10 @@ namespace vsssERUS{
 	class Campo;
 	class World {
 		Ball* bola;
-		TeamPlayer* jogadores[3];
-		Enemy* inimigos[3];
+		TeamPlayer* jogadores[MAX_TEAM_SIZE];
+		Enemy* inimigos[MAX_TEAM_SIZE];
 		Campo* campo;
+		Notifier atualizacaoCampo; 	//Notificador de atualização de posições
 	public:
 		World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola);
 		virtual ~World();
@@ -32,6 +35,7 @@ namespace vsssERUS{
 		Enemy** getEnemy();
 		void setCampo(Campo* campo);
 		Campo* getCampo();
+		void forceNotify(string s);
 	};
 }
 #endif /* WORLD_H_ */

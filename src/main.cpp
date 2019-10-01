@@ -4,8 +4,10 @@
  * Autor: ERUS UFES
  * 				e-mail: erus@inf.ufes.br/ vssserus@gmail.com
  * 				site: erus.ufes.br
- * Membros:
- * 			Gabriel Valdino, Lara de Luca, Lorena Bassani, Ricardo Rauta, Victor de Oliveira
+ * Membros Atuais:
+ * 			Gabriel Pietroluongo, Gabriel Valdino, Mayke Wallace, Lara de Luca, Lorena Bassani
+ * Membros Antigos:
+ *          Ricardo Rauta, Victor de Oliveira
  */
 
 
@@ -18,7 +20,6 @@
 #include <string>
 #include "senderCommands.h"
 #include "senderDebug.h"
-
 using namespace vss;
 #endif
 
@@ -103,13 +104,8 @@ int main(int argc, char** argv){
             //Envia os comandos para o simulador
             commandsSender->send_commands(player1_command, player2_command, player3_command);
             //debugSender->send_debug();
-            
         #endif
-
-
     }
-
-
     return 0;
 }
 

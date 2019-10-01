@@ -2,9 +2,14 @@
 
 vsssERUS::World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola) {
 	this->campo = campo;
+	campo->setBall(*bola);
 	this->setTeamPlayer(jogadores);
 	this->setEnemy(inimigos);
 	this->bola = bola;
+	for(int i = 0; i < MAX_TEAM_SIZE; i++) {
+		n.registraObservador(*jogadores[i]);
+		jogadores[i]->setCampo(*campo);
+	}
 }
 
 vsssERUS::World::~World() {
@@ -41,4 +46,8 @@ void vsssERUS::World::setCampo(Campo* campo){
 
 vsssERUS::Campo* vsssERUS::World::getCampo(){
 	return campo;
+}
+
+void vsssERUS::World::forceNotify(string s) {
+	atualizacaoCampo.notifica();
 }

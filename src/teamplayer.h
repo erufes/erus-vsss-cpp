@@ -13,6 +13,18 @@
 #include "defesabehavior.h"
 #include "goleirobehavior.h"
 #include "utils.h"
+#include "observer.h"
+
+// Constantes de discretização do campo
+
+#define STEP_X 7.5
+#define STEP_Y 7.5
+#define VSSIZE_X 7.5
+#define VSSIZE_Y 7.5
+#define VSSIZE_Z 7.5
+
+#define DISC_X 20
+#define DISC_Y 17
 
 /*
  * Nome do módulo: TeamPlayer
@@ -24,17 +36,24 @@
  */
 namespace vsssERUS{
 
+	class Campo;
+
 	enum Funcao {
 		Goleiro,
 		Atacante,
 		Defensor
 	};
 
-	class TeamPlayer: public Player
+	class TeamPlayer: public Player, public Observer 
 	{
 		PlayBehavior* comportamento;
 		double distanciaMinDaParede;
+		double campoPotencial[DISC_X][DISC_Y];
+		void atualizaCampoPotencial();
+		Campo* campo;
 	public:
+		void setCampo(Campo& c) { this->campo = &c; }
+		void notifica();
 		TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
 
 		/*
