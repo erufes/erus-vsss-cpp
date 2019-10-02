@@ -6,26 +6,28 @@
  */
 
 #include "goleirobehavior.h"
+namespace vsssERUS {
 
-vsssERUS::GoleiroBehavior::GoleiroBehavior() {
+GoleiroBehavior::GoleiroBehavior() {
 
 }
 
-vsssERUS::Ponto vsssERUS::GoleiroBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-	//todo: implementar vsssERUS::GoleiroBehavior::movimenta
+Ponto GoleiroBehavior::movimenta(Ponto posicao, World* mundo){
+	//todo: implementar GoleiroBehavior::movimenta
 	return Ponto();
 }
 
-std::pair<int,int> vsssERUS::GoleiroBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-	//todo: implementar vsssERUS::GoleiroBehavior::controle
+std::pair<int,int> GoleiroBehavior::controle(Ponto posicao, World* mundo){
+	//todo: implementar GoleiroBehavior::controle
 	return std::pair<int,int>();
 }
 
-std::pair<int,int> vsssERUS::GoleiroBehavior::evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+std::pair<int,int> GoleiroBehavior::evitarColisaoEntreJogadores(Ponto posicao, World* mundo) {
 	return std::pair<int, int>();
 }
 
-std::pair<int,int> vsssERUS::GoleiroBehavior::sairDaParede(Ponto posicao, World* mundo) {
+std::pair<int,int> GoleiroBehavior::sairDaParede(Ponto posicao, World* mundo) {
 	return std::pair<int, int>();
 }
 
+}
