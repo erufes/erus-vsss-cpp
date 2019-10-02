@@ -37,10 +37,10 @@ void TeamPlayer::adicionaPontoDeRepulsao(Ponto p) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = 1.0;
 }
 
-// i = intensidade do campo no ponto, -1 <= i <= 1
+// i = intensidade do campo no ponto, 0 <= i <= 1
 void TeamPlayer::adicionaPontoDeRepulsao(Ponto p, double i) {
-	if(i < -1)
-		i = -1;
+	if(i < 0)
+		i = 0;
 	else if (i > 1)
 		i = 1;
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = i;
@@ -51,8 +51,8 @@ void TeamPlayer::adicionaPontoDeAtracao(Ponto p) {
 }
 
 void TeamPlayer::adicionaPontoDeAtracao(Ponto p, double i) {
-	if(i < -1)
-		i = -1;
+	if(i < 0)
+		i = 0;
 	else if (i > 1)
 		i = 1;
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -i;
