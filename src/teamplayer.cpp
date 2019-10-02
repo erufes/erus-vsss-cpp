@@ -57,6 +57,16 @@ void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p, double i) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -i;
 }
 
+// Impede que o robô bata na parede
+void vsssERUS::TeamPlayer::resetaBordasPotencial() {
+	for(int i = 0; i < DISC_X; i++) {
+		for(int j = 0; j < DISC_Y; j++) {
+			if(i == 0 || j == 0 || i == DISC_X - 1 || j == DISC_Y - 1)
+			this->campoPotencial[i][j] = 1.0;
+		}
+	}
+}
+
 /*
  * Seguindo a lógica da teoria aplicada no projeto, os pontos de atração têm associados
  * a eles um potencial negativo ("queda"), enquanto os pontos de repulsão têm associados
@@ -65,6 +75,8 @@ void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p, double i) {
  */
 void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
 	vsssERUS::Campo::dadosDoCampo d = campo->getPositions();
+	// Em todo tick(), reseta a fronteira do domínio da análise
+	this->resetaBordasPotencial();
 	this->adicionaPontoDeAtracao(d.b);
 	this->adicionaPontoDeRepulsao(d.f1);
 	this->adicionaPontoDeRepulsao(d.f2);

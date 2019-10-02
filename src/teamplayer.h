@@ -55,6 +55,7 @@ namespace vsssERUS{
 		void adicionaPontoDeRepulsao(Ponto p, double i);
 		void adicionaPontoDeAtracao(Ponto p);
 		void adicionaPontoDeAtracao(Ponto p, double i);
+		void resetaBordasPotencial();
 	public:
 		void setCampo(Campo& c) { this->campo = &c; }
 		void notifica();
