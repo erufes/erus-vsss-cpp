@@ -147,16 +147,14 @@ void vsssERUS::Campo::setLado(int x){
 	}
 }
 
-vsssERUS::Ponto* vsssERUS::Campo::getPositions() {
-    // enum???
-    // struct???
-    Ponto* pos = (Ponto*) std::malloc(((2 * MAX_TEAM_SIZE) + 1) * sizeof(Ponto));//[(2*MAX_TEAM_SIZE) + 1];
-    pos[0] = this->ball->getPosicao();
-    pos[1] = this->friendlies->getPlayerByIdx(0).getPosicao();
-    pos[2] = this->friendlies->getPlayerByIdx(1).getPosicao();
-    pos[3] = this->friendlies->getPlayerByIdx(2).getPosicao();
-    pos[4] = this->enemies->getPlayerByIdx(0).getPosicao();
-    pos[5] = this->enemies->getPlayerByIdx(1).getPosicao();
-    pos[6] = this->enemies->getPlayerByIdx(2).getPosicao();
-    return pos;
+vsssERUS::Campo::dadosDoCampo& vsssERUS::Campo::getPositions() {
+    vsssERUS::Campo::dadosDoCampo* d = new dadosDoCampo();
+    d->b = this->ball->getPosicao();
+    d->f1 = this->friendlies->getPlayerByIdx(0).getPosicao();
+    d->f2 = this->friendlies->getPlayerByIdx(1).getPosicao();
+    d->f3 = this->friendlies->getPlayerByIdx(2).getPosicao();
+    d->e1 = this->enemies->getPlayerByIdx(0).getPosicao();
+    d->e2 = this->enemies->getPlayerByIdx(1).getPosicao();
+    d->e3 = this->enemies->getPlayerByIdx(2).getPosicao();
+    return *d;
 }

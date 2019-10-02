@@ -21,7 +21,7 @@ class TeamPlayer;
 */
 
 namespace vsssERUS{
-	
+
 	class Campo
 	{
 	private:
@@ -65,7 +65,12 @@ namespace vsssERUS{
 		Ball* ball;
 
 	public:
-		Ponto* getPositions();
+		// Struct auxiliar para transmitir os dados posicionais para os teamPlayers
+		struct dadosDoCampo {
+			Ponto f1, f2, f3, e1, e2, e3, b;
+		};
+
+		dadosDoCampo& getPositions();
 		Campo(char* campo);
 
 		/* estaDentroDoCampo

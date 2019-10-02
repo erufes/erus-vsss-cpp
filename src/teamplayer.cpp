@@ -33,8 +33,8 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 }
 
 void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
-	vsssERUS::Ponto* dados = campo->getPositions();
-	this->campoPotencial[(int)(dados[0].getX() / STEP_X)][(int) (dados[0].getY() / STEP_Y)] = -1.0;
+	vsssERUS::Campo::dadosDoCampo d = campo->getPositions();
+	this->campoPotencial[(int)(d.b.getX() / STEP_X)][(int) (d.b.getY() / STEP_Y)] = -1.0;
 }
 
 void vsssERUS::TeamPlayer::notifica() {
