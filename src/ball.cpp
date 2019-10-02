@@ -1,18 +1,20 @@
 #include "ball.h"
 
-vsssERUS::Ball::Ball(double x, double y) : vsssERUS::Agent(x,y) {
+namespace vsssERUS {
+
+Ball::Ball(double x, double y) : Agent(x,y) {
 
 }
 
-vsssERUS::Ball::Ball(Ponto p) : vsssERUS::Agent(p) {
+Ball::Ball(Ponto p) : Agent(p) {
 
 }
 
 // TODO: Comentar o que este código está fazendo
-vsssERUS::Ponto vsssERUS::Ball::predictBall(TeamPlayer& jogador) {
+Ponto Ball::predictBall(TeamPlayer& jogador) {
     double x_ball_predic, y_ball_predic;
     double mx = 0, my = 0;
-    vector<vsssERUS::Ponto> old = this->getxyOld();
+    vector<Ponto> old = this->getxyOld();
     for(int i = 0;i < 5; i++){
          mx += old[i].getX();
          my += old[i].getY();
@@ -50,10 +52,10 @@ vsssERUS::Ponto vsssERUS::Ball::predictBall(TeamPlayer& jogador) {
 
 
 // TODO: Comentar o que este código está fazendo
-vsssERUS::Ponto vsssERUS::Ball::predictBallOffensive(TeamPlayer& jogador) {
-     double x_ball_predic, y_ball_predic;
+Ponto Ball::predictBallOffensive(TeamPlayer& jogador) {
+    double x_ball_predic, y_ball_predic;
     double mx = 0, my = 0;
-    vector<vsssERUS::Ponto> old = this->getxyOld();
+    vector<Ponto> old = this->getxyOld();
     for(int i = 0;i < 5; i++){
         mx += old[0].getX();
         mx += old[0].getY();
@@ -85,6 +87,4 @@ vsssERUS::Ponto vsssERUS::Ball::predictBallOffensive(TeamPlayer& jogador) {
     return Ponto(x_ball_predic, y_ball_predic);
 }
 
-
-
-
+} // vsssERUS

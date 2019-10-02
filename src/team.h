@@ -16,22 +16,23 @@
 
 
 using namespace std;
-namespace vsssERUS{
-	class Team
-	{
-		vector<Player*> jogadores;
-		enum cor {
-			INDEFINIDA,
-			Amarelo,
-			Azul,
-			Verde,
-			Rosa
-		};
-	public:
-		Team();
-		virtual ~Team();
-		void adicionaAoTime(Player& p);
-		Player& getPlayerByIdx(int idx) { return *this->jogadores[idx]; }
+namespace vsssERUS {
+class Team
+{
+	vector<Player*> jogadores;
+	enum cor {
+		INDEFINIDA,
+		Amarelo,
+		Azul,
+		Verde,
+		Rosa
 	};
-}
+public:
+	Team();
+	virtual ~Team();
+	void adicionaAoTime(Player& p);
+	Player& getPlayerByIdx(int idx) { return *this->jogadores[idx]; }
+};
+
+} // vsssERUS
 #endif // TEAM_H

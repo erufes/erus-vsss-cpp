@@ -17,14 +17,15 @@
 #include <vector>
 #include <iostream>
 
-namespace vsssERUS{
-	class Ball: public Agent
-	{
-	public:
-		Ball(double x, double y);
-		Ball(Ponto p);
-		Ponto predictBall(TeamPlayer& player);
-		Ponto predictBallOffensive(TeamPlayer& player);
-	};
-}
+namespace vsssERUS {
+class Ball: public Agent
+{
+public:
+	Ball(double x, double y);
+	Ball(Ponto p);
+	Ponto predictBall(TeamPlayer& player);
+	Ponto predictBallOffensive(TeamPlayer& player);
+};
+} // vsssERUS
+
 #endif // BALL_H

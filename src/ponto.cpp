@@ -1,38 +1,40 @@
 #include "ponto.h"
 
-vsssERUS::Ponto::Ponto(double x, double y)
+namespace vsssERUS {
+
+Ponto::Ponto(double x, double y)
 {
     this->x = x;
     this->y = y;
 }
 
-double vsssERUS::Ponto::distancia(Ponto outro) const {
+double Ponto::distancia(Ponto outro) const {
     return sqrt((x - outro.x)*(x - outro.x) + (y - outro.y)*(y - outro.y));
 }
 
-double vsssERUS::Ponto::getX() const {
+double Ponto::getX() const {
     return x;
 }
 
-double vsssERUS::Ponto::getY() const {
+double Ponto::getY() const {
     return y;
 }
 
-void vsssERUS::Ponto::setX(double x){
+void Ponto::setX(double x){
     this->x = x;
 }
 
-void vsssERUS::Ponto::setY(double y){
+void Ponto::setY(double y){
     this->y = y;
 }
 
-bool vsssERUS::Ponto::operator==(Ponto const &p) {
+bool Ponto::operator==(Ponto const &p) {
 	return (abs(this->x - p.x) <= DOUBLE_CMP_THRESHOLD) && (abs(this->y - p.y) <= DOUBLE_CMP_THRESHOLD);
 }
 
 //Resolu��o do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
 //Cr�ditos � professora Cl�udia Galarda Varassin pela cria��o da fun��o que foi poucamente modificada para atender � nossos anseios
-vector<double> vsssERUS::Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, int N){
+vector<double> Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, int N){
 	double A[N][N], X[N], soma, b[N], m, maior,aux, baux;
 	int n,k,i,j, imaior;
 	vector<double> x;
@@ -127,3 +129,4 @@ vector<double> vsssERUS::Ponto::resolucaoDeSistemaLinear(double** matrix, double
 		return x;
 }
 
+} // vsssERUS

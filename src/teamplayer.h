@@ -36,76 +36,76 @@
  */
 namespace vsssERUS{
 
-	class Campo;
+class Campo;
 
-	enum Funcao {
-		Goleiro,
-		Atacante,
-		Defensor
+enum Funcao {
+	Goleiro,
+	Atacante,
+	Defensor
+};
+
+class TeamPlayer: public Player, public Observer 
+{
+	PlayBehavior* comportamento;
+	double distanciaMinDaParede;
+	double campoPotencial[DISC_X][DISC_Y];
+	void atualizaCampoPotencial();
+	Campo* campo;
+	void adicionaPontoDeRepulsao(Ponto p);
+	void adicionaPontoDeRepulsao(Ponto p, double i);
+	void adicionaPontoDeAtracao(Ponto p);
+	void adicionaPontoDeAtracao(Ponto p, double i);
+	void resetaBordasPotencial();
+public:
+	void setCampo(Campo& c) { this->campo = &c; }
+	void notifica();
+	TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
+
+	/*
+		* Nome da função:       movimenta;
+		* Intenção da Função:   Calcular onde o robô deverá ir;
+		* Pré-Requisitos:       O robô deve possuir uma posição inicial válida;
+		* Efeitos colaterais:   Não há;
+		* Parametros:           (Ponto) posição: Posição alvo do robô;
+		*                       (World) mundo: Informações sobre o estado do jogo;
+		* Retorno:              (Ponto) comportamento: Posição para onde o robô deverá se movimentar;
+		*/
+	Ponto movimenta(Ponto posicao, World* mundo);
+
+	/*
+		* Nome da função:       controle;
+		* Intenção da Função:   Controlar o robô para ele ir até determinada posição;
+		* Pré-Requisitos:       O robô deve possuir uma posição inicial válida;
+		* Efeitos colaterais:   Não possui efeitos colaterais;
+		* Parametros:           (Ponto) posição: Posição alvo do robô;
+		*                       (World) mundo: Informações sobre o estado do jogo;
+		* Retorno:              (pair<int, int>) velocidades: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
+		*/
+	std::pair<int,int> controle(Ponto posicao, World* mundo);
+
+	/*
+		* Nome da função:       mudaComportamento;
+		* Intenção da Função:   Mudar o comportamento do robô para goleiro, atacante ou defensor;
+		* Pré-Requisitos:       Não há;
+		* Efeitos colaterais:   Altera o comportamento das funções movimenta() e controle();
+		* Parametros:           (Funcao) novo: Função nova para o robô;
+		* Retorno:              Não possui retorno;
+		*/
+	void mudaComportamento(Funcao novo);
+
+	bool isEnemy(){
+		return false;
 	};
 
-	class TeamPlayer: public Player, public Observer 
-	{
-		PlayBehavior* comportamento;
-		double distanciaMinDaParede;
-		double campoPotencial[DISC_X][DISC_Y];
-		void atualizaCampoPotencial();
-		Campo* campo;
-		void adicionaPontoDeRepulsao(Ponto p);
-		void adicionaPontoDeRepulsao(Ponto p, double i);
-		void adicionaPontoDeAtracao(Ponto p);
-		void adicionaPontoDeAtracao(Ponto p, double i);
-		void resetaBordasPotencial();
-	public:
-		void setCampo(Campo& c) { this->campo = &c; }
-		void notifica();
-		TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
+#ifdef UsingSimulator
+	vss::WheelsCommand update(vss::State state, int index, vsssERUS::World* mundo);
 
-		/*
-		 * Nome da função:       movimenta;
-		 * Intenção da Função:   Calcular onde o robô deverá ir;
-		 * Pré-Requisitos:       O robô deve possuir uma posição inicial válida;
-		 * Efeitos colaterais:   Não há;
-		 * Parametros:           (Ponto) posição: Posição alvo do robô;
-		 *                       (World) mundo: Informações sobre o estado do jogo;
-		 * Retorno:              (Ponto) comportamento: Posição para onde o robô deverá se movimentar;
-		 */
-		Ponto movimenta(Ponto posicao, World* mundo);
+	Utils::Posture defineObjective(vss::State, int index, vsssERUS::World* mundo);
 
-		/*
-		 * Nome da função:       controle;
-		 * Intenção da Função:   Controlar o robô para ele ir até determinada posição;
-		 * Pré-Requisitos:       O robô deve possuir uma posição inicial válida;
-		 * Efeitos colaterais:   Não possui efeitos colaterais;
-		 * Parametros:           (Ponto) posição: Posição alvo do robô;
-		 *                       (World) mundo: Informações sobre o estado do jogo;
-		 * Retorno:              (pair<int, int>) velocidades: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
-		 */
-		std::pair<int,int> controle(Ponto posicao, World* mundo);
+	vss::WheelsCommand motionControl(vss::State state, Utils::Posture objective, int index);
 
-		/*
-		 * Nome da função:       mudaComportamento;
-		 * Intenção da Função:   Mudar o comportamento do robô para goleiro, atacante ou defensor;
-		 * Pré-Requisitos:       Não há;
-		 * Efeitos colaterais:   Altera o comportamento das funções movimenta() e controle();
-		 * Parametros:           (Funcao) novo: Função nova para o robô;
-		 * Retorno:              Não possui retorno;
-		 */
-		void mudaComportamento(Funcao novo);
+#endif
 
-		bool isEnemy(){
-			return false;
-		};
-
-	#ifdef UsingSimulator
-		vss::WheelsCommand update(vss::State state, int index, vsssERUS::World* mundo);
-
-		Utils::Posture defineObjective(vss::State, int index, vsssERUS::World* mundo);
-
-		vss::WheelsCommand motionControl(vss::State state, Utils::Posture objective, int index);
-
-	#endif
-
-	};
-}
+};
+} // vsssERUS
 #endif // TEAMPLAYER_H

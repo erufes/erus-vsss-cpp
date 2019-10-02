@@ -7,20 +7,24 @@
 
 #include "defesabehavior.h"
 
-vsssERUS::DefesaBehavior::DefesaBehavior() {}
-vsssERUS::DefesaBehavior::~DefesaBehavior() {}
+namespace vsssERUS {
 
-vsssERUS::Ponto vsssERUS::DefesaBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-	return vsssERUS::Ponto();
+DefesaBehavior::DefesaBehavior() {}
+DefesaBehavior::~DefesaBehavior() {}
+
+Ponto DefesaBehavior::movimenta(Ponto posicao, World* mundo){
+	return Ponto();
 }
 
-std::pair<int,int> vsssERUS::DefesaBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
+std::pair<int,int> DefesaBehavior::controle(Ponto posicao, World* mundo){
 	return std::pair<int,int>();
 }
-std::pair<int,int> vsssERUS::DefesaBehavior::sairDaParede(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+std::pair<int,int> DefesaBehavior::sairDaParede(Ponto posicao, World* mundo) {
 	return std::pair<int, int>();
 }
 
-std::pair<int,int> vsssERUS::DefesaBehavior::evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+std::pair<int,int> DefesaBehavior::evitarColisaoEntreJogadores(Ponto posicao, World* mundo) {
 	return std::pair<int, int>();
 }
+
+} // vsssERUS

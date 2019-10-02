@@ -1,43 +1,44 @@
 #include "teamplayer.h"
 #include "campo.h"
 
+namespace vsssERUS {
 
-vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
+TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
 {
 	//this->comportamento = NULL;
 	this->mudaComportamento(comportamento);
 	this->distanciaMinDaParede = distanciaMinDaParede;
 }
 
-vsssERUS::Ponto vsssERUS::TeamPlayer::movimenta(vsssERUS::Ponto posicao, World* mundo){
+Ponto TeamPlayer::movimenta(Ponto posicao, World* mundo){
 	return comportamento->movimenta(posicao, mundo);
 }
 
-std::pair<int,int> vsssERUS::TeamPlayer::controle(vsssERUS::Ponto posicao, World* mundo){
+std::pair<int,int> TeamPlayer::controle(Ponto posicao, World* mundo){
 	return comportamento->controle(posicao, mundo);
 }
 
-void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
+void TeamPlayer::mudaComportamento(Funcao novo){
 	if (comportamento != NULL) delete comportamento;
 	switch(novo){
 		case Goleiro:
-			comportamento = new vsssERUS::GoleiroBehavior();
+			comportamento = new GoleiroBehavior();
 			break;
 		case Atacante:
-			comportamento = new vsssERUS::AtaqueBehavior();
+			comportamento = new AtaqueBehavior();
 			break;
 		case Defensor:
-			comportamento = new vsssERUS::DefesaBehavior();
+			comportamento = new DefesaBehavior();
 			break;
 	}
 }
 
-void vsssERUS::TeamPlayer::adicionaPontoDeRepulsao(vsssERUS::Ponto p) {
+void TeamPlayer::adicionaPontoDeRepulsao(Ponto p) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = 1.0;
 }
 
 // i = intensidade do campo no ponto, -1 <= i <= 1
-void vsssERUS::TeamPlayer::adicionaPontoDeRepulsao(vsssERUS::Ponto p, double i) {
+void TeamPlayer::adicionaPontoDeRepulsao(Ponto p, double i) {
 	if(i < -1)
 		i = -1;
 	else if (i > 1)
@@ -45,11 +46,11 @@ void vsssERUS::TeamPlayer::adicionaPontoDeRepulsao(vsssERUS::Ponto p, double i) 
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = i;
 }
 
-void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p) {
+void TeamPlayer::adicionaPontoDeAtracao(Ponto p) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -1.0;
 }
 
-void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p, double i) {
+void TeamPlayer::adicionaPontoDeAtracao(Ponto p, double i) {
 	if(i < -1)
 		i = -1;
 	else if (i > 1)
@@ -58,7 +59,7 @@ void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p, double i) {
 }
 
 // Impede que o robô bata na parede
-void vsssERUS::TeamPlayer::resetaBordasPotencial() {
+void TeamPlayer::resetaBordasPotencial() {
 	for(int i = 0; i < DISC_X; i++) {
 		for(int j = 0; j < DISC_Y; j++) {
 			if(i == 0 || j == 0 || i == DISC_X - 1 || j == DISC_Y - 1)
@@ -73,8 +74,8 @@ void vsssERUS::TeamPlayer::resetaBordasPotencial() {
  * um potencial positivo. Com isso, a resultante deve apontar para longe dos obstáculos e
  * para perto dos objetivos. As bordas do campo também são obstáculos.
  */
-void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
-	vsssERUS::Campo::dadosDoCampo d = campo->getPositions();
+void TeamPlayer::atualizaCampoPotencial() {
+	Campo::dadosDoCampo d = campo->getPositions();
 	// Em todo tick(), reseta a fronteira do domínio da análise
 	this->resetaBordasPotencial();
 	this->adicionaPontoDeAtracao(d.b);
@@ -87,20 +88,20 @@ void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
 	return;
 }
 
-void vsssERUS::TeamPlayer::notifica() {
+void TeamPlayer::notifica() {
 	// Ao receber notificação do evento, atualizar campo potencial
 	this->atualizaCampoPotencial();
 }
 
 #ifdef UsingSimulator
-	vss::WheelsCommand vsssERUS::TeamPlayer::update(vss::State state, int index, vsssERUS::World* mundo) {
+	vss::WheelsCommand TeamPlayer::update(vss::State state, int index, World* mundo) {
 		Utils::Posture objective = defineObjective(state, index, mundo);
 		return motionControl(state, objective, index);
 	}
 
-	Utils::Posture vsssERUS::TeamPlayer::defineObjective(vss::State, int index, vsssERUS::World* mundo)
+	Utils::Posture TeamPlayer::defineObjective(vss::State, int index, World* mundo)
 	{
-		vsssERUS::Ponto onde = this->movimenta(this->getPosicao(), mundo);
+		Ponto onde = this->movimenta(this->getPosicao(), mundo);
 		Utils::Posture resp(onde.getX(), onde.getY(), M_PI/4.);
 		// Retorne o objetivo aqui
 		return Utils::Posture(10., 65.0, M_PI/4.);
@@ -109,7 +110,7 @@ void vsssERUS::TeamPlayer::notifica() {
 		//return resp;
 	}
 
-	vss::WheelsCommand vsssERUS::TeamPlayer::motionControl(vss::State state, Utils::Posture objective, int index){
+	vss::WheelsCommand TeamPlayer::motionControl(vss::State state, Utils::Posture objective, int index){
 		vss::WheelsCommand result;
 		double  alpha, beta, rho, lambda;
 		double linearSpeed, angularSpeed;
@@ -160,3 +161,5 @@ void vsssERUS::TeamPlayer::notifica() {
 		return result;
 	};
 #endif
+
+} // vsssERUS

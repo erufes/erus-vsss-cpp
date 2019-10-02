@@ -1,5 +1,7 @@
 #include "agent.h"
 
+namespace vsssERUS {
+
 /* ajusteDeCurva
 * Intenção da função:
 * Pré-Requisitos:
@@ -7,16 +9,14 @@
 * Parâmetros:
 * Retorno:
 */
-namespace vsssERUS {
-	double** ajusteDeCurva(vector<Ponto> vet, int grau);
-}
+double** ajusteDeCurva(vector<Ponto> vet, int grau);
 
 
-float vsssERUS::Agent::distancia(Agent& agente) const {
+float Agent::distancia(Agent& agente) const {
 	return 0;
 }
 
-vsssERUS::Agent::Agent(double x, double y)
+Agent::Agent(double x, double y)
 {
     posicao = Ponto(x, y);
     for(int i = 0; i < 5; i++){
@@ -24,19 +24,19 @@ vsssERUS::Agent::Agent(double x, double y)
     }
 }
 
-vsssERUS::Agent::Agent(vsssERUS::Ponto ponto){
+Agent::Agent(Ponto ponto){
 	posicao = ponto;
 	for(int i = 0; i < 5; i++){
 		posicoesAnteriores.push_back(Ponto(0.0, 0.0));
 	}
 }
 
-vector<vsssERUS::Ponto> vsssERUS::Agent::getxyOld() const{
+vector<Ponto> Agent::getxyOld() const{
     return this->posicoesAnteriores;
 }
 
 // Faz a previsão de uma futura posição da bola/player
-std::pair<double, double> vsssERUS::Agent::previsaoDePosicao() const{
+std::pair<double, double> Agent::previsaoDePosicao() const{
 	double Kx1, Kx2, Kx3, Kx4, Ky1, Ky2, Ky3, Ky4, t;
 	int i;
 	pair<double, double> ponto_futuro;
@@ -74,21 +74,21 @@ std::pair<double, double> vsssERUS::Agent::previsaoDePosicao() const{
 	return ponto_futuro;
 }
 
-void vsssERUS::Agent::updatePosition(double x, double y){
+void Agent::updatePosition(double x, double y){
 	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
 	this->posicoesAnteriores.push_back(this->getPosicao());
 	posicao.setX(x);
     posicao.setY(y);
 }
 
-void vsssERUS::Agent::updatePosition(vsssERUS::Ponto ponto){
+void Agent::updatePosition(vsssERUS::Ponto ponto){
 	this->posicoesAnteriores.erase(this->posicoesAnteriores.begin());
 	this->posicoesAnteriores.push_back(this->getPosicao());
 	posicao.setX(ponto.getX());
 	posicao.setY(ponto.getY());
 }
 
-vsssERUS::Ponto vsssERUS::Agent::getPosicao() const{
+Ponto vsssERUS::Agent::getPosicao() const{
     return this->posicao;
 }
 
@@ -97,7 +97,7 @@ vsssERUS::Ponto vsssERUS::Agent::getPosicao() const{
  * Essa função foi desenvolvida pensando em descobrir os valores das posições X e Y num tempo t, logo, ela ocorre "duas vezes" 
  * (na mesma chamada da função) para realizar esse processo mais rapidamente 
  */
-double** vsssERUS::ajusteDeCurva(vector<vsssERUS::Ponto> vet, int grau){
+double** ajusteDeCurva(vector<Ponto> vet, int grau){
 
 	// Separação dos pontos em coordenadas independentes
 	vector<double> vetX, vetY;
@@ -168,3 +168,5 @@ double** vsssERUS::ajusteDeCurva(vector<vsssERUS::Ponto> vet, int grau){
 
 	return vetOut;
 }
+
+} // vsssERUS
