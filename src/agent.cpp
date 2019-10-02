@@ -169,4 +169,4 @@ double** ajusteDeCurva(vector<Ponto> vet, int grau){
 	return vetOut;
 }
 
-} /* vsssERUS */
+} // vsssERUS

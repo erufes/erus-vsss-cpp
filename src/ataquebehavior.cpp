@@ -29,4 +29,4 @@ std::pair<int,int> AtaqueBehavior::evitarColisaoEntreJogadores(Ponto posicao, vs
     return pair<int, int>();
 }
 
-} /* vsssERUS */
+} // vsssERUS

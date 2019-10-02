@@ -80,6 +80,6 @@ public:
     float distancia(Agent& agente) const;
 };
 
-} /* vsssERUS */
+} // vsssERUS
 
 #endif // AGENT_H

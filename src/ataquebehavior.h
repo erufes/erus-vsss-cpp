@@ -1,5 +1,5 @@
-#ifndef ATAQUEBEHAVIOR_H_
-#define ATAQUEBEHAVIOR_H_
+#ifndef ATAQUEBEHAVIOR_H
+#define ATAQUEBEHAVIOR_H
 #include "playbehavior.h"
 #include "ponto.h"
 
@@ -53,6 +53,6 @@ public:
 	std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
 };
 
-} /* vsssERUS */
+} // vsssERUS
 
-#endif /* ATAQUEBEHAVIOR_H_ */
+#endif // ATAQUEBEHAVIOR_H
