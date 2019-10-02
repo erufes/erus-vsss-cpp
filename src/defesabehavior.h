@@ -1,5 +1,5 @@
-#ifndef DEFESABEHAVIOR_H_
-#define DEFESABEHAVIOR_H_
+#ifndef DEFESABEHAVIOR_H
+#define DEFESABEHAVIOR_H
 #include "playbehavior.h"
 #include "ponto.h"
 
@@ -54,5 +54,6 @@ class DefesaBehavior : public PlayBehavior {
 		std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
 	};
 
-}
-#endif /* DEFESABEHAVIOR_H_ */
+} // vsssERUS
+
+#endif // DEFESABEHAVIOR_H
