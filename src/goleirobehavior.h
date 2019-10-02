@@ -13,7 +13,7 @@
 namespace vsssERUS{
 class World;
 
-class GoleiroBehavior : public PlayBehavior{
+class GoleiroBehavior : public PlayBehavior {
 public:
 	GoleiroBehavior();
 	~GoleiroBehavior()=default;

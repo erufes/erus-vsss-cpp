@@ -13,71 +13,71 @@
  * Membros: Gabriel Valdino, Victor de Oliveira, Lorena Bassani
  */
 
-namespace vsssERUS{
-	class Player: public Agent {
-		double theta;
-		double thetaAntigo;
-		int id;
-		float erroAtual;
-		float erroAntigo;
-	public:
+namespace vsssERUS {
+class Player : public Agent {
+	double theta;
+	double thetaAntigo;
+	int id;
+	float erroAtual;
+	float erroAntigo;
+public:
 
-		Player(int id = 0,double theta = 0.0);
+	Player(int id = 0,double theta = 0.0);
 
-		/* getId
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		int getId() const;
+	/* getId
+	* Intenção da Função:
+	* Pré-requisitos:
+	* Efeitos colaterais:
+	* Parâmetros:
+	* Retorno:
+	*/
+	int getId() const;
 
-		/* getPosicaoAntiga
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		Ponto getPosicaoAntiga() const;
+	/* getPosicaoAntiga
+	* Intenção da Função:
+	* Pré-requisitos:
+	* Efeitos colaterais:
+	* Parâmetros:
+	* Retorno:
+	*/
+	Ponto getPosicaoAntiga() const;
 
-		/* getTheta
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		double getTheta() const;
+	/* getTheta
+	* Intenção da Função:
+	* Pré-requisitos:
+	* Efeitos colaterais:
+	* Parâmetros:
+	* Retorno:
+	*/
+	double getTheta() const;
 
-		/* setTheta
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		void setTheta(double theta);
+	/* setTheta
+	* Intenção da Função:
+	* Pré-requisitos:
+	* Efeitos colaterais:
+	* Parâmetros:
+	* Retorno:
+	*/
+	void setTheta(double theta);
 
-		/* getThetaAntigo
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		double getThetaAntigo() const;
+	/* getThetaAntigo
+	* Intenção da Função:
+	* Pré-requisitos:
+	* Efeitos colaterais:
+	* Parâmetros:
+	* Retorno:
+	*/
+	double getThetaAntigo() const;
 
-		/* isEnemy
-		* Intenção da Função:
-		* Pré-requisitos:
-		* Efeitos colaterais:
-		* Parâmetros:
-		* Retorno:
-		*/
-		virtual bool isEnemy() = 0;
+	/* isEnemy
+	* Intenção da Função:
+	* Pré-requisitos:
+	* Efeitos colaterais:
+	* Parâmetros:
+	* Retorno:
+	*/
+	virtual bool isEnemy() = 0;
 
-	};
-}
+};
+} // vsssERUS
 #endif // PLAYER_H
