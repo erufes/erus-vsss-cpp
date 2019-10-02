@@ -57,9 +57,22 @@ void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p, double i) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -i;
 }
 
+/*
+ * Seguindo a lógica da teoria aplicada no projeto, os pontos de atração têm associados
+ * a eles um potencial negativo ("queda"), enquanto os pontos de repulsão têm associados
+ * um potencial positivo. Com isso, a resultante deve apontar para longe dos obstáculos e
+ * para perto dos objetivos. As bordas do campo também são obstáculos.
+ */
 void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
 	vsssERUS::Campo::dadosDoCampo d = campo->getPositions();
-	this->campoPotencial[(int)(d.b.getX() / STEP_X)][(int) (d.b.getY() / STEP_Y)] = -1.0;
+	this->adicionaPontoDeAtracao(d.b);
+	this->adicionaPontoDeRepulsao(d.f1);
+	this->adicionaPontoDeRepulsao(d.f2);
+	this->adicionaPontoDeRepulsao(d.f3);
+	this->adicionaPontoDeRepulsao(d.e1);
+	this->adicionaPontoDeRepulsao(d.e2);
+	this->adicionaPontoDeRepulsao(d.e3);
+	return;
 }
 
 void vsssERUS::TeamPlayer::notifica() {
