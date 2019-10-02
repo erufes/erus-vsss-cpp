@@ -35,9 +35,28 @@ void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
 void vsssERUS::TeamPlayer::adicionaPontoDeRepulsao(vsssERUS::Ponto p) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = 1.0;
 }
+
+// i = intensidade do campo no ponto, -1 <= i <= 1
+void vsssERUS::TeamPlayer::adicionaPontoDeRepulsao(vsssERUS::Ponto p, double i) {
+	if(i < -1)
+		i = -1;
+	else if (i > 1)
+		i = 1;
+	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = i;
+}
+
 void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p) {
 	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -1.0;
 }
+
+void vsssERUS::TeamPlayer::adicionaPontoDeAtracao(vsssERUS::Ponto p, double i) {
+	if(i < -1)
+		i = -1;
+	else if (i > 1)
+		i = 1;
+	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -i;
+}
+
 void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
 	vsssERUS::Campo::dadosDoCampo d = campo->getPositions();
 	this->campoPotencial[(int)(d.b.getX() / STEP_X)][(int) (d.b.getY() / STEP_Y)] = -1.0;

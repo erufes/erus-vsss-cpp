@@ -52,7 +52,9 @@ namespace vsssERUS{
 		void atualizaCampoPotencial();
 		Campo* campo;
 		void adicionaPontoDeRepulsao(Ponto p);
+		void adicionaPontoDeRepulsao(Ponto p, double i);
 		void adicionaPontoDeAtracao(Ponto p);
+		void adicionaPontoDeAtracao(Ponto p, double i);
 	public:
 		void setCampo(Campo& c) { this->campo = &c; }
 		void notifica();
