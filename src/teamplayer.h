@@ -1,78 +1,106 @@
-//.cpp incompleto
 #ifndef TEAMPLAYER_H
 #define TEAMPLAYER_H
+
+#define UsingSimulator
+
+#ifdef UsingSimulator
+#include <Communications/StateReceiver.h>
+#include <Communications/CommandSender.h>
+#endif
+
 #include "player.h"
 #include "ataquebehavior.h"
 #include "defesabehavior.h"
 #include "goleirobehavior.h"
+#include "utils.h"
+#include "observer.h"
 
-class Ponto;
+// Constantes de discretiza√ß√£o do campo
 
-/* Nome do mÛdulo: TeamPlayer
- * Ano de criaÁ„o: 2018/12
- * DescriÁ„o do mÛdulo: Classe que representa jogadores do time, criado para definir as funÁıes de cada robÙ {Goleiro, Atacante, Defensor} e seus mÈtodos de controle.
- * Vers„o: 1.1
- * PrÈ-requisitos: prÈ-requisitos de player
+#define STEP_X 7.5
+#define STEP_Y 7.5
+#define VSSIZE_X 7.5
+#define VSSIZE_Y 7.5
+#define VSSIZE_Z 7.5
+
+#define DISC_X 20
+#define DISC_Y 17
+
+/*
+ * Nome do m√≥dulo: TeamPlayer
+ * Ano de cria√ß√£o: 2018/12
+ * Descri√ß√£o do m√≥dulo: Classe que representa jogadores do time, criado para definir as fun√ß√µes de cada rob√¥ {Goleiro, Atacante, Defensor} e seus m√©todos de controle.
+ * Vers√£o: 1.1
+ * Pr√©-requisitos: pr√©-requisitos de player
  * Membros: Ricardo Ramos
  */
+namespace vsssERUS{
 
-enum Funcao{Goleiro, Atacante, Defensor};
-class PlayBehavior;
-class TeamPlayer: public Player
-{
-	PlayBehavior* comportamento;
-    double distanciaMinDaParede;
-public:
-    TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
+	class Campo;
 
-    /* movimenta
-	 * IntenÁ„o da funÁ„o: Calcular onde o robÙ dever· ir
-	 * PrÈ-requisitos: Comportamento correto
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o atual do robÙ
-	 * Retorno: PosiÁ„o para onde o robÙ dever· se movimentar
-	 */
-    Ponto movimenta(Ponto posicao, World* mundo);
+	enum Funcao {
+		Goleiro,
+		Atacante,
+		Defensor
+	};
 
-    /* controle
-	 * IntenÁ„o da funÁ„o: Calcular velocidade do robÙ para ir atÈ a posiÁao desejada
-	 * PrÈ-requisitos: Comportamento correto
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o para onde o robÙ dever· ir
-	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
-	 */
-    std::pair<int,int> controle(Ponto posicao, World* mundo);
+	class TeamPlayer: public Player, public Observer 
+	{
+		PlayBehavior* comportamento;
+		double distanciaMinDaParede;
+		double campoPotencial[DISC_X][DISC_Y];
+		void atualizaCampoPotencial();
+		Campo* campo;
+	public:
+		void setCampo(Campo& c) { this->campo = &c; }
+		void notifica();
+		TeamPlayer(Funcao comportamento, int id = 0,double theta = 0.0, double distanciaMinDaParede = 0.0);
 
-    /* mudaComortamento
-	 * IntenÁ„o da funÁ„o: Mudar o comportamento do robÙ, para goleiro, atacante ou defensor
-	 * PrÈ-requisitos: Nova funÁ„o v·lida {Goleiro, Atacante, Defensor}
-	 * Efeitos colaterais: Muda a funcionalidade das funÁıes movimenta() e controle()
-	 * Parametros: Funcao nova para o robÙ
-	 * Retorno: N„o possui retorno
-	 */
-    void mudaComportamento(Funcao novo);
+		/*
+		 * Nome da fun√ß√£o:       movimenta;
+		 * Inten√ß√£o da Fun√ß√£o:   Calcular onde o rob√¥ dever√° ir;
+		 * Pr√©-Requisitos:       O rob√¥ deve possuir uma posi√ß√£o inicial v√°lida;
+		 * Efeitos colaterais:   N√£o h√°;
+		 * Parametros:           (Ponto) posi√ß√£o: Posi√ß√£o alvo do rob√¥;
+		 *                       (World) mundo: Informa√ß√µes sobre o estado do jogo;
+		 * Retorno:              (Ponto) comportamento: Posi√ß√£o para onde o rob√¥ dever√° se movimentar;
+		 */
+		Ponto movimenta(Ponto posicao, World* mundo);
 
-    /* previsaoDePosicao
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    std::pair<double,double> previsaoDePosicao(){
-    	return this->Player::previsaoDePosicao();
-    };
+		/*
+		 * Nome da fun√ß√£o:       controle;
+		 * Inten√ß√£o da Fun√ß√£o:   Controlar o rob√¥ para ele ir at√© determinada posi√ß√£o;
+		 * Pr√©-Requisitos:       O rob√¥ deve possuir uma posi√ß√£o inicial v√°lida;
+		 * Efeitos colaterais:   N√£o possui efeitos colaterais;
+		 * Parametros:           (Ponto) posi√ß√£o: Posi√ß√£o alvo do rob√¥;
+		 *                       (World) mundo: Informa√ß√µes sobre o estado do jogo;
+		 * Retorno:              (pair<int, int>) velocidades: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
+		 */
+		std::pair<int,int> controle(Ponto posicao, World* mundo);
 
-    /* isEnemy
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    bool isEnemy(){
-    	return false;
-    };
-};
+		/*
+		 * Nome da fun√ß√£o:       mudaComportamento;
+		 * Inten√ß√£o da Fun√ß√£o:   Mudar o comportamento do rob√¥ para goleiro, atacante ou defensor;
+		 * Pr√©-Requisitos:       N√£o h√°;
+		 * Efeitos colaterais:   Altera o comportamento das fun√ß√µes movimenta() e controle();
+		 * Parametros:           (Funcao) novo: Fun√ß√£o nova para o rob√¥;
+		 * Retorno:              N√£o possui retorno;
+		 */
+		void mudaComportamento(Funcao novo);
 
+		bool isEnemy(){
+			return false;
+		};
+
+	#ifdef UsingSimulator
+		vss::WheelsCommand update(vss::State state, int index, vsssERUS::World* mundo);
+
+		Utils::Posture defineObjective(vss::State, int index, vsssERUS::World* mundo);
+
+		vss::WheelsCommand motionControl(vss::State state, Utils::Posture objective, int index);
+
+	#endif
+
+	};
+}
 #endif // TEAMPLAYER_H

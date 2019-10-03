@@ -2,100 +2,82 @@
 #define PLAYER_H
 #include "agent.h"
 
-/* Nome do mÛdulo: Player
- * Ano de criaÁ„o: 2018/11
- * DescriÁ„o do mÛdulo: cria o player com as posicoes antigas salvas e theta (o agulo referente ao lado inferior do campo)
- * 						Classe Abstrata para que n„o seja instanciada, uma vez que serve de abstraÁ„o de robÙs do time (TeamPlayer) ou inimigos (Enemy).
- * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informaÁıes como posiÁ„o e id.
- * Vers„o: 1.1
+/* Nome do m√≥dulo: Player
+ * Ano de cria√ß√£o: 2018/11
+ * Descri√ß√£o do m√≥dulo: Cria o player com as posi√ß√µes antigas salvas e theta (o √¢ngulo referente ao lado inferior do campo)
+ * 						Classe Abstrata para que n√£o seja instanciada, uma vez que serve de abstra√ß√£o de rob√¥s do time (TeamPlayer) ou inimigos (Enemy).
+ * 						Seu funcionamento lembra uma DataClass pois guarda e recupera informa√ß√µes como posi√ß√£o e id.
+ * Vers√£o: 1.1
  * Testado!! Selo Valdino de Garantia \0/
- * PrÈ-requisitos angulo positivo (0 <= theta >= 2*pi)
+ * Pr√©-requisitos: √Çngulo positivo (0 <= theta >= 2*pi)
  * Membros: Gabriel Valdino, Victor de Oliveira, Lorena Bassani
  */
 
-class Player: public Agent {
-    Ponto posicaoAntiga = Ponto(0,0);
-    double theta;
-    double thetaAntigo;
-    int id;
-public:
+namespace vsssERUS{
+	class Player: public Agent {
+		double theta;
+		double thetaAntigo;
+		int id;
+		float erroAtual;
+		float erroAntigo;
+	public:
 
-    Player(int id = 0,double theta = 0.0);
+		Player(int id = 0,double theta = 0.0);
 
-    /* getId
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	int getId() const;
+		/* getId
+		* Inten√ß√£o da Fun√ß√£o:
+		* Pr√©-requisitos:
+		* Efeitos colaterais:
+		* Par√¢metros:
+		* Retorno:
+		*/
+		int getId() const;
 
-	/* setPosicao
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	void setPosicao(Ponto p);
+		/* getPosicaoAntiga
+		* Inten√ß√£o da Fun√ß√£o:
+		* Pr√©-requisitos:
+		* Efeitos colaterais:
+		* Par√¢metros:
+		* Retorno:
+		*/
+		Ponto getPosicaoAntiga() const;
 
-	/* getPosicaoAntiga
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	Ponto getPosicaoAntiga() const;
+		/* getTheta
+		* Inten√ß√£o da Fun√ß√£o:
+		* Pr√©-requisitos:
+		* Efeitos colaterais:
+		* Par√¢metros:
+		* Retorno:
+		*/
+		double getTheta() const;
 
-	/* getTheta
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	double getTheta() const;
+		/* setTheta
+		* Inten√ß√£o da Fun√ß√£o:
+		* Pr√©-requisitos:
+		* Efeitos colaterais:
+		* Par√¢metros:
+		* Retorno:
+		*/
+		void setTheta(double theta);
 
-	/* setTheta
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	void setTheta(double theta);
+		/* getThetaAntigo
+		* Inten√ß√£o da Fun√ß√£o:
+		* Pr√©-requisitos:
+		* Efeitos colaterais:
+		* Par√¢metros:
+		* Retorno:
+		*/
+		double getThetaAntigo() const;
 
-	/* getThetaAntigo
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	double getThetaAntigo() const;
+		/* isEnemy
+		* Inten√ß√£o da Fun√ß√£o:
+		* Pr√©-requisitos:
+		* Efeitos colaterais:
+		* Par√¢metros:
+		* Retorno:
+		*/
+		virtual bool isEnemy() = 0;
 
-	/* previsaoDePosicao
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	std::pair<double,double> previsaoDePosicao(){
-		return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
-	}
-
-	/* isEnemy
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	virtual bool isEnemy() = 0;
-
-};
-
+	};
+}
 #endif // PLAYER_H

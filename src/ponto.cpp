@@ -1,34 +1,38 @@
 #include "ponto.h"
 
-Ponto::Ponto(double x, double y)
+vsssERUS::Ponto::Ponto(double x, double y)
 {
     this->x = x;
     this->y = y;
 }
 
-double Ponto::distancia(Ponto outro){
+double vsssERUS::Ponto::distancia(Ponto outro) const {
     return sqrt((x - outro.x)*(x - outro.x) + (y - outro.y)*(y - outro.y));
 }
 
-double Ponto::getX(){
+double vsssERUS::Ponto::getX() const {
     return x;
 }
 
-double Ponto::getY(){
+double vsssERUS::Ponto::getY() const {
     return y;
 }
 
-void Ponto::setX(double x){
+void vsssERUS::Ponto::setX(double x){
     this->x = x;
 }
 
-void Ponto::setY(double y){
+void vsssERUS::Ponto::setY(double y){
     this->y = y;
 }
 
-//Resolução do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
-//Créditos à professora Cláudia Galarda Varassin pela criação da função que foi poucamente modificada para atender à nossos anseios
-vector<double> Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, int N){
+bool vsssERUS::Ponto::operator==(Ponto const &p) {
+	return (abs(this->x - p.x) <= DOUBLE_CMP_THRESHOLD) && (abs(this->y - p.y) <= DOUBLE_CMP_THRESHOLD);
+}
+
+//Resoluï¿½ï¿½o do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
+//Crï¿½ditos ï¿½ professora Clï¿½udia Galarda Varassin pela criaï¿½ï¿½o da funï¿½ï¿½o que foi poucamente modificada para atender ï¿½ nossos anseios
+vector<double> vsssERUS::Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, int N){
 	double A[N][N], X[N], soma, b[N], m, maior,aux, baux;
 	int n,k,i,j, imaior;
 	vector<double> x;
@@ -79,8 +83,8 @@ vector<double> Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, i
 		   for(i=(k+1);i<n;i++)
 		   {
 			   m = A[i][k]/A[k][k];
-			   A[i][k]=0; // para visualização da matriz triangularizada
-			   //A[i][k]=A[i][k]- m*A[k][k];; // para ver o valor que fica na memória
+			   A[i][k]=0; // para visualizaï¿½ï¿½o da matriz triangularizada
+			   //A[i][k]=A[i][k]- m*A[k][k];; // para ver o valor que fica na memï¿½ria
 
 			   for(j=(k+1);j<n;j++)
 			   {
@@ -95,10 +99,10 @@ vector<double> Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, i
 
 
 	//   resolvendo  o sistema  Triangular Superior via Subst. Regressiva
-		// calculo de x da última equação (indice: n-1, em C)
+		// calculo de x da ï¿½ltima equaï¿½ï¿½o (indice: n-1, em C)
 		X[n-1]= b[n-1]/A[n-1][n-1];
 
-		// Calculo das variáveis: começando  da penúltima linha (n-2) até a primeira (indice é zero).
+		// Calculo das variï¿½veis: comeï¿½ando  da penï¿½ltima linha (n-2) atï¿½ a primeira (indice ï¿½ zero).
 		for(i=(n-2);i>=0;i--)
 		{
 		  soma=b[i];
@@ -122,3 +126,4 @@ vector<double> Ponto::resolucaoDeSistemaLinear(double** matrix, double* vetor, i
 
 		return x;
 }
+

@@ -1,160 +1,191 @@
 #ifndef CAMPO_H
 #define CAMPO_H
 
-#include "teamplayer.h"
 #include <cstdio>
+#include <cstdlib>
+#include "teamplayer.h"
+#include "team.h"
+#include "ball.h"
 #include <cstdlib>
 
 class TeamPlayer;
 
+// TODO: Atualizar as informaÃ§Ãµes abaixo
+/* Nome do mÃ³dulo: Limite
+		* Ano de criaÃ§Ã£o: 2018/10
+		* DescriÃ§Ã£o do mÃ³dulo: InformaÃ§Ãµes sobre os limites do campo
+		* VersÃ£o: 1.1
+		* tstado!! Selo Valdino de Garantia \0/
+		* PrÃ©-requisitos: Pontos distintos
+		* Membros: Ricardo Ramos, Gabriel Valdino
+*/
 
+namespace vsssERUS{
 
-class Campo
-{
-	/* Nome do módulo: Limite
-	 * Ano de criação: 2018/10
-	 * Descrição do módulo: Criação dos lados do campo
-	 * Versão: 1.1
-	 * tstado!! Selo Valdino de Garantia \0/
-	 * Pré-requisitos: Pontos distintos
-	 * Membros: Ricardo Ramos, Gabriel Valdino
-	 */
-
-	class Limite
+	class Campo
 	{
-	    Ponto ponto1;
-	    Ponto ponto2;
+	private:
+		/* Nome do mÃ³dulo: Limite
+		* Ano de criaÃ§Ã£o: 2018/10
+		* DescriÃ§Ã£o do mÃ³dulo: InformaÃ§Ãµes sobre os limites do campo
+		* VersÃ£o: 1.1
+		* tstado!! Selo Valdino de Garantia \0/
+		* PrÃ©-requisitos: Pontos distintos
+		* Membros: Ricardo Ramos, Gabriel Valdino
+		*/
+
+		class Limite
+		{
+			Ponto ponto1;
+			Ponto ponto2;
+		public:
+			Limite(Ponto p1 = Ponto(0,0), Ponto p2 = Ponto(0,0));
+			Ponto pontoMedio();
+			double distancia();
+			double distanciaParaOutroLimite(Limite outro);
+			Ponto returnPonto(int x);
+		};
+
+		enum Lado {
+			Esquerda,
+			Direita
+			};
+
+		Limite limiteSuperior;
+		Limite limiteInferior;
+		Limite golDireito;
+		Limite golEsquerdo;
+		Limite limiteDireito;
+		Limite limiteEsquerdo;
+		Lado nossoLado;
+
+		Team* friendlies;
+		Team* enemies;
+
+		Ball* ball;
+
 	public:
-	    Limite(Ponto p1 = Ponto(0,0), Ponto p2 = Ponto(0,0));
-	    Ponto pontoMedio();
-	    double distancia();
-	    double distanciaParaOutroLimite(Limite outro);
-	    Ponto returnPonto(int x);
+		// Struct auxiliar para transmitir os dados posicionais para os teamPlayers
+		struct dadosDoCampo {
+			Ponto f1, f2, f3, e1, e2, e3, b;
+		};
+
+		dadosDoCampo& getPositions();
+		Campo(char* campo);
+
+		/* estaDentroDoCampo
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		bool estaDentroDoCampo(Ponto posicao);
+
+		/* campoPotencial
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		double campoPotencial(TeamPlayer jogador);
+
+		/* atualizarCampo
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		void atualizarCampo(char* campo);
+
+		/* getLado
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		Lado getLado(){
+			return this->nossoLado;
+		}
+
+		/* setLado
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		void setLado(int x);
+
+		/* getBordaSuperior
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		int getBordaSuperior();
+
+		/* getBordaInferior
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		int getBordaInferior();
+
+		/* getBordaEsquerda
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		int getBordaEsquerda();
+
+		/* getBordaDireita
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		int getBordaDireita();
+
+		/* getMeioDeCampo
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		Ponto getMeioDeCampo();
+
+		/* getMeioDeGolAliado
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		Ponto getMeioDeGolAliado();
+
+		/* getMeioDeGolInimigo
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		Ponto getMeioDeGolInimigo();
+
+		void setBall(Ball& b) { this->ball = &b; }
+
 	};
-
-	enum Lado{Esquerdo, Direito};
-
-    Limite limiteSuperior;
-    Limite limiteInferior;
-    Limite golDireito;
-    Limite golEsquerdo;
-    Limite limiteDireito;
-    Limite limiteEsquerdo;
-    Lado nossoLado;
-
-public:
-    Campo(char* campo);
-
-    /* estaDentroDoCampo
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    bool estaDentroDoCampo(Ponto posicao);
-
-    /* campoPotencial
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    double campoPotencial(TeamPlayer jogador);
-
-    /* atualizarCampo
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    void atualizarCampo(char* campo);
-
-    /* getLado
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    Lado getLado(){
-    	return this->nossoLado;
-    }
-
-    /* setLado
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    void setLado(int x);
-
-    /* getBordaSuperior
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    int getBordaSuperior();
-
-    /* getBordaInferior
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	int getBordaInferior();
-
-	/* getBordaEsquerda
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	int getBordaEsquerda();
-
-	/* getBordaDireita
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	int getBordaDireita();
-
-	/* getMeioDeCampo
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    Ponto getMeioDeCampo();
-
-    /* getMeioDeGolAliado
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    Ponto getMeioDeGolAliado();
-
-    /* getMeioDeGolInimigo
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    Ponto getMeioDeGolInimigo();
-
-};
+}
 
 #endif // CAMPO_H

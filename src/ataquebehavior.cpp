@@ -7,14 +7,22 @@
 
 #include "ataquebehavior.h"
 
-AtaqueBehavior::AtaqueBehavior() {}
+vsssERUS::AtaqueBehavior::AtaqueBehavior() {}
 
-AtaqueBehavior::~AtaqueBehavior() {}
+vsssERUS::AtaqueBehavior::~AtaqueBehavior() { return; }
 
-Ponto AtaqueBehavior::movimenta(Ponto posicao, World* mundo){
-return Ponto();
+vsssERUS::Ponto vsssERUS::AtaqueBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
+    return vsssERUS::Ponto();
 }
 
-std::pair<int,int> AtaqueBehavior::controle(Ponto posicao, World* mundo){
-return pair<int,int>();
+std::pair<int,int> vsssERUS::AtaqueBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
+    return pair<int,int>();
+}
+
+std::pair<int,int> vsssERUS::AtaqueBehavior::sairDaParede(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+    return pair<int, int>();
+}
+
+std::pair<int,int> vsssERUS::AtaqueBehavior::evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+    return pair<int, int>();
 }
