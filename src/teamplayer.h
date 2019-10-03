@@ -37,7 +37,7 @@ class TeamPlayer: public Player, public Observer
 {
 	PlayBehavior* comportamento;
 	double distanciaMinDaParede;
-	double** campoPotencial[99][99];
+	double campoPotencial[99][99];
 	void atualizaCampoPotencial();
 	Campo* campo;
 	void adicionaPontoDeRepulsao(Ponto p);
