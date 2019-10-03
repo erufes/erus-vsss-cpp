@@ -66,7 +66,9 @@ Campo::Campo(char *campo) {
     this->disc_x = FIELD_SIZE_X / VSSS_SIZE_X;
     this->disc_y = FIELD_SIZE_Y / VSSS_SIZE_Y;
     #else
-    throw "EEEEEEEEEEO";
+        // Leia a descrição do define acima no arquivo de cabeçalho da classe para
+        // mais informações
+        throw runtime_error("Nao implementado! Cheque o construtor do Campo!");
     #endif
     atualizarCampo(campo);
 }

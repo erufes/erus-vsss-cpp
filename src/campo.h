@@ -41,7 +41,7 @@ namespace vsssERUS{
  * novo na função apropriada no .cpp.
  *  
  */
-#define USE_VSS_SIZE_AS_PARAM
+#define USE_VSSS_SIZE_AS_PARAM
 
 class Campo
 {
