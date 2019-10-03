@@ -1,84 +1,85 @@
-//tstado!! Selo Valdino de Garantia \0/
-//Nota: ponto só salva 5 casas decimais
-
 #ifndef PONTO_H
 #define PONTO_H
-/* Nome do módulo: Ponto
- * Ano de criação: 2018/10
- * Descrição do módulo: Criação dos pontos mais uma função extra para resolver sistemas lineares de ordem N
- * Versão: 1.1
- * Pré-requisitos: Coordenadas dos pontos não negativas
+/* Nome do mï¿½dulo: Ponto
+ * Ano de criaï¿½ï¿½o: 2018/10
+ * Descriï¿½ï¿½o do mï¿½dulo: Criaï¿½ï¿½o dos pontos mais uma funï¿½ï¿½o extra para resolver sistemas lineares de ordem N
+ * Versï¿½o: 1.1
+ * Prï¿½-requisitos: Coordenadas dos pontos nï¿½o negativas
  * Membros: Ricardo Ramos, Gabriel Valdino
  */
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <cstdio>
+#define DOUBLE_CMP_THRESHOLD 0.000000000000001
 
 using namespace std;
+	namespace vsssERUS{
+	class Ponto
+	{
+		double x;
+		double y;
+	public:
+		Ponto(double x = 0, double y = 0);
 
-class Ponto
-{
-    double x;
-    double y;
-public:
-    Ponto(double x = 0, double y = 0);
+		/* distancia
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		double distancia(Ponto outro) const;
 
-    /* distancia
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    double distancia(Ponto outro);
+		/* getX
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		double getX() const;
 
-    /* getX
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    double getX();
+		/* getY
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		double getY() const;
 
-    /* getY
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    double getY();
+		/* setX
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		void setX(double x);
 
-    /* setX
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    void setX(double x);
+		/* setY
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		void setY(double y);
 
-    /* setY
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    void setY(double y);
+		/* resolucaoDeSistemaLinear
+		* Intenï¿½ï¿½o da funï¿½ï¿½o:
+		* Prï¿½-requisitos:
+		* Efeitos colaterais:
+		* Parametros:
+		* Retorno:
+		*/
+		//Resoluï¿½ï¿½o do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
+		//Atenï¿½ï¿½o ï¿½ chamada da funï¿½ï¿½o, pois ela precisa de um "double** A" e nï¿½o um "double A[N][N]", logo, ï¿½ necessï¿½rio o uso de mallocs
+		//Crï¿½ditos ï¿½ professora Clï¿½udia Galarda Varassin pela criaï¿½ï¿½o da funï¿½ï¿½o que foi poucamente modificada para atender ï¿½ nossos anseios
+		static vector<double> resolucaoDeSistemaLinear(double** matrix, double* vetor, int N);
 
-    /* resolucaoDeSistemaLinear
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    //Resolução do sistema Ax = b, sendo A = matrix, b = vetor, N = ordem de matrix
-    //Atenção à chamada da função, pois ela precisa de um "double** A" e não um "double A[N][N]", logo, é necessário o uso de mallocs
-    //Créditos à professora Cláudia Galarda Varassin pela criação da função que foi poucamente modificada para atender à nossos anseios
-    static vector<double> resolucaoDeSistemaLinear(double** matrix, double* vetor, int N);
-};
-
+		bool operator==(Ponto const &p);
+	};
+}
 #endif // PONTO_H

@@ -3,126 +3,130 @@
 #define ARDUINO_WAIT_TIME 2000
 #define MAX_DATA_LENGTH 255
 
-#include <windows.h>
-#include <stdio.h>
-#include <stdlib.h>
+#ifdef RunningOnWindows
+	#include <windows.h>
+	#include <stdio.h>
+	#include <stdlib.h>
 
-#include <iostream>
-#include <sstream>
+	#include <iostream>
+	#include <sstream>
 
-using namespace std;
 
-/* Nome do módulo: Comunicacao
- * Ano de criação: 2018/11
- * Descrição do módulo: Classe que encapsula comunicação entre o sistema e os roboôs, criada para converter e enviar os dados para o xBEE.
- * Versão: 1.1
- * Pré-requisitos: Porta válida em formato COM, ex "COM18"
- * Membros: Ricardo Ramos, Lorena Bassani
- *
- */
+	using namespace std;
 
-class Comunicacao
-{
+		namespace vsssERUS{
+		/* Nome do mï¿½dulo: Comunicacao
+		* Ano de criaï¿½ï¿½o: 2018/11
+		* Descriï¿½ï¿½o do mï¿½dulo: Classe que encapsula comunicaï¿½ï¿½o entre o sistema e os roboï¿½s, criada para converter e enviar os dados para o xBEE.
+		* Versï¿½o: 1.1
+		* Prï¿½-requisitos: Porta vï¿½lida em formato COM, ex "COM18"
+		* Membros: Ricardo Ramos, Lorena Bassani
+		*
+		*/
 
-	/* Nome do módulo: SerialPort
-	 * Ano de criação: 2016/05
-	 * Descrição do módulo: Módulo que implementa comunicação serial no Windows.
-	 * 						fonte: https://gist.github.com/manashmndl/72e96ed2c051726ce1433ede9d6a0f4c
-	 * Pré-requisitos: Ambiente Windows e Porta válida em formato COM
-	 */
-	class SerialPort
-	{
-	private:
-		HANDLE handler;
-		bool connected;
-		COMSTAT status;
-		DWORD errors;
-	public:
-		SerialPort(char *portName);
-		~SerialPort();
+		class Comunicacao
+		{
 
-		int readSerialPort(char *buffer, unsigned int buf_size);
-		bool writeSerialPort(char *buffer, unsigned int buf_size);
-		bool isConnected();
-	};
-	SerialPort* com;
-public:
-    Comunicacao(string porta);
+			/* Nome do mï¿½dulo: SerialPort
+			* Ano de criaï¿½ï¿½o: 2016/05
+			* Descriï¿½ï¿½o do mï¿½dulo: Mï¿½dulo que implementa comunicaï¿½ï¿½o serial no Windows.
+			* 						fonte: https://gist.github.com/manashmndl/72e96ed2c051726ce1433ede9d6a0f4c
+			* Prï¿½-requisitos: Ambiente Windows e Porta vï¿½lida em formato COM
+			*/
+			class SerialPort
+			{
+			private:
+				HANDLE handler;
+				bool connected;
+				COMSTAT status;
+				DWORD errors;
+			public:
+				SerialPort(char *portName);
+				~SerialPort();
 
-    /* Destrutor de comunicação
-     * Intenção da função: Finalizar a comunicação de forma segura
-     * Pré-requisitos: Nenhum
-     * Efeitos Colaterais: Fecha a porta serial e libera o espaço utilizado por SerialPort e Comunicação.
-     * Parametros: Nenhum
-     * Retorno: Não possui retorno
-     */
-	~Comunicacao(){
-		delete com;
+				int readSerialPort(char *buffer, unsigned int buf_size);
+				bool writeSerialPort(char *buffer, unsigned int buf_size);
+				bool isConnected();
+			};
+			SerialPort* com;
+		public:
+			Comunicacao(string porta);
+
+			/* Destrutor de comunicaï¿½ï¿½o
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Finalizar a comunicaï¿½ï¿½o de forma segura
+			* Prï¿½-requisitos: Nenhum
+			* Efeitos Colaterais: Fecha a porta serial e libera o espaï¿½o utilizado por SerialPort e Comunicaï¿½ï¿½o.
+			* Parametros: Nenhum
+			* Retorno: Nï¿½o possui retorno
+			*/
+			~Comunicacao(){
+				delete com;
+			}
+
+			/* sendCommand
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Enviar os dados para o xBEE
+			* Prï¿½-requisitos: Id do robï¿½ entre {1,2,3}, cmd vï¿½lido e valor entre 0 a 255
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Id do robï¿½ que receberï¿½ o comando, comando do robï¿½ e valor que deve ser colocado nas rodas
+			* Retorno: Nï¿½o possui retorno
+			*/
+			void sendCommand(int robotId, char cmdId, int value);
+
+			/* conectado
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Verificar se a porta estï¿½ conectada
+			* Prï¿½-requisitos: Possuir uma porta
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Nï¿½o possui parametro
+			* Retorno: Retorna true se estiver conectado e false caso contrï¿½rio
+			*/
+			bool conectado();
+
+			/* stop
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Atalho para enviar os dados de parada para o robï¿½ alvo
+			* Prï¿½-requisitos: Id do robï¿½ entre {1,2,3}
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Id do robï¿½ que receberï¿½ o comando de parada
+			* Retorno: Nï¿½o possui retorno
+			*/
+			void stop(int robotId);
+
+			/* set_speed_right
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Atalho para enviar os dados de movimentaï¿½ï¿½o da roda direita do robï¿½ alvo
+			* Prï¿½-requisitos: Id do robï¿½ entre {1,2,3}
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Id do robï¿½ que receberï¿½ o comando de movimentaï¿½ï¿½o, velocidade de movimentaï¿½ï¿½o do robï¿½
+			* Retorno: Nï¿½o possui retorno
+			*/
+			void set_speed_right(int robotId, int speed);
+
+			/* set_pwm_right
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Atalho para enviar os dados de movimentaï¿½ï¿½o pwm da roda direita do robï¿½ alvo
+			* Prï¿½-requisitos: Id do robï¿½ entre {1,2,3}
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Id do robï¿½ que receberï¿½ o comando de movimentaï¿½ï¿½o, velocidade de movimentaï¿½ï¿½o do robï¿½
+			* Retorno: Nï¿½o possui retorno
+			*/
+			void set_pwm_right(int robotId, int speed);
+
+			/* set_speed_left
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Atalho para enviar os dados de movimentaï¿½ï¿½o da roda esquerda do robï¿½ alvo
+			* Prï¿½-requisitos: Id do robï¿½ entre {1,2,3}
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Id do robï¿½ que receberï¿½ o comando de movimentaï¿½ï¿½o, velocidade de movimentaï¿½ï¿½o do robï¿½
+			* Retorno: Nï¿½o possui retorno
+			*/
+			void set_speed_left(int robotId, int speed);
+
+			/* set_pwm_right
+			* Intenï¿½ï¿½o da funï¿½ï¿½o: Atalho para enviar os dados de movimentaï¿½ï¿½o pwm da roda esquerda do robï¿½ alvo
+			* Prï¿½-requisitos: Id do robï¿½ entre {1,2,3}
+			* Efeitos colaterais: Nï¿½o possui efeitos colaterais
+			* Parametros: Id do robï¿½ que receberï¿½ o comando de movimentaï¿½ï¿½o, velocidade de movimentaï¿½ï¿½o do robï¿½
+			* Retorno: Nï¿½o possui retorno
+			*/
+			void set_pwm_left(int robotId, int speed);
+
+		};
 	}
-
-    /* sendCommand
-     * Intenção da função: Enviar os dados para o xBEE
-     * Pré-requisitos: Id do robô entre {1,2,3}, cmd válido e valor entre 0 a 255
-     * Efeitos colaterais: Não possui efeitos colaterais
-     * Parametros: Id do robô que receberá o comando, comando do robô e valor que deve ser colocado nas rodas
-     * Retorno: Não possui retorno
-     */
-    void sendCommand(int robotId, char cmdId, int value);
-
-    /* conectado
-	 * Intenção da função: Verificar se a porta está conectada
-	 * Pré-requisitos: Possuir uma porta
-	 * Efeitos colaterais: Não possui efeitos colaterais
-	 * Parametros: Não possui parametro
-	 * Retorno: Retorna true se estiver conectado e false caso contrário
-	 */
-    bool conectado();
-
-    /* stop
-	 * Intenção da função: Atalho para enviar os dados de parada para o robô alvo
-	 * Pré-requisitos: Id do robô entre {1,2,3}
-	 * Efeitos colaterais: Não possui efeitos colaterais
-	 * Parametros: Id do robô que receberá o comando de parada
-	 * Retorno: Não possui retorno
-	 */
-    void stop(int robotId);
-
-    /* set_speed_right
-	 * Intenção da função: Atalho para enviar os dados de movimentação da roda direita do robô alvo
-	 * Pré-requisitos: Id do robô entre {1,2,3}
-	 * Efeitos colaterais: Não possui efeitos colaterais
-	 * Parametros: Id do robô que receberá o comando de movimentação, velocidade de movimentação do robô
-	 * Retorno: Não possui retorno
-	 */
-    void set_speed_right(int robotId, int speed);
-
-    /* set_pwm_right
-	 * Intenção da função: Atalho para enviar os dados de movimentação pwm da roda direita do robô alvo
-	 * Pré-requisitos: Id do robô entre {1,2,3}
-	 * Efeitos colaterais: Não possui efeitos colaterais
-	 * Parametros: Id do robô que receberá o comando de movimentação, velocidade de movimentação do robô
-	 * Retorno: Não possui retorno
-	 */
-    void set_pwm_right(int robotId, int speed);
-
-    /* set_speed_left
-	 * Intenção da função: Atalho para enviar os dados de movimentação da roda esquerda do robô alvo
-	 * Pré-requisitos: Id do robô entre {1,2,3}
-	 * Efeitos colaterais: Não possui efeitos colaterais
-	 * Parametros: Id do robô que receberá o comando de movimentação, velocidade de movimentação do robô
-	 * Retorno: Não possui retorno
-	 */
-    void set_speed_left(int robotId, int speed);
-
-    /* set_pwm_right
-	 * Intenção da função: Atalho para enviar os dados de movimentação pwm da roda esquerda do robô alvo
-	 * Pré-requisitos: Id do robô entre {1,2,3}
-	 * Efeitos colaterais: Não possui efeitos colaterais
-	 * Parametros: Id do robô que receberá o comando de movimentação, velocidade de movimentação do robô
-	 * Retorno: Não possui retorno
-	 */
-    void set_pwm_left(int robotId, int speed);
-
-};
-
+#endif
 #endif // CAMPO_H

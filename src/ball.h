@@ -1,40 +1,30 @@
 #ifndef BALL_H
 #define BALL_H
-/* Nome do mÛdulo: BALL
- * Ano de criaÁ„o: 2018/10
- * DescriÁ„o do mÛdulo: Classe que representa a bola do jogo.
- * 						Possui um vetor de pontos antigos da bola para fazer a prediÁ„o
- * 						O metodo de prediÁao ofensivo desconsidera se a bola esta proxima do jogador.
- * Vers„o: 1.0
- * PrÈ-requisitos: distancias positivas
+
+/* Nome do m√≥dulo: BALL
+ * Ano de cria√ß√£o: 2018/10
+ * Descri√ß√£o do m√≥dulo: Classe que representa a bola do jogo.
+ * 						Possui um vetor de pontos antigos da bola para fazer a predi√ß√£o.
+ * 						O m√©todo de predi√ß√£o ofensivo desconsidera se a bola est√° pr√≥xima do jogador.
+ * Vers√£o: 1.0
+ * Pr√©-requisitos: dist√¢ncias positivas
  * Membros: Lorena Bassani, Victor de Oliveira
  */
+
 #include "agent.h"
-//#include "player.h"
+#include "teamplayer.h"
+
 #include <vector>
 #include <iostream>
 
-class Ball: public Agent
-{
-
-public:
-    Ball(double x, double y);
-    Ball(Ponto p);
-
-//    Ponto predict_ball_method(Player* jogador);
-//    Ponto predict_ball_method_ofensive(Player* jogador);
-
-    /* previsaoDePosicao
-	 * IntenÁ„o da funÁ„o:
-	 * PrÈ-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-    std::pair<double, double> previsaoDePosicao(){
-    	return this->Agent::previsaoDePosicao(this->Agent::getPonto(), this->Agent::getxy_old());
-    };
-
-};
-
+namespace vsssERUS{
+	class Ball: public Agent
+	{
+	public:
+		Ball(double x, double y);
+		Ball(Ponto p);
+		Ponto predictBall(TeamPlayer& player);
+		Ponto predictBallOffensive(TeamPlayer& player);
+	};
+}
 #endif // BALL_H

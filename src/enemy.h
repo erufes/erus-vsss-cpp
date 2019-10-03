@@ -2,41 +2,31 @@
 #define ENEMY_H_
 #include "player.h"
 
-/* Nome do módulo: Enemy
- * Ano de criação: 2018/11
- * Descrição do módulo: Classe que representa jogadores inimigos no campo. Criado para prever suas posições.
- * 						Um jogador inimigo não é controlável pelo sistema pois deve ser contralado por sistemas de outros.
- * Versão: 1.1
- * Pré-requisitos posição antiga do inimigo e seu ângulo de 0 a 2pi
- * Membros: Ricardo Ramos
- */
+	namespace vsssERUS{
+	/* Nome do mÃ³dulo: Enemy
+	* Ano de criaÃ§Ã£o: 2018/11
+	* DescriÃ§Ã£o do mÃ³dulo: Classe que representa jogadores inimigos no campo. Criado para prever suas posiÃ§Ãµes.
+	* 						Um jogador inimigo nÃ£o Ã© controlÃ¡vel pelo sistema, pois deve ser controlado por sistemas de outros.
+	* VersÃ£o: 1.1
+	* PrÃ©-requisitos: posiÃ§Ã£o antiga do inimigo e seu Ã¢ngulo, de 0 a 2pi
+	* Membros: Ricardo Ramos
+	*/
 
-class Enemy: public Player{
-public:
-	Enemy(int id = 0,float theta = 0.0);
-	virtual ~Enemy();
+	class Enemy: public Player{
+	public:
+		Enemy(int id = 0,float theta = 0.0);
+		virtual ~Enemy();
 
-	/* isEnemy
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	bool isEnemy(){
-		return true;
-	}
-
-	/* previsaoDePosicao
-	 * Intenção da função:
-	 * Pré-requisitos:
-	 * Efeitos colaterais:
-	 * Parametros:
-	 * Retorno:
-	 */
-	std::pair<double, double> previsaoDePosicao(){
-		return this->Player::previsaoDePosicao();
-	}
-};
-
+		/* isEnemy
+		* IntenÃ§Ã£o da FunÃ§Ã£o:
+		* PrÃ©-requisitos:
+		* Efeitos colaterais:
+		* ParÃ¢metros:
+		* Retorno:
+		*/
+		bool isEnemy(){
+			return true;
+		}
+	};
+}
 #endif /* ENEMY_H_ */

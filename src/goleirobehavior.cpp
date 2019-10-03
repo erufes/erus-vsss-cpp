@@ -7,16 +7,25 @@
 
 #include "goleirobehavior.h"
 
-GoleiroBehavior::GoleiroBehavior() {}
+vsssERUS::GoleiroBehavior::GoleiroBehavior() {
 
-GoleiroBehavior::~GoleiroBehavior() {}
+}
 
-Ponto GoleiroBehavior::movimenta(Ponto posicao, World* mundo){
-	//todo: implementar GoleiroBehavior::movimenta
+vsssERUS::Ponto vsssERUS::GoleiroBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
+	//todo: implementar vsssERUS::GoleiroBehavior::movimenta
 	return Ponto();
 }
 
-std::pair<int,int> GoleiroBehavior::controle(Ponto posicao, World* mundo){
-	//todo: implementar GoleiroBehavior::controle
+std::pair<int,int> vsssERUS::GoleiroBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
+	//todo: implementar vsssERUS::GoleiroBehavior::controle
 	return std::pair<int,int>();
 }
+
+std::pair<int,int> vsssERUS::GoleiroBehavior::evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
+	return std::pair<int, int>();
+}
+
+std::pair<int,int> vsssERUS::GoleiroBehavior::sairDaParede(Ponto posicao, World* mundo) {
+	return std::pair<int, int>();
+}
+

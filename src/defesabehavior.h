@@ -3,38 +3,56 @@
 #include "playbehavior.h"
 #include "ponto.h"
 
-class World;
-/* Nome do mÛdulo: DefesaBehavior
- * Ano de criaÁ„o: 2018/12
- * DescriÁ„o do mÛdulo: cria o comportamento do jogador defensor
- * Vers„o: 1.0
- * PrÈ-requisitos: nenhum
- * Membros: Ricardo Ramos
- */
+/* Nome do m√≥dulo: DefesaBehavior
+* Ano de cria√ß√£o: 2018/12
+* Descri√ß√£o do m√≥dulo: cria o comportamento do jogador defensor
+* Vers√£o: 1.0
+* Pr√©-requisitos: nenhum
+* Membros: Ricardo Ramos
+*/
+namespace vsssERUS {
 
+class DefesaBehavior : public PlayBehavior {
+	public:
+		DefesaBehavior();
+		~DefesaBehavior();
 
-class DefesaBehavior:public PlayBehavior{
-public:
-	DefesaBehavior();
-	virtual ~DefesaBehavior();
+		/* movimenta
+		* Inten√ß√£o da fun√ß√£o: Calcular onde o defensor dever√° ir
+		* Pr√©-requisitos: Posi√ß√£o v√°lida do defensor, dentro do campo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o atual do defensor
+		* Retorno: Posi√ß√£o para onde o defensor dever√° se movimentar
+		*/
+		Ponto movimenta(Ponto posicao, World* mundo);
 
-	/* movimenta
-	 * IntenÁ„o da funÁ„o: Calcular onde o defensor dever· ir
-	 * PrÈ-requisitos: PosiÁ„o v·lida do defensor, dentro do campo
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o atual do defensor
-	 * Retorno: PosiÁ„o para onde o defensor dever· se movimentar
-	 */
-	Ponto movimenta(Ponto posicao, World* mundo);
+		/* controle
+		* Inten√ß√£o da fun√ß√£o: Calcular velocidade do defensor para ir at√© a posi√ß√£o desejada
+		* Pr√©-requisitos: Posi√ß√£o v√°lida do defensor, dentro do campo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o para onde o defensor dever√° ir
+		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
+		*/
+		std::pair<int,int> controle(Ponto posicao, World* mundo);
 
-	/* controle
-	 * IntenÁ„o da funÁ„o: Calcular velocidade do defensor para ir atÈ a posiÁao desejada
-	 * PrÈ-requisitos: PosiÁ„o v·lida do defensor, dentro do campo
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o para onde o defensor dever· ir
-	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
-	 */
-	std::pair<int,int> controle(Ponto posicao, World* mundo);
-};
+				/* sairDaParede
+		* Inten√ß√£o da fun√ß√£o: Impedir colis√£o do rob√¥ com a parede
+		* Pr√©-requisitos: Campo correto em mundo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o atual do rob√¥ e mundo
+		* Retorno: Posi√ß√£o para onde o rob√¥ dever√° se movimentar
+		*/
+		std::pair<int,int> sairDaParede(Ponto posicao, World* mundo);
 
+		/* evitarColisaoEntreJogadores
+		* Inten√ß√£o da fun√ß√£o: Impedir colis√£o do rob√¥ com outro rob√¥
+		* Pr√©-requisitos: Posi√ß√£o dos jogadores correta em mundo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o atual do rob√¥ e mundo
+		* Retorno: Posi√ß√£o para onde o rob√¥ dever√° se movimentar
+		*/
+		std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
+	};
+
+}
 #endif /* DEFESABEHAVIOR_H_ */

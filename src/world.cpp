@@ -1,45 +1,53 @@
 #include "world.h"
 
-World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola) {
+vsssERUS::World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola) {
 	this->campo = campo;
+	campo->setBall(*bola);
 	this->setTeamPlayer(jogadores);
 	this->setEnemy(inimigos);
 	this->bola = bola;
+	for(int i = 0; i < MAX_TEAM_SIZE; i++) {
+		atualizacaoCampo.registraObservador(*jogadores[i]);
+		jogadores[i]->setCampo(*campo);
+	}
 }
 
-World::~World() {
+vsssERUS::World::~World() {
 	// TODO Auto-generated destructor stub
 }
 
-void World::setBall(Ball* bola){
+void vsssERUS::World::setBall(Ball* bola){
 	this->bola = bola;
 }
 
-Ball* World::getBall(){
+vsssERUS::Ball* vsssERUS::World::getBall(){
 	return bola;
 }
 
-void World::setTeamPlayer(TeamPlayer** jogadores){
+void vsssERUS::World::setTeamPlayer(TeamPlayer** jogadores){
 	for(int i = 0; i < 3; i++) this->jogadores[i] = jogadores[i];
 }
 
-TeamPlayer** World::getTeamPlayer(){
-	return jogadores;
+vsssERUS::TeamPlayer** vsssERUS::World::getTeamPlayer(){
+	return this->jogadores;
 }
 
-void World::setEnemy(Enemy** inimigos){
+void vsssERUS::World::setEnemy(Enemy** inimigos){
 	for(int i = 0; i < 3; i++) this->inimigos[i] = inimigos[i];
 }
 
-Enemy** World::getEnemy(){
+vsssERUS::Enemy** vsssERUS::World::getEnemy(){
 	return inimigos;
 }
 
-void World::setCampo(Campo* campo){
+void vsssERUS::World::setCampo(Campo* campo){
 	this->campo = campo;
 }
 
-Campo* World::getCampo(){
+vsssERUS::Campo* vsssERUS::World::getCampo(){
 	return campo;
 }
 
+void vsssERUS::World::forceNotify(string s) {
+	atualizacaoCampo.notifica();
+}

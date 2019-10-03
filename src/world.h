@@ -4,33 +4,38 @@
 #include "enemy.h"
 #include "campo.h"
 #include "teamplayer.h"
+#include "notifier.h"
+#include "string"
 
-/* Nome do mÛdulo: World
- * Ano de criaÁ„o: 2019/01
- * DescriÁ„o do mÛdulo: Classe que representa o mundo, contendo cada componete que exite. Criado para facilitar armazenamento e passagem de par‚metros.
- * Vers„o: 1.0
- * PrÈ-requisitos componentes do mundo existentes
- * Membros: Ricardo Ramos
- */
-class Ball;
-class TeamPlayer;
-class Campo;
-class World {
-	Ball* bola;
-	TeamPlayer* jogadores[3];
-	Enemy* inimigos[3];
-	Campo* campo;
-public:
-	World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola);
-	virtual ~World();
-	void setBall(Ball* bola);
-	Ball* getBall();
-	void setTeamPlayer(TeamPlayer** jogadores);
-	TeamPlayer** getTeamPlayer();
-	void setEnemy(Enemy** inimigos);
-	Enemy** getEnemy();
-	void setCampo(Campo* campo);
-	Campo* getCampo();
-};
-
+namespace vsssERUS{
+	/* Nome do m√≥dulo: World
+	* Ano de cria√ß√£o: 2019/01
+	* Descri√ß√£o do m√≥dulo: Classe que representa o mundo, contendo cada componete que existe. Criado para facilitar armazenamento e passagem de par√¢metros.
+	* Vers√£o: 1.0
+	* Pr√©-requisitos: Componentes do mundo existentes
+	* Membros: Ricardo Ramos
+	*/
+	class Ball;
+	class TeamPlayer;
+	class Campo;
+	class World {
+		Ball* bola;
+		TeamPlayer* jogadores[MAX_TEAM_SIZE];
+		Enemy* inimigos[MAX_TEAM_SIZE];
+		Campo* campo;
+		Notifier atualizacaoCampo; 	//Notificador de atualiza√ß√£o de posi√ß√µes
+	public:
+		World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola);
+		virtual ~World();
+		void setBall(Ball* bola);
+		Ball* getBall();
+		void setTeamPlayer(TeamPlayer** jogadores);
+		TeamPlayer** getTeamPlayer();
+		void setEnemy(Enemy** inimigos);
+		Enemy** getEnemy();
+		void setCampo(Campo* campo);
+		Campo* getCampo();
+		void forceNotify(string s);
+	};
+}
 #endif /* WORLD_H_ */

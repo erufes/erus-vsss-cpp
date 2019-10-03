@@ -3,56 +3,57 @@
 #include <utility>
 #include "ponto.h"
 
-/* Nome do mÛdulo: PlayBehavior
- * Ano de criaÁ„o: 2018/12
- * DescriÁ„o do mÛdulo: classe abstrata para o comportamento do jogador
- * Vers„o: 1.0
- * PrÈ-requisitos: nenhum
+/* Nome do m√≥dulo: PlayBehavior
+ * Ano de cria√ß√£o: 2018/12
+ * Descri√ß√£o do m√≥dulo: classe abstrata para o comportamento do jogador
+ * Vers√£o: 1.0
+ * Pr√©-requisitos: nenhum
  * Membros: Ricardo Ramos
- */
-class World;
+*/
+
+namespace vsssERUS{
+	class World;
 class PlayBehavior {
-public:
-	PlayBehavior();
-	virtual ~PlayBehavior();
+	public:
+		virtual ~PlayBehavior(){};
 
-	/* movimenta
-	 * IntenÁ„o da funÁ„o: Calcular onde o robÙ dever· ir
-	 * PrÈ-requisitos: PosiÁ„o v·lida do robÙ, dentro do campo
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o atual do robÙ
-	 * Retorno: PosiÁ„o para onde o robÙ dever· se movimentar
-	 */
-	virtual Ponto movimenta(Ponto posicao, World* mundo);
+		/* movimenta
+		* Inten√ß√£o da fun√ß√£o: Calcular onde o rob√¥ dever√° ir
+		* Pr√©-requisitos: Posi√ß√£o v√°lida do rob√¥, dentro do campo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o atual do rob√¥
+		* Retorno: Posi√ß√£o para onde o rob√¥ dever√° se movimentar
+		*/
+		virtual Ponto movimenta(Ponto posicao, World* mundo) = 0;
 
-	/* controle
-	 * IntenÁ„o da funÁ„o: Calcular velocidade do robÙ para ir atÈ a posiÁao desejada
-	 * PrÈ-requisitos: PosiÁ„o v·lida do robÙ, dentro do campo
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o para onde o robÙ dever· ir
-	 * Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direira e segundo a esquerda
-	 */
-	virtual std::pair<int,int> controle(Ponto posicao, World* mundo);
+		/* controle
+		* Inten√ß√£o da fun√ß√£o: Calcular velocidade do rob√¥ para ir at√© a posi√ß√£o desejada
+		* Pr√©-requisitos: Posi√ß√£o v√°lida do rob√¥, dentro do campo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o para onde o rob√¥ dever√° ir
+		* Retorno: Par de inteiros representado as velocidades das rodas, primeiro a direita e segundo a esquerda
+		*/
+		virtual std::pair<int,int> controle(Ponto posicao, World* mundo) = 0;
 
-	/* sairDaParede
-	 * IntenÁ„o da funÁ„o: Impedir colis„o do robÙ com a parede
-	 * PrÈ-requisitos: Campo correto em mundo
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o atual do robÙ e mundo
-	 * Retorno: PosiÁ„o para onde o robÙ dever· se movimentar
-	 */
-	virtual std::pair<int,int> sairDaParede(Ponto posicao, World* mundo);
+		/* sairDaParede
+		* Inten√ß√£o da fun√ß√£o: Impedir colis√£o do rob√¥ com a parede
+		* Pr√©-requisitos: Campo correto em mundo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o atual do rob√¥ e mundo
+		* Retorno: Posi√ß√£o para onde o rob√¥ dever√° se movimentar
+		*/
+		virtual std::pair<int,int> sairDaParede(Ponto posicao, World* mundo) = 0;
 
-	/* evitarColisaoEntreJogadores
-	 * IntenÁ„o da funÁ„o: Impedir colis„o do robÙ com outro robÙ
-	 * PrÈ-requisitos: PosiÁ„o dos jogadores correta em mundo
-	 * Efeitos colaterais: N„o possui efeitos colaterais
-	 * Parametros: PosiÁ„o atual do robÙ e mundo
-	 * Retorno: PosiÁ„o para onde o robÙ dever· se movimentar
-	 */
-	virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo);
-};
-
+		/* evitarColisaoEntreJogadores
+		* Inten√ß√£o da fun√ß√£o: Impedir colis√£o do rob√¥ com outro rob√¥
+		* Pr√©-requisitos: Posi√ß√£o dos jogadores correta em mundo
+		* Efeitos colaterais: N√£o possui efeitos colaterais
+		* Parametros: Posi√ß√£o atual do rob√¥ e mundo
+		* Retorno: Posi√ß√£o para onde o rob√¥ dever√° se movimentar
+		*/
+		virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo) = 0;
+	};
+}
 #endif /* PLAYBEHAVIOR_H_ */
 
 

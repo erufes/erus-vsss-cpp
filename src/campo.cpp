@@ -1,51 +1,51 @@
 #include "campo.h"
 
-//o arquivo deve cnter os pontos x e y dos pontos
-//direito inferior direito superior esquerto inferior esquerto superior
-//gol direito inferior gol direito superior
-//gol esquerdo infrior gol esquerdo superior
-void Campo::atualizarCampo(char *campo)
+// O arquivo deve conter os pontos x e y dos pontos
+// direito inferior, direito superior, esquerdo inferior e esquerdo superior
+// gol direito inferior, gol direito superior
+// gol esquerdo inferior, gol esquerdo superior
+void vsssERUS::Campo::atualizarCampo(char *campo)
 {
     FILE *arq = fopen(campo,"r+");
     double x,y;
     if (arq == NULL)
     {
-        printf("ERRO! O arquivo não foi aberto!\n");
+        printf("ERRO! O arquivo nao foi aberto!\n");
         exit(1);
     }
 
-    //pegar lado Direito
+    // pegar lado Direito
     fscanf(arq,"%lf %lf",&x,&y); // x e y do direito inferior
-    Ponto aux1 = Ponto(x,y);
+    vsssERUS::Ponto aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do direito superior
-    Ponto aux2 = Ponto(x,y);
+    vsssERUS::Ponto aux2 = Ponto(x,y);
     this->limiteDireito = Limite(aux1,aux2);
 
-    //pegar lado esquerdo
+    // pegar lado esquerdo
     fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerdo inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do esquerdo superior
     aux2 = Ponto(x,y);
     this->limiteEsquerdo = Limite(aux1,aux2);
 
-    //pegar lado de baixo
-    aux1 = limiteDireito.returnPonto(1); // ponto direito inferior
-    aux2 = limiteEsquerdo.returnPonto(1);// ponto esquerdo inferior
+    // pegar lado de baixo
+    aux1 = limiteDireito.returnPonto(1); // vsssERUS::Ponto direito inferior
+    aux2 = limiteEsquerdo.returnPonto(1);// vsssERUS::Ponto esquerdo inferior
     this->limiteInferior = Limite(aux1,aux2);
 
-    //pegar lado de cima
-    aux1 = limiteDireito.returnPonto(2); // ponto direito superior
-    aux2 = limiteEsquerdo.returnPonto(2);// ponto esquerdo superior
+    // pegar lado de cima
+    aux1 = limiteDireito.returnPonto(2); // vsssERUS::Ponto direito superior
+    aux2 = limiteEsquerdo.returnPonto(2);// vsssERUS::Ponto esquerdo superior
     this->limiteSuperior = Limite(aux1,aux2);
 
-    //gol direito
+    // gol direito
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol direito superior
     aux2 = Ponto(x,y);
     this->golDireito = Limite(aux1,aux2);
 
-    //gol esquerdo
+    // gol esquerdo
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo inferior
     aux1 = Ponto(x,y);
     fscanf(arq,"%lf %lf",&x,&y); // x e y do gol esquerdo superior
@@ -56,69 +56,69 @@ void Campo::atualizarCampo(char *campo)
     fclose(arq);
 }
 
-Campo::Campo(char *campo){
+vsssERUS::Campo::Campo(char *campo) {
     atualizarCampo(campo);
 }
 
-Campo::Limite::Limite(Ponto p1, Ponto p2)
+vsssERUS::Campo::Limite::Limite(vsssERUS::Ponto p1, vsssERUS::Ponto p2)
 {
     ponto1 = p1;
     ponto2 = p2;
 }
 
-Ponto Campo::Limite::pontoMedio(){
+vsssERUS::Ponto vsssERUS::Campo::Limite::pontoMedio(){
     double x, y;
     x = (ponto1.getX() + ponto2.getX()) / 2;
     y = (ponto1.getY() + ponto2.getY()) / 2;
     return Ponto(x,y);
 }
 
-double Campo::Limite::distancia(){
+double vsssERUS::Campo::Limite::distancia(){
     return ponto1.distancia(ponto2);
 }
 
-double Campo::Limite::distanciaParaOutroLimite(Limite outro){
+double vsssERUS::Campo::Limite::distanciaParaOutroLimite(Limite outro){
     return pontoMedio().distancia(outro.pontoMedio());
 }
 
-Ponto Campo::Limite::returnPonto(int x){
+vsssERUS::Ponto vsssERUS::Campo::Limite::returnPonto(int x){
     if(x==1){
         return this->ponto1;
     }
     return this->ponto2;
 }
 
-int Campo::getBordaSuperior(){
+int vsssERUS::Campo::getBordaSuperior(){
 	return this->limiteSuperior.pontoMedio().getY();
 }
 
-int Campo::getBordaInferior(){
+int vsssERUS::Campo::getBordaInferior(){
 	return this->limiteInferior.pontoMedio().getY();
 }
 
-int Campo::getBordaEsquerda(){
+int vsssERUS::Campo::getBordaEsquerda(){
 	return this->limiteEsquerdo.pontoMedio().getX();
 }
 
-int Campo::getBordaDireita(){
+int vsssERUS::Campo::getBordaDireita(){
 	return this->limiteDireito.pontoMedio().getX();
 }
 
 
-Ponto Campo::getMeioDeCampo(){
+vsssERUS::Ponto vsssERUS::Campo::getMeioDeCampo(){
 	Limite aux1(this->limiteDireito.pontoMedio(), this->limiteEsquerdo.pontoMedio());
 	return aux1.pontoMedio();
 }
-Ponto Campo::getMeioDeGolAliado(){
-	if(this->nossoLado == Campo::Lado::Direito){
+vsssERUS::Ponto vsssERUS::Campo::getMeioDeGolAliado() {
+	if(this->nossoLado == vsssERUS::Campo::Lado::Direita) {
 		return this->golDireito.pontoMedio();
 	}else{
 		return this->golEsquerdo.pontoMedio();
 	}
 }
-Ponto Campo::getMeioDeGolInimigo(){
-	Ponto resp;
-		if(this->nossoLado == Campo::Lado::Esquerdo){
+vsssERUS::Ponto vsssERUS::Campo::getMeioDeGolInimigo(){
+	vsssERUS::Ponto resp;
+		if(this->nossoLado == vsssERUS::Campo::Lado::Esquerda) {
 			resp = Ponto(this->golDireito.pontoMedio());
 		}else{
 			resp = Ponto(this->golEsquerdo.pontoMedio());
@@ -126,7 +126,7 @@ Ponto Campo::getMeioDeGolInimigo(){
 		return resp;
 }
 
-bool Campo::estaDentroDoCampo(Ponto posicao){
+bool vsssERUS::Campo::estaDentroDoCampo(vsssERUS::Ponto posicao){
 	if(posicao.getX() <= this->limiteDireito.returnPonto(1).getX() &&
 			posicao.getX() >= this->limiteEsquerdo.returnPonto(1).getX() &&
 			posicao.getY() <= this->limiteSuperior.returnPonto(1).getY() &&
@@ -137,12 +137,24 @@ bool Campo::estaDentroDoCampo(Ponto posicao){
 	}
 }
 
-void Campo::setLado(int x){
+void vsssERUS::Campo::setLado(int x){
 	if(x == 1){
-		this->nossoLado = Esquerdo;
+		this->nossoLado = Esquerda;
 	} else if(x == 2){
-		this->nossoLado = Direito;
+		this->nossoLado = Direita;
 	} else {
-		cout << "Lado "<< x << " inválido!" << endl;
+		cout << "Lado "<< x << " invalido!" << endl;
 	}
+}
+
+vsssERUS::Campo::dadosDoCampo& vsssERUS::Campo::getPositions() {
+    vsssERUS::Campo::dadosDoCampo* d = new dadosDoCampo();
+    d->b = this->ball->getPosicao();
+    d->f1 = this->friendlies->getPlayerByIdx(0).getPosicao();
+    d->f2 = this->friendlies->getPlayerByIdx(1).getPosicao();
+    d->f3 = this->friendlies->getPlayerByIdx(2).getPosicao();
+    d->e1 = this->enemies->getPlayerByIdx(0).getPosicao();
+    d->e2 = this->enemies->getPlayerByIdx(1).getPosicao();
+    d->e3 = this->enemies->getPlayerByIdx(2).getPosicao();
+    return *d;
 }
