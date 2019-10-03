@@ -7,6 +7,7 @@
 #include "team.h"
 #include "ball.h"
 #include <cstdlib>
+#include <string>
 
 class TeamPlayer;
 
@@ -21,6 +22,26 @@ class TeamPlayer;
 */
 
 namespace vsssERUS{
+
+// Constantes de discretização do campo
+
+// Dimensões do VSSS (em cm)
+#define VSSS_SIZE_X 7.5
+#define VSSS_SIZE_Y 7.5
+#define VSSS_SIZE_Z 7.5
+
+// Dimensões do campo (em cm)
+#define FIELD_SIZE_X 150
+#define FIELD_SIZE_Y 130
+
+/* 
+ * Este define indica que será utilizado o próprio tamanho do VSSS como constante de 
+ * discretização. Foi incluído aqui caso alguém precise alterar a forma como a discretização
+ * é realizada futuramente. Caso seja o caso, vai ser necessário implementar o cálculo
+ * novo na função apropriada no .cpp.
+ *  
+ */
+#define USE_VSS_SIZE_AS_PARAM
 
 class Campo
 {
@@ -64,13 +85,19 @@ private:
 
 	Ball* ball;
 
+	// Constantes de discretização do campo
+	int disc_x, disc_y;
+
 public:
 	// Struct auxiliar para transmitir os dados posicionais para os teamPlayers
 	struct dadosDoCampo {
 		Ponto f1, f2, f3, e1, e2, e3, b;
 	};
 
+	pair<int, int> getDiscData() { return pair<int, int>(disc_x, disc_y);}
+
 	dadosDoCampo& getPositions();
+	Campo();
 	Campo(char* campo);
 
 	/* estaDentroDoCampo

@@ -15,17 +15,6 @@
 #include "utils.h"
 #include "observer.h"
 
-// Constantes de discretização do campo
-
-#define STEP_X 7.5
-#define STEP_Y 7.5
-#define VSSIZE_X 7.5
-#define VSSIZE_Y 7.5
-#define VSSIZE_Z 7.5
-
-#define DISC_X 20
-#define DISC_Y 17
-
 /*
  * Nome do módulo: TeamPlayer
  * Ano de criação: 2018/12
@@ -48,7 +37,7 @@ class TeamPlayer: public Player, public Observer
 {
 	PlayBehavior* comportamento;
 	double distanciaMinDaParede;
-	double campoPotencial[DISC_X][DISC_Y];
+	double** campoPotencial[99][99];
 	void atualizaCampoPotencial();
 	Campo* campo;
 	void adicionaPontoDeRepulsao(Ponto p);
@@ -56,6 +45,7 @@ class TeamPlayer: public Player, public Observer
 	void adicionaPontoDeAtracao(Ponto p);
 	void adicionaPontoDeAtracao(Ponto p, double i);
 	void resetaBordasPotencial();
+
 public:
 	void setCampo(Campo& c) { this->campo = &c; }
 	void notifica();

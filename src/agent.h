@@ -18,6 +18,11 @@ using namespace std;
 namespace vsssERUS {
 class Agent
 {
+    /* 
+     * A posição atual, dada em centímetros e tendo como origem o canto inferior direito
+     * do campo. Os valores da função variam de (0,0) a (x, y), onde x é a largura do 
+     * campo e y é a altura do campo.
+     */
     Ponto posicao;
     vector<Ponto> posicoesAnteriores;
 public:

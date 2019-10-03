@@ -59,7 +59,7 @@ int main(int argc, char** argv){
     //Cria três enemy
     Enemy* enemyteam[] = {new Enemy(3), new Enemy(4), new Enemy(5)};
 
-    
+
     //Cria e configura um World
     #ifdef UsingSimulator
         World* mundo = new World(new Campo((char*)"ConstrutorCampoSimulador.txt"), team, enemyteam, new vsssERUS::Ball(state.ball.x, state.ball.y));

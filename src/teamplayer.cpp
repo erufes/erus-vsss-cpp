@@ -34,7 +34,7 @@ void TeamPlayer::mudaComportamento(Funcao novo){
 }
 
 void TeamPlayer::adicionaPontoDeRepulsao(Ponto p) {
-	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = 1.0;
+	this->campoPotencial[(int) ((p.getX()) / VSSS_SIZE_X)][(int) ((p.getY()) / VSSS_SIZE_Y)] = 1.0;
 }
 
 // i = intensidade do campo no ponto, 0 <= i <= 1
@@ -43,11 +43,11 @@ void TeamPlayer::adicionaPontoDeRepulsao(Ponto p, double i) {
 		i = 0;
 	else if (i > 1)
 		i = 1;
-	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = i;
+	this->campoPotencial[(int) ((p.getX()) / VSSS_SIZE_X)][(int) ((p.getY()) / VSSS_SIZE_Y)] = i;
 }
 
 void TeamPlayer::adicionaPontoDeAtracao(Ponto p) {
-	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -1.0;
+	this->campoPotencial[(int) ((p.getX()) / VSSS_SIZE_X)][(int) ((p.getY()) / VSSS_SIZE_Y)] = -1.0;
 }
 
 void TeamPlayer::adicionaPontoDeAtracao(Ponto p, double i) {
@@ -55,14 +55,14 @@ void TeamPlayer::adicionaPontoDeAtracao(Ponto p, double i) {
 		i = 0;
 	else if (i > 1)
 		i = 1;
-	this->campoPotencial[(int) ((p.getX()) / STEP_X)][(int) ((p.getY()) / STEP_Y)] = -i;
+	this->campoPotencial[(int) ((p.getX()) / VSSS_SIZE_X)][(int) ((p.getY()) / VSSS_SIZE_Y)] = -i;
 }
 
 // Impede que o robô bata na parede
 void TeamPlayer::resetaBordasPotencial() {
-	for(int i = 0; i < DISC_X; i++) {
-		for(int j = 0; j < DISC_Y; j++) {
-			if(i == 0 || j == 0 || i == DISC_X - 1 || j == DISC_Y - 1)
+	for(int i = 0; i < this->campo->getDiscData().first; i++) {
+		for(int j = 0; j < this->campo->getDiscData().second; j++) {
+			if(i == 0 || j == 0 || i == this->campo->getDiscData().first - 1 || j == this->campo->getDiscData().second - 1)
 			this->campoPotencial[i][j] = 1.0;
 		}
 	}

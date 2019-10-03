@@ -58,7 +58,16 @@ void Campo::atualizarCampo(char *campo)
     fclose(arq);
 }
 
+Campo::Campo() {
+}
+
 Campo::Campo(char *campo) {
+    #ifdef USE_VSSS_SIZE_AS_PARAM
+    this->disc_x = FIELD_SIZE_X / VSSS_SIZE_X;
+    this->disc_y = FIELD_SIZE_Y / VSSS_SIZE_Y;
+    #else
+    throw "EEEEEEEEEEO";
+    #endif
     atualizarCampo(campo);
 }
 
