@@ -46,5 +46,8 @@ vss-simulator/Instalador
 # Binário do simulador
 Simulador
 
-#arquivos de teste
+# arquivos de teste
 *.teste.cpp
+
+# arquivos pdf
+*.pdf
