@@ -49,17 +49,27 @@ namespace vsssERUS{
 			y = ballPosition.getY(),
 			dx = 3.75/tan(alfa);
 		Ponto resp(x,y);
+
+		// Ajusta a posição Horizontal
+		if(y > 100)
+			resp.setY(100);
+		else if (y < 30)
+			resp.setY(30);
+
+		// Ajusta a posição Vertical
 		if (mundo->getCampo()->getLado() == Campo::Lado::Esquerda){
 			resp.setX(x -= dx);
-			if (x > 37.5)
+			if (x > 37.5){
 				resp.setX(10);
+				resp.setY(65);
+			}
 		}else{
 			resp.setX(x += dx);
-			if (x < 112.5)
-				resp.setX(140);
+			if (x < 112.5){
+				resp.setX(150);
+				resp.setY(65);
+			}
 		}
-		std::cout << "Ponto calculado :" << endl << "x : " << x << " y : " << y << endl;
-
 		return resp;
 	}
 
