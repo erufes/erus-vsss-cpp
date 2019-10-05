@@ -24,6 +24,12 @@ namespace vsssERUS{
 
 	class Campo
 	{
+	public:
+		enum Lado {
+			Esquerda,
+			Direita
+		};
+	
 	private:
 		/* Nome do módulo: Limite
 		* Ano de criação: 2018/10
@@ -46,11 +52,6 @@ namespace vsssERUS{
 			Ponto returnPonto(int x);
 		};
 
-		enum Lado {
-			Esquerda,
-			Direita
-			};
-
 		Limite limiteSuperior;
 		Limite limiteInferior;
 		Limite golDireito;
@@ -65,6 +66,7 @@ namespace vsssERUS{
 		Ball* ball;
 
 	public:
+		
 		// Struct auxiliar para transmitir os dados posicionais para os teamPlayers
 		struct dadosDoCampo {
 			Ponto f1, f2, f3, e1, e2, e3, b;
@@ -120,6 +122,10 @@ namespace vsssERUS{
 		 * Retorno: Nenhum
 		 */
 		void setLado(int x);
+
+		void setLado(Lado l){
+			this->nossoLado = l;
+		}
 
 		/* getBordaSuperior
 		 * Intenção da Função:
