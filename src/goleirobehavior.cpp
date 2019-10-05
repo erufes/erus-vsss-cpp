@@ -49,11 +49,11 @@ namespace vsssERUS{
 		 */
 		float x = ballPosition.getX(),
 			y = ballPosition.getY(),
-			dy = 3.75/tan(alfa);
+			dx = 3.75/tan(alfa);
 		if (mundo->getCampo()->getLado() == Campo::Lado::Esquerda)
-			y -= dy;
+			x += dx;
 		else
-			y += dy;
+			x -= dx;
 		
 		std::cout << "Ponto calculado :" << endl << "x : " << x << " y : " << y << endl;
 
