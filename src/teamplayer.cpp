@@ -1,65 +1,80 @@
 #include "teamplayer.h"
 #include "campo.h"
+#include <cmath>
 
 
-vsssERUS::TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
+namespace vsssERUS{
+
+TeamPlayer::TeamPlayer(Funcao comportamento, int id, double theta, double distanciaMinDaParede) : Player(id, theta)
 {
 	//this->comportamento = NULL;
 	this->mudaComportamento(comportamento);
 	this->distanciaMinDaParede = distanciaMinDaParede;
 }
 
-vsssERUS::Ponto vsssERUS::TeamPlayer::movimenta(vsssERUS::Ponto posicao, World* mundo){
+Ponto TeamPlayer::movimenta(Ponto posicao, World* mundo){
 	return comportamento->movimenta(posicao, mundo);
 }
 
-std::pair<int,int> vsssERUS::TeamPlayer::controle(vsssERUS::Ponto posicao, World* mundo){
+std::pair<int,int> TeamPlayer::controle(Ponto posicao, World* mundo){
 	return comportamento->controle(posicao, mundo);
 }
 
-void vsssERUS::TeamPlayer::mudaComportamento(Funcao novo){
+void TeamPlayer::mudaComportamento(Funcao novo){
 	if (comportamento != NULL) delete comportamento;
 	switch(novo){
 		case Goleiro:
-			comportamento = new vsssERUS::GoleiroBehavior();
+			comportamento = new GoleiroBehavior();
 			break;
 		case Atacante:
-			comportamento = new vsssERUS::AtaqueBehavior();
+			comportamento = new AtaqueBehavior();
 			break;
 		case Defensor:
-			comportamento = new vsssERUS::DefesaBehavior();
+			comportamento = new DefesaBehavior();
 			break;
 	}
 }
 
-void vsssERUS::TeamPlayer::atualizaCampoPotencial() {
-	vsssERUS::Campo::dadosDoCampo d = campo->getPositions();
+void TeamPlayer::atualizaCampoPotencial() {
+	Campo::dadosDoCampo d = campo->getPositions();
 	this->campoPotencial[(int)(d.b.getX() / STEP_X)][(int) (d.b.getY() / STEP_Y)] = -1.0;
 }
 
-void vsssERUS::TeamPlayer::notifica() {
+void TeamPlayer::notifica() {
 	// Ao receber notificação do evento, atualizar campo potencial
 	this->atualizaCampoPotencial();
 }
 
 #ifdef UsingSimulator
-	vss::WheelsCommand vsssERUS::TeamPlayer::update(vss::State state, int index, vsssERUS::World* mundo) {
+	vss::WheelsCommand TeamPlayer::update(vss::State state, int index, World* mundo) {
 		Utils::Posture objective = defineObjective(state, index, mundo);
 		return motionControl(state, objective, index);
 	}
 
-	Utils::Posture vsssERUS::TeamPlayer::defineObjective(vss::State, int index, vsssERUS::World* mundo)
+	Utils::Posture TeamPlayer::defineObjective(vss::State, int index, World* mundo)
 	{
-		vsssERUS::Ponto onde = this->movimenta(this->getPosicao(), mundo);
-		Utils::Posture resp(onde.getX(), onde.getY(), M_PI/4.);
-		// Retorne o objetivo aqui
-		return Utils::Posture(10., 65.0, M_PI/4.);
+		Ponto onde = this->movimenta(this->getPosicao(), mundo);
+		
+		Ponto p = this->movimenta(onde, mundo);
+		double 	x = p.getX(),
+				y = p.getY();
 
+		double angle;
+		if (y == 0)
+			angle = 0;
+		else
+			angle = atan(x/y);
+
+
+		Utils::Posture resp(p.getX(), p.getY(), angle);
+		/* // Retorne o objetivo aqui
+		return Utils::Posture(10., 65.0, M_PI/4.);
+ 		*/
 		//Quando estiverem implementadas as funções de controles
-		//return resp;
+		return resp;
 	}
 
-	vss::WheelsCommand vsssERUS::TeamPlayer::motionControl(vss::State state, Utils::Posture objective, int index){
+	vss::WheelsCommand TeamPlayer::motionControl(vss::State state, Utils::Posture objective, int index){
 		vss::WheelsCommand result;
 		double  alpha, beta, rho, lambda;
 		double linearSpeed, angularSpeed;
@@ -110,3 +125,4 @@ void vsssERUS::TeamPlayer::notifica() {
 		return result;
 	};
 #endif
+}
