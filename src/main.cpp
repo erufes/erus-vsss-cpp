@@ -61,6 +61,7 @@ int main(int argc, char** argv){
     //Cria e configura um World
     #ifdef UsingSimulator
         World* mundo = new World(new Campo((char*)"ConstrutorCampoSimulador.txt"), team, enemyteam, new vsssERUS::Ball(state.ball.x, state.ball.y));
+        mundo->getCampo()->setLado(Campo::Lado::Esquerda);
     #else
         World* mundo = new World(new Campo("tst.txt"), team, enemyteam, new vsssERUS::Ball(0, 0));
     #endif
