@@ -35,10 +35,10 @@ namespace vsssERUS{
 		 * 	b e c <- lados adjascentes (distancia da bola até um dos limites do gol)
 		 * 	α <- angulo desejado
 		 */
-		Campo::Limite gol = mundo->getCampo()->getGolAliado();
-		float a = gol.getPonto(1).distancia(gol.getPonto(0)),
-			b = gol.getPonto(0).distancia(ballPosition),
-			c = gol.getPonto(1).distancia(ballPosition),
+		pair<Ponto, Ponto> gol = mundo->getCampo()->getGolAliado();
+		float a = gol.first.distancia(gol.second),
+			b = gol.first.distancia(ballPosition),
+			c = gol.second.distancia(ballPosition),
 			alfa = acos((b*b + c*c - a*a)/(2*b*c));
 		
 		/* x = ball.x
@@ -58,14 +58,7 @@ namespace vsssERUS{
 			if (x < 112.5)
 				resp.setX(140);
 		}
-
-		Campo::Limite l2(gol.pontoMedio(), resp);
-		Campo::Limite l1(gol.pontoMedio(), ballPosition); 
-		float dy = l1.distanciaParaOutroLimite(l2);
-		if (y > 65)
-			resp.setY(y += dy);
-		else
-			resp.setY(y -= dy);
+		std::cout << "Ponto calculado :" << endl << "x : " << x << " y : " << y << endl;
 
 		return resp;
 	}

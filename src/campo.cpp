@@ -165,25 +165,25 @@ namespace vsssERUS{
         // TODO: Implementar campoPotencial??
     }
 
-    Campo::Limite Campo::getGolAliado(){
+    pair<Ponto, Ponto> Campo::getGolAliado(){
         Campo::Limite l;
         
-        if (this->getLado() == Campo::Lado::Esquerda)
+        if (this->nossoLado == 1)
             l = this->golEsquerdo;
         else
             l = this->golDireito;
         
-        return l;
+        return pair<Ponto, Ponto>(l.returnPonto(1), l.returnPonto(2));
     }
 
-    Campo::Limite Campo::getGolInimigo(){
+    pair<Ponto, Ponto> Campo::getGolInimigo(){
         Campo::Limite l;
         
-        if (this->getLado() == Campo::Lado::Direita)
+        if (this->nossoLado == 2)
             l = this->golEsquerdo;
         else
             l = this->golDireito;
         
-        return l;
+        return pair<Ponto, Ponto>(l.returnPonto(1), l.returnPonto(2));
     }
 }

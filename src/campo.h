@@ -30,7 +30,7 @@ namespace vsssERUS{
 			Direita
 		};
 	
-	
+	private:
 		/* Nome do módulo: Limite
 		* Ano de criação: 2018/10
 		* Descrição do módulo: Informações sobre os limites do campo
@@ -46,17 +46,12 @@ namespace vsssERUS{
 			Ponto ponto2;
 		public:
 			Limite(Ponto p1 = Ponto(0,0), Ponto p2 = Ponto(0,0));
-			Ponto getPonto(int x){
-				if (x)
-					return ponto1;
-				return ponto2;
-			}
 			Ponto pontoMedio();
 			double distancia();
 			double distanciaParaOutroLimite(Limite outro);
 			Ponto returnPonto(int x);
 		};
-	private:
+
 		Limite limiteSuperior;
 		Limite limiteInferior;
 		Limite golDireito;
@@ -193,7 +188,7 @@ namespace vsssERUS{
 		 * Parâmetros: Nenhum
 		 * Retorno: Par de Pontos
 		 */
-		Limite getGolAliado();
+		pair<Ponto, Ponto> getGolAliado();
 
 		/* getMeioDeGolInimigo
 		 * Intenção da Função: Retornar o ponto médio do gol inimigo
@@ -211,7 +206,7 @@ namespace vsssERUS{
 		 * Parâmetros: Nenhum
 		 * Retorno: Par de Pontos
 		 */
-		Limite getGolInimigo();
+		pair<Ponto, Ponto> getGolInimigo();
 
 		void setBall(Ball& b) { this->ball = &b; }
 
