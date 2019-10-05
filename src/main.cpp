@@ -51,10 +51,8 @@ int main(int argc, char** argv){
     #endif
 
     //Cria três vsssERUS::TeamPlayers
-    vsssERUS::TeamPlayer* player1 = new vsssERUS::TeamPlayer(Funcao::Atacante, 0);
-    vsssERUS::TeamPlayer* player2 = new vsssERUS::TeamPlayer(Funcao::Goleiro, 1);
-    vsssERUS::TeamPlayer* player3 = new vsssERUS::TeamPlayer(Funcao::Defensor, 2);
-    vsssERUS::TeamPlayer* team[] = {player1, player2, player3};
+    vsssERUS::TeamPlayer* player1 = new vsssERUS::TeamPlayer(Funcao::Goleiro, 0);
+    vsssERUS::TeamPlayer* team[] = {player1};
 
     //Cria três enemy
     Enemy* enemyteam[] = {new Enemy(3), new Enemy(4), new Enemy(5)};
@@ -80,12 +78,6 @@ int main(int argc, char** argv){
             player1->updatePosition(Ponto(state.teamBlue.at(0).x,state.teamBlue.at(0).y));
             player1->setTheta(state.teamBlue.at(0).angle);
 
-            player2->updatePosition(Ponto(state.teamBlue.at(1).x,state.teamBlue.at(1).y));
-            player2->setTheta(state.teamBlue.at(1).angle);
-
-            player3->updatePosition(Ponto(state.teamBlue.at(2).x,state.teamBlue.at(2).y));
-            player3->setTheta(state.teamBlue.at(2).angle);
-
             mundo->getEnemy()[0]->updatePosition(Ponto(state.teamYellow.at(0).x, state.teamYellow.at(0).y));
             mundo->getEnemy()[0]->setTheta(state.teamYellow.at(0).angle);
 
@@ -98,9 +90,11 @@ int main(int argc, char** argv){
 
             //Determina para onde mandar os players
             WheelsCommand player1_command = player1->update(state, 0, mundo);
-            WheelsCommand player2_command = player2->update(state, 1, mundo);
-            WheelsCommand player3_command = player3->update(state, 2, mundo);
+            WheelsCommand player2_command;
+            WheelsCommand player3_command;
+            player2_command.leftVel = player2_command.rightVel = player3_command.leftVel = player3_command.rightVel = 0;
 
+            // cout << "Roda 1: " << player1_command.leftVel << "Roda 2: " << player1_command.rightVel << endl;
             //Envia os comandos para o simulador
             commandsSender->send_commands(player1_command, player2_command, player3_command);
             //debugSender->send_debug();
