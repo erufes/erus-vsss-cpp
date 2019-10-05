@@ -48,6 +48,8 @@ Simulador
 
 # arquivos de teste
 *.teste.cpp
+*.cpp.not
+*.~cpp
 
 # arquivos pdf
 *.pdf
