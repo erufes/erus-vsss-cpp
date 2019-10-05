@@ -48,7 +48,8 @@ void TeamPlayer::notifica() {
 #ifdef UsingSimulator
 	vss::WheelsCommand TeamPlayer::update(vss::State state, int index, World* mundo) {
 		Utils::Posture objective = defineObjective(state, index, mundo);
-		return motionControl(state, objective, index);
+		cout << "Objective : " << endl << "x : " << objective.x << " y : " << objective.y << endl;
+ 		return motionControl(state, objective, index);
 	}
 
 	Utils::Posture TeamPlayer::defineObjective(vss::State, int index, World* mundo)

@@ -9,6 +9,7 @@
 #include "world.h"
 #include "campo.h"
 #include <cmath>
+#include <iostream>
 
 namespace vsssERUS{
 
@@ -38,7 +39,9 @@ namespace vsssERUS{
 		float a = gol.first.distancia(gol.second),
 			b = gol.first.distancia(ballPosition),
 			c = gol.second.distancia(ballPosition),
-			alfa = acos((b*b + c*c - a*a)/2*b*c);
+			alfa = acos((b*b + c*c - a*a)/(2*b*c));
+
+		cout << "Lados e Angulo :" << endl << "a : " << a << " b :" << b << " c :" << c << " α :" << alfa << endl;
 		
 		/* x = ball.x
 		 * y = ball.y - dy
@@ -51,6 +54,8 @@ namespace vsssERUS{
 			y -= dy;
 		else
 			y += dy;
+		
+		std::cout << "Ponto calculado :" << endl << "x : " << x << " y : " << y << endl;
 
 		return Ponto(x,y);
 	}
