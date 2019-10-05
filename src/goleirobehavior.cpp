@@ -40,8 +40,6 @@ namespace vsssERUS{
 			b = gol.first.distancia(ballPosition),
 			c = gol.second.distancia(ballPosition),
 			alfa = acos((b*b + c*c - a*a)/(2*b*c));
-
-		cout << "Lados e Angulo :" << endl << "a : " << a << " b :" << b << " c :" << c << " α :" << alfa << endl;
 		
 		/* x = ball.x
 		 * y = ball.y - dy
@@ -50,14 +48,19 @@ namespace vsssERUS{
 		float x = ballPosition.getX(),
 			y = ballPosition.getY(),
 			dx = 3.75/tan(alfa);
-		if (mundo->getCampo()->getLado() == Campo::Lado::Esquerda)
-			x += dx;
-		else
-			x -= dx;
-		
+		Ponto resp(x,y);
+		if (mundo->getCampo()->getLado() == Campo::Lado::Esquerda){
+			resp.setX(x -= dx);
+			if (x > 37.5)
+				resp.setX(10);
+		}else{
+			resp.setX(x += dx);
+			if (x < 112.5)
+				resp.setX(140);
+		}
 		std::cout << "Ponto calculado :" << endl << "x : " << x << " y : " << y << endl;
 
-		return Ponto(x,y);
+		return resp;
 	}
 
 	std::pair<int,int> GoleiroBehavior::controle(Ponto posicao, World* mundo){
