@@ -7,6 +7,7 @@
 
 #include "goleirobehavior.h"
 #include "world.h"
+#include "campo.h"
 #include <cmath>
 
 vsssERUS::GoleiroBehavior::GoleiroBehavior() {
@@ -22,8 +23,21 @@ vsssERUS::Ponto vsssERUS::GoleiroBehavior::movimenta(vsssERUS::Ponto posicao, vs
 
 	//TODO: implementar vsssERUS::GoleiroBehavior::movimenta
 	Ponto ballPosition = (mundo->getBall()->getPosicao());
-	// a² = b² + c² - 2bc.cos α 
-	// float alfa = acos(thisThingUpHere);
+	/* a² = b² + c² - 2bc*cos α
+	 * a² - b² - c² = -2bc* cos α
+	 * (b² + c² - a²)/2bc = cos α
+	 * α = acos(((b² + c² - a²)/2bc))
+	 * Onde : 
+	 * 	a <- lado oposto (tamanho do gol)
+	 * 	b e c <- lados adjascentes (distancia da bola até um dos limites do gol)
+	 * 	α <- angulo desejado
+	 */
+	pair<Ponto, Ponto> gol = mundo->getCampo()->getGolAliado();
+	float a = gol.first.distancia(gol.second),
+		b = gol.first.distancia(ballPosition),
+		c = gol.second.distancia(ballPosition),
+		alfa = acos((b*b + c*c - a*a)/2*b*c);
+	
 	return Ponto();
 }
 
