@@ -158,3 +158,30 @@ vsssERUS::Campo::dadosDoCampo& vsssERUS::Campo::getPositions() {
     d->e3 = this->enemies->getPlayerByIdx(2).getPosicao();
     return *d;
 }
+
+double vsssERUS::Campo::campoPotencial(vsssERUS::TeamPlayer jogador){
+    return 0;
+    // TODO: Implementar campoPotencial??
+}
+
+pair<vsssERUS::Ponto, vsssERUS::Ponto> vsssERUS::Campo::getGolAliado(){
+    vsssERUS::Campo::Limite l;
+    
+    if (this->nossoLado == 1)
+        l = this->golEsquerdo;
+    else
+        l = this->golDireito;
+    
+    return pair<vsssERUS::Ponto, vsssERUS::Ponto>(l.returnPonto(1), l.returnPonto(2));
+}
+
+pair<vsssERUS::Ponto, vsssERUS::Ponto> vsssERUS::Campo::getGolInimigo(){
+    vsssERUS::Campo::Limite l;
+    
+    if (this->nossoLado == 2)
+        l = this->golEsquerdo;
+    else
+        l = this->golDireito;
+    
+    return pair<vsssERUS::Ponto, vsssERUS::Ponto>(l.returnPonto(1), l.returnPonto(2));
+}
