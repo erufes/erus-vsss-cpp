@@ -1,5 +1,15 @@
 #ifndef SENDERDEBUG_H_
 #define SENDERDEBUG_H_
+/* Nome do módulo :         senderDebug
+ * Ano de criação :         2019/01
+ * Descrição do módulo :    Modulo de comunicação com o simulador para envio de debug
+ * Versão :                 1.0
+ * Pré-requisitos :         Simulador embutido ao projeto VSS-SDK https://github.com/VSS-SDK
+ *                          Interfaces/IDebugSender (VSS-SDK)
+ *                          Communications/DebugSender (VSS-SDK)
+ * Membros :                Lorena Bassani
+ */
+
 #include <Interfaces/IDebugSender.h>
 #include <Communications/DebugSender.h>
 
@@ -15,6 +25,14 @@ class senderDebug{
         }
         virtual ~senderDebug(){
         }
+
+        /* Nome da função :     send_debug
+         * Intenção da função : Enviar debug ao simulador
+         * Pré-requisitos :     Nenhum
+         * Efeitos colaterais : Pontos de debug são enviados ao simulador
+         * Parâmetros :         Nenhum
+         * Retorno:             Nenhum
+         */
         void send_debug(){
             vss::Debug debug;
 

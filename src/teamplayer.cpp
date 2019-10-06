@@ -1,6 +1,9 @@
 #include "teamplayer.h"
 #include "campo.h"
 #include <cmath>
+#include "ataquebehavior.h"
+#include "defesabehavior.h"
+#include "goleirobehavior.h"
 
 
 namespace vsssERUS{
