@@ -89,19 +89,19 @@ namespace vsssERUS{
         return this->ponto2;
     }
 
-    int Campo::getBordaSuperior(){
+    float Campo::getBordaSuperior(){
         return this->limiteSuperior.pontoMedio().getY();
     }
 
-    int Campo::getBordaInferior(){
+    float Campo::getBordaInferior(){
         return this->limiteInferior.pontoMedio().getY();
     }
 
-    int Campo::getBordaEsquerda(){
+    float Campo::getBordaEsquerda(){
         return this->limiteEsquerdo.pontoMedio().getX();
     }
 
-    int Campo::getBordaDireita(){
+    float Campo::getBordaDireita(){
         return this->limiteDireito.pontoMedio().getX();
     }
 

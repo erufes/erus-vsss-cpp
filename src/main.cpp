@@ -1,9 +1,10 @@
 /* ###############################################################################################################
  * Projeto: VSSS o Melhor
+ * Descrição : Este projeto da ERUS procura criar um time de Very Small Size Soccer para competições.
  * Github: https://github.com/erusbot/VSSS-o-Melhor
  * Autor: ERUS UFES
- * 				e-mail: erus@inf.ufes.br/ vssserus@gmail.com
- * 				site: erus.ufes.br
+ * 			e-mail: erus@inf.ufes.br / vssserus@gmail.com
+ * 			site: http://erus.ufes.br
  * Membros Atuais:
  * 			Gabriel Pietroluongo, Gabriel Valdino, Mayke Wallace, Lara de Luca, Lorena Bassani
  * Membros Antigos:

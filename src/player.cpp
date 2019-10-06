@@ -1,25 +1,27 @@
 #include "player.h"
 
+namespace vsssERUS{
 
-vsssERUS::Player::Player(int id, double theta){
-    this->theta = theta;
-    this->thetaAntigo = theta;
-    this->id = id;
-}
+    Player::Player(int id, double theta){
+        this->theta = theta;
+        this->thetaAntigo = theta;
+        this->id = id;
+    }
 
-int vsssERUS::Player::getId() const {
-		return id;
-}
+    int Player::getId() const {
+            return id;
+    }
 
-double vsssERUS::Player::getTheta() const {
-		return theta;
-}
+    double Player::getTheta() const {
+            return theta;
+    }
 
-void vsssERUS::Player::setTheta(double theta) {
-	this->thetaAntigo = this->theta;
-	this->theta = theta;
-}
+    void Player::setTheta(double theta) {
+        this->thetaAntigo = this->theta;
+        this->theta = theta;
+    }
 
-double vsssERUS::Player::getThetaAntigo() const {
-		return thetaAntigo;
+    double Player::getThetaAntigo() const {
+            return thetaAntigo;
+    }
 }
