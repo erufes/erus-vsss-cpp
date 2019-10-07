@@ -7,7 +7,7 @@
  * Descrição do módulo :    Interface para o comportamento do jogador
  * Versão :                 1.0
  * Pré-requisitos :         Ponto
- *                          Utility
+ *                          utility (biblioteca padrão)
  * Membros :                Ricardo Ramos
  */
 
@@ -59,6 +59,16 @@ class PlayBehavior {
          * Retorno :            pair<int, int> : velocidades das rodas, primeiro a direita e segundo a esquerda
          */
         virtual std::pair<int,int> evitarColisaoEntreJogadores(Ponto posicao, World* mundo) = 0;
+
+        /* Nome da função :     ballFetch
+        * Intenção da função : Levar o robô até a bola
+        * Pré-requisitos :     Posição válida do robô dentro do campo
+        * Efeitos colaterais : Nenhum
+        * Parametros :         Ponto : Posição atual do robô
+        *                      World : Mundo com as informações de jogo
+        * Retorno :            Ponto : Posição para onde o robô deverá se movimentar
+        */
+        virtual Ponto ballFetch(Ponto posicao, World* mundo);
     };
 }
 #endif /* PLAYBEHAVIOR_H_ */

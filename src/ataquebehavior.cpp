@@ -17,7 +17,7 @@ namespace vsssERUS{
 
     Ponto AtaqueBehavior::movimenta(Ponto posicao, World* mundo){
         // TODO: Implementar AtaqueBehaviour
-        return Ponto();
+        return this->ballFetch(posicao, mundo);
     }
 
 
