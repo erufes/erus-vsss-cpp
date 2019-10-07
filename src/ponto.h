@@ -26,6 +26,7 @@ using namespace std;
         double y;
     public:
         Ponto(double x = 0, double y = 0);
+        Ponto(std::pair<double, double>);
 
         /* Nome da Função :     distancia
          * Intenção da função : Calcular distância entre pontos
