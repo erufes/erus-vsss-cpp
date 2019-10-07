@@ -53,7 +53,8 @@ int main(int argc, char** argv){
 
     //Cria três vsssERUS::TeamPlayers
     vsssERUS::TeamPlayer* player1 = new vsssERUS::TeamPlayer(Funcao::Goleiro, 0);
-    vsssERUS::TeamPlayer* team[] = {player1};
+    vsssERUS::TeamPlayer* player2 = new vsssERUS::TeamPlayer(Funcao::Atacante, 1);
+    vsssERUS::TeamPlayer* team[] = {player1, player2};
 
     //Cria três enemy
     Enemy* enemyteam[] = {new Enemy(3), new Enemy(4), new Enemy(5)};
@@ -92,9 +93,9 @@ int main(int argc, char** argv){
 
             //Determina para onde mandar os players
             WheelsCommand player1_command = player1->update(state, 0, mundo);
-            WheelsCommand player2_command;
+            WheelsCommand player2_command = player2->update(state, 1, mundo);
             WheelsCommand player3_command;
-            player2_command.leftVel = player2_command.rightVel = player3_command.leftVel = player3_command.rightVel = 0;
+            player3_command.leftVel = player3_command.rightVel = 0;
 
             // cout << "Roda 1: " << player1_command.leftVel << "Roda 2: " << player1_command.rightVel << endl;
             //Envia os comandos para o simulador
