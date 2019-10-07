@@ -25,11 +25,27 @@ namespace vsssERUS{
 	class Ball;
 	class TeamPlayer;
 	class Campo;
+    struct StatusJogo{
+        enum Status{
+            posseInimiga,
+            ataqueInimigo,
+            posseAliada,
+            ataqueAliado,
+            bolaSolta
+        };
+
+        Status statusAtual;
+
+        StatusJogo::Status getStatusAtual(World* mundo);
+
+    };
 	class World {
+        
 		Ball* bola;
-		TeamPlayer* jogadores[MAX_TEAM_SIZE];
-		Enemy* inimigos[MAX_TEAM_SIZE];
+		Team* jogadores;
+		Team* inimigos;
 		Campo* campo;
+        StatusJogo status;
 		Notifier atualizacaoCampo; 	//Notificador de atualização de posições
 	public:
 
@@ -71,7 +87,7 @@ namespace vsssERUS{
          * Parâmetros :         Nenhum
          * Retorno :            TeamPlayer** : referência de time de aliados
          */
-		TeamPlayer** getTeamPlayer();
+		Team* getTeamPlayer();
 
         /* Nome da função :     setEnemy
          * Intenção da função : Mudar a referência de time imigido
@@ -89,7 +105,7 @@ namespace vsssERUS{
          * Parâmetros :         Nenhum
          * Retorno :            Enemy** : referência de time de inimigos
          */
-		Enemy** getEnemy();
+		Team* getEnemy();
 
         /* Nome da função :     setCampo
          * Intenção da função : Alterar a referência de campo
@@ -117,6 +133,31 @@ namespace vsssERUS{
          * Retorno :            Nenhum
          */
 		void forceNotify(string s);
+        
+        /* Nome da função :     freeBall
+         * Intenção da função : Dizer se a bola está livre
+         * Pré-requisitos :     Nenhum
+         * Efeitos colaterais : O valor de status muda para o mais atual
+         * Parâmetros :         Nenhum
+         * Retorno :            bool : true se a bola estiver livre, false caso contrário
+         */
+        bool freeBall(){
+            if(this->analiseCampo() == StatusJogo::Status::bolaSolta)
+                return true;
+            return false;
+        };
+
+        /* Nome da função :     analiseCampo
+         * Intenção da função : Analisar o campo para ter o estado de jogo mais recente
+         * Pré-requisitos :     Nenhum
+         * Efeitos colaterais : O valor de status muda para o mais atual
+         * Parâmetros :         Nenhum
+         * Retorno :            StatusJogo::Status : status atual do jogo
+         */
+        StatusJogo::Status analiseCampo(){
+            return this->status.statusAtual = this->status.getStatusAtual(this);
+        };
+
 	};
 }
 #endif /* WORLD_H_ */

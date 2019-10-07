@@ -1,53 +1,75 @@
 #include "world.h"
+#include "team.h"
 
-vsssERUS::World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola) {
-	this->campo = campo;
-	campo->setBall(*bola);
-	this->setTeamPlayer(jogadores);
-	this->setEnemy(inimigos);
-	this->bola = bola;
-	for(int i = 0; i < MAX_TEAM_SIZE; i++) {
-		atualizacaoCampo.registraObservador(*jogadores[i]);
-		jogadores[i]->setCampo(*campo);
+namespace vsssERUS{
+	StatusJogo::Status StatusJogo::getStatusAtual(World* mundo){
+		Ball ballPosition = *mundo->getBall();
+		Team aliado = *mundo->getTeamPlayer();
+		Team inimigo = *mundo->getEnemy();
+		for(int i = 0; i < MAX_TEAM_SIZE; i++){
+			if (inimigo.getPlayerByIdx(i).distancia(ballPosition) < 1){
+				if((mundo->getCampo()->getLado == Campo::Lado::Direita && ballPosition.getPosicao().getX() > 150-37.5) || (mundo->getCampo()->getLado == Campo::Lado::Esquerda && ballPosition.getPosicao().getX() < 37.5))
+					return Status::ataqueInimigo;
+				return Status::posseInimiga;
+			}
+			if (aliado.getPlayerByIdx(i).distancia(ballPosition) < 1){
+				if((mundo->getCampo()->getLado == Campo::Lado::Direita && ballPosition.getPosicao().getX() < 150-37.5) || (mundo->getCampo()->getLado == Campo::Lado::Esquerda && ballPosition.getPosicao().getX() > 37.5))
+					return Status::ataqueAliado;
+				return Status::posseAliada;
+			}
+		}
+		return Status::bolaSolta;
 	}
-}
 
-vsssERUS::World::~World() {
-	// TODO Auto-generated destructor stub
-}
+	World::World(Campo* campo, TeamPlayer** jogadores, Enemy** inimigos, Ball* bola) {
+		this->campo = campo;
+		campo->setBall(*bola);
+		this->setTeamPlayer(jogadores);
+		this->setEnemy(inimigos);
+		this->bola = bola;
+		for(int i = 0; i < MAX_TEAM_SIZE; i++) {
+			atualizacaoCampo.registraObservador(*jogadores[i]);
+			jogadores[i]->setCampo(*campo);
+		}
+	}
 
-void vsssERUS::World::setBall(Ball* bola){
-	this->bola = bola;
-}
+	World::~World() {
+		// TODO Auto-generated destructor stub
+	}
 
-vsssERUS::Ball* vsssERUS::World::getBall(){
-	return bola;
-}
+	void World::setBall(Ball* bola){
+		this->bola = bola;
+	}
 
-void vsssERUS::World::setTeamPlayer(TeamPlayer** jogadores){
-	for(int i = 0; i < 3; i++) this->jogadores[i] = jogadores[i];
-}
+	Ball* World::getBall(){
+		return bola;
+	}
 
-vsssERUS::TeamPlayer** vsssERUS::World::getTeamPlayer(){
-	return this->jogadores;
-}
+	void World::setTeamPlayer(TeamPlayer** jogadores){
+		for(int i = 0; i < 3; i++) this->jogadores->adicionaAoTime(*jogadores[i]);
+	}
 
-void vsssERUS::World::setEnemy(Enemy** inimigos){
-	for(int i = 0; i < 3; i++) this->inimigos[i] = inimigos[i];
-}
+	Team* World::getTeamPlayer(){
+		return this->jogadores;
+	}
 
-vsssERUS::Enemy** vsssERUS::World::getEnemy(){
-	return inimigos;
-}
+	void World::setEnemy(Enemy** inimigos){
+		for(int i = 0; i < 3; i++) this->inimigos->adicionaAoTime(*inimigos[i]);
+	}
 
-void vsssERUS::World::setCampo(Campo* campo){
-	this->campo = campo;
-}
+	Team* World::getEnemy(){
+		return this->inimigos;
+	}
 
-vsssERUS::Campo* vsssERUS::World::getCampo(){
-	return campo;
-}
+	void World::setCampo(Campo* campo){
+		this->campo = campo;
+	}
 
-void vsssERUS::World::forceNotify(string s) {
-	atualizacaoCampo.notifica();
+	Campo* World::getCampo(){
+		return campo;
+	}
+
+	void World::forceNotify(string s) {
+		atualizacaoCampo.notifica();
+	}
 }
