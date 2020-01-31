@@ -1,5 +1,5 @@
 /*
- * ataquebehavior.cpp
+ *  ataquebehavior.cpp
  *
  *  Created on: 10 de dez de 2018
  *      Author: ERUS
@@ -7,22 +7,31 @@
 
 #include "ataquebehavior.h"
 
-vsssERUS::AtaqueBehavior::AtaqueBehavior() {}
+namespace vsssERUS{
 
-vsssERUS::AtaqueBehavior::~AtaqueBehavior() { return; }
+    AtaqueBehavior::AtaqueBehavior() {}
 
-vsssERUS::Ponto vsssERUS::AtaqueBehavior::movimenta(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-    return vsssERUS::Ponto();
-}
 
-std::pair<int,int> vsssERUS::AtaqueBehavior::controle(vsssERUS::Ponto posicao, vsssERUS::World* mundo){
-    return pair<int,int>();
-}
+    AtaqueBehavior::~AtaqueBehavior() { return; }
 
-std::pair<int,int> vsssERUS::AtaqueBehavior::sairDaParede(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
-    return pair<int, int>();
-}
 
-std::pair<int,int> vsssERUS::AtaqueBehavior::evitarColisaoEntreJogadores(vsssERUS::Ponto posicao, vsssERUS::World* mundo) {
-    return pair<int, int>();
+    Ponto AtaqueBehavior::movimenta(Ponto posicao, World* mundo){
+        // TODO: Implementar AtaqueBehaviour
+        return this->ballFetch(posicao, mundo);
+    }
+
+
+    std::pair<int,int> AtaqueBehavior::controle(Ponto posicao, World* mundo){
+        return pair<int,int>();
+    }
+
+
+    std::pair<int,int> AtaqueBehavior::sairDaParede(Ponto posicao, World* mundo) {
+        return pair<int, int>();
+    }
+
+
+    std::pair<int,int> AtaqueBehavior::evitarColisaoEntreJogadores(Ponto posicao, World* mundo) {
+        return pair<int, int>();
+    }
 }
